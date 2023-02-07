@@ -1,7 +1,7 @@
 @import url("./variables.css");
 
 body {
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Noto Sans KR", sans-serif;
   /* display: flex; */
   width: 100%;
@@ -21,9 +21,17 @@ section {
   height: 100vh;
 }
 .sec-title {
+  text-align: center;
   font-size: 2.625em;
-  font-weight: 700;
   text-shadow: 0 0 50px #fff;
+}
+.text-align-end {
+  text-align: end;
+  align-items: end;
+}
+.img-box > img {
+  width: 100%;
+  height: 100%;
 }
 /*^ header */
 /* header 너비,높이 고정 */
@@ -37,6 +45,8 @@ header {
   flex-direction: column;
   justify-content: space-between;
   z-index: 1000;
+  bottom: 0;
+  left: 0;
 }
 header .logo-wrap {
   height: 10%;
@@ -151,12 +161,13 @@ aside {
 /*^ main */
 /* header 여백 */
 #main {
-  padding-left: 210px;
+  margin-left: 210px;
   width: 100%;
 }
 /* header를 제외한 영역 */
 #main section {
   width: calc(100vw - 210px);
+  position: relative;
 }
 /** 배너 */
 /* 전체화면 */
@@ -180,19 +191,17 @@ aside {
 }
 /* 배너 이미지 */
 .main-banner > ul > li:first-child {
-  background: url("../images/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg")
-    no-repeat 0 / cover;
+  background: url("../images/main-banner_1.jpg") no-repeat 0 / cover;
 }
 .main-banner > ul > li:nth-child(2) {
-  background: url("../images/SCR-20221228-nu8.jpeg") no-repeat center / cover;
+  background: url("../images/main-banner_2.jpeg") no-repeat center / cover;
 }
 .main-banner > ul > li:nth-child(3) {
-  background: #000 url("../images/andras-vas-Bd7gNnWJBkU-unsplash.jpg")
-    no-repeat 0px 100px / cover;
+  background: #000 url("../images/main-banner_3.jpg") no-repeat 0px 100px /
+    cover;
 }
 .main-banner > ul > li:last-child {
-  background: url("../images/duy-pham-Cecb0_8Hx-o-unsplash.jpg") no-repeat 0 /
-    cover;
+  background: url("../images/main-banner_4.jpg") no-repeat 0 / cover;
 }
 /* 배너 텍스트 */
 .main-banner .text-box {
@@ -292,6 +301,194 @@ aside {
   }
 }
 /** product */
+/* 섹션 타이틀 */
+.product > .sec-title {
+  margin: 60px 0;
+}
+/* 목록 */
+.product > ul {
+  display: flex;
+  position: relative;
+}
+/* 목록 분할 */
+.product > ul > li {
+  width: calc(1510px / 5);
+  padding-bottom: 10px;
+  border-bottom: 7px solid #666666;
+}
+.product > ul > li > a:target {
+  border-bottom-style: #fff;
+}
+.product > ul > li > a {
+  font-size: 1.375em;
+}
+/* 타이틀 본문 */
+.product > ul > li > ul {
+  display: none;
+  text-align: start;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  height: calc(100vh - 35vh);
+  width: 100%;
+}
+/* 목록 내용 이미지, 텍스트 정렬 */
+.product > ul > li > ul > li {
+  display: flex;
+  padding: 60px 80px;
+  position: relative;
+}
+.product > ul > li > ul > li > div {
+  position: relative;
+  z-index: 30;
+}
+.product > ul > li > ul > li::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+.product .text-box-wrap {
+  display: flex;
+  margin: 0 60px;
+  width: 40%;
+  flex-direction: column;
+}
+.product .text-box {
+  display: inline-flex;
+  flex: 1;
+  position: relative;
+  word-break: keep-all;
+  padding: 60px 0 40px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.product .text-align-end > .text-box {
+  align-items: flex-end;
+}
+/* 서브 제목 */
+.product .text-box .sub-title {
+  display: inline-block;
+  font-size: 2.625em;
+  border-bottom: 2px solid #fff;
+  padding: 0 0 10px 10px;
+  margin-bottom: 50px;
+}
+/* 본문 */
+.product .text-box .sub-title + p {
+  width: 70%;
+  line-height: 2;
+  font-size: 18px;
+}
+.product .more-btn {
+  width: 210px;
+  height: 60px;
+  background: #999999;
+  color: #000;
+  text-align: center;
+  line-height: 60px;
+  margin: 30px 0;
+}
+.product .text-align-end .text-box .more-btn {
+  left: initial;
+  right: 0;
+}
+.product .img-box {
+  flex: 1;
+  border: 2px solid #fff;
+}
+.product .img-box > img {
+  object-fit: cover;
+}
+/* 너비 위치 조정 */
+.product > ul {
+  width: 1510px;
+  margin: 0 auto;
+  position: relative;
+  /* padding: 0 0 20px; */
+  text-align: center;
+}
+/* .product > ul::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  background: #666666;
+} */
+
+/* TV 활성화 */
+.product .product__tv > ul {
+  /* display: block; */
+}
+.product .product__commercial > ul {
+  /* display: block; */
+}
+.product .product__it > ul {
+  /* display: block; */
+}
+.product .product__mobile > ul {
+  /* display: block; */
+}
+.product .product__automotive > ul {
+  display: block;
+}
+.product li > ul > li {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 80px 80px;
+}
+/* product tv 배경 */
+.product .product__tv > ul > li {
+  background: url("../images/product-bg-1.jpg") no-repeat center / cover;
+}
+.product .product__commercial > ul > li {
+  background: url("../images/product-bg-2.jpg") no-repeat center / cover;
+}
+.product .product__it > ul > li {
+  background: url("../images/product-bg-3.jpg") no-repeat center / cover;
+}
+.product .product__mobile > ul > li {
+  background: url("../images/product-bg-4.jpg") no-repeat center / cover;
+}
+.product .product__automotive > ul > li {
+  background: url("../images/product-bg-5.jpg") no-repeat center / cover;
+}
+/** tehonology */
+.technology-oled {
+  background: url("../images/technology-1.jpg") no-repeat -100px 0 / 120%;
+}
+
+.technology-oled > .sec-title {
+  padding: 100px;
+  text-align: start;
+}
+.technology-oled > .text-box {
+  position: absolute;
+  left: 50%;
+  bottom: 160px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.technology-oled > .text-box > strong {
+  display: block;
+  margin-bottom: 60px;
+  font-size: 1.375rem;
+}
+.technology-oled > .text-box > p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.technology-oled2 {
+  background: url("../images/technology-1.jpg") no-repeat -100px -920px / 120%;
+}
 /*^ footer */
 
 /*^ media query */
