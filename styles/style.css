@@ -1,4 +1,7 @@
 @import url("./variables.css");
+::-webkit-scrollbar {
+  width: 0;
+}
 body {
   font-size: 18px;
   font-family: "Noto Sans KR", sans-serif;
@@ -9,11 +12,12 @@ body {
 }
 .inner {
   width: 1710px;
-  margin-left: 210px;
+  margin-left: var(--header-size);
   /* background-color: rgba(255, 0, 0, 0.5); */
 }
 section {
   height: 100vh;
+  overflow: hidden;
 }
 /* section:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.3);
@@ -455,12 +459,12 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 /*^ main */
 /* header 여백 */
 #main {
-  margin-left: 210px;
-  width: 100%;
+  margin-left: var(--header-size);
+  width: calc(100vw - var(--header-size));
 }
 /* header를 제외한 영역 */
 #main section {
-  width: calc(100vw - 210px);
+  width: 100%;
   position: relative;
 }
 /** 배너 */
@@ -839,23 +843,23 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
   transform: perspective(300px);
 }
 .technology-oled2 > ul > .card-2 .img-box {
-  transform: perspective(300px) translateX(380px) translateZ(-100px)
+  transform: perspective(300px) translateX(300px) translateZ(-100px)
     rotateY(30deg);
 }
 .technology-oled2 > ul > .card-3 .img-box {
-  transform: perspective(300px) translateX(380px) translateZ(-250px)
+  transform: perspective(300px) translateX(300px) translateZ(-250px)
     rotateY(170deg);
 }
 .technology-oled2 > ul > .card-4 .img-box {
   transform: perspective(300px) translateZ(-300px) rotateY(-180deg);
 }
 .technology-oled2 > ul > .card-5 .img-box {
-  transform: perspective(300px) translateX(-400px) translateZ(-250px)
+  transform: perspective(300px) translateX(-475px) translateZ(-250px)
     rotateY(190deg);
 }
 .technology-oled2 > ul > .card-6 .img-box {
-  transform: perspective(300px) translateX(-400px) translateZ(-100px)
-    rotateY(330deg);
+  transform: perspective(300px) translateX(-475px) translateZ(-100px)
+    rotateY(-20deg);
 }
 .technology-oled2 > ul > li > .img-box-wrap > .img-box img {
   border-radius: 10px;
@@ -874,6 +878,8 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
   visibility: hidden;
 }
 .technology-oled2 > ul > .card-1 .text-box {
+  flex: 1;
+  margin-left: 65px;
   z-index: 50;
   visibility: visible;
 }
@@ -917,12 +923,12 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 }
 .technology-oled2 > .slide-btn,
 .technology-lcd2 > .slide-btn {
-  width: 50%;
+  width: calc(50% + 35px);
   gap: 0;
   justify-content: space-between;
-  padding: 0 30px;
   position: absolute;
   top: 50%;
+  left: 0;
   transform: translateY(-50%);
   background: none;
   z-index: 90;
@@ -1035,6 +1041,8 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 }
 .technology-lcd2 > .slide-btn {
   width: 100%;
+  left: 0;
+  padding: 0 40px;
 }
 /** ESG */
 .esg {
