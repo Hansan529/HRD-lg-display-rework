@@ -1,0 +1,136 @@
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .gnb,
+  .gnb-btn > li:first-child,
+  .gnb-btn > li:nth-child(3),
+  .gnb-btn > li::after,
+  .slide-wrap,
+  .main-down,
+  .product > ul > li > a,
+  .product > ul > li > ul > li::after,
+  .technology-oled2,
+  .technology-lcd2,
+  .esg {
+    display: none;
+  }
+
+  /*^ 공통 */
+  .sub-title {
+    margin-bottom: 20px;
+  }
+  .sub-title + p {
+    width: 100%;
+    font-size: 14px;
+  }
+  section {
+    height: initial;
+  }
+  /*^ header */
+  header {
+    flex-direction: row;
+    top: 0;
+    width: 100vw;
+    height: 70px;
+    padding: 0 10px;
+  }
+  .logo {
+    margin: 0;
+  }
+  header .logo-wrap,
+  .gnb-btn__wrap {
+    height: 100%;
+  }
+  header .logo-wrap {
+    display: flex;
+    align-items: center;
+  }
+  .gnb > li > a {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+  }
+  .inner {
+    width: 95%;
+  }
+
+  /*^ main */
+  #main {
+    margin: 0 auto;
+    width: 100%;
+  }
+  #main .main-banner {
+    height: 100vh;
+  }
+  .main-banner .text-box > h2 {
+    font-size: 4.285714em;
+  }
+  .product > .sec-title {
+    font-size: 25px;
+    word-break: keep-all;
+  }
+  .product > ul {
+    width: 100%;
+  }
+  .product > ul {
+    flex-direction: column;
+  }
+  .product .more-btn {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+  }
+  .product > ul > li {
+    margin: 0 auto 50px auto;
+    width: 95%;
+  }
+  .product > ul > li > ul {
+    display: block;
+    position: static;
+    height: initial;
+  }
+  .product > ul > li > ul > li {
+    padding: 0;
+    height: 250px;
+  }
+  .product .img-box {
+    order: 2;
+  }
+  .product .text-box-wrap > .text-box {
+    padding: 0;
+    /* flex: none; */
+    text-align: end;
+  }
+  .product .product__tv > ul > li,
+  .product .product__commercial > ul > li,
+  .product .product__it > ul > li,
+  .product .product__mobile > ul > li,
+  .product .product__automotive > ul > li {
+    background: none;
+  }
+  .product .text-box-wrap {
+    margin: 0 10px 0 0;
+  }
+  .product .text-box-wrap > .text-box > .sub-title {
+    font-size: 20px;
+  }
+  /** oled */
+  .technology-oled > .sec-title,
+  .technology-lcd > .sec-title {
+    padding: 0;
+  }
+  .technology-oled > .text-box,
+  .technology-lcd > .img-wrap > .text-box {
+    position: static;
+  }
+  footer {
+    display: none;
+  }
+}
+
+/*TODO 배경 날리고, 텍스트, 이미지 형식으로 만들기 */
+/*TODO ESG 제거 */
+/*TODO 뉴스 기존 레이아웃과 동일하게 크기만 다르게 */
