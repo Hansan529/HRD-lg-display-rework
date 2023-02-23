@@ -18,16 +18,20 @@
   }
 
   /*^ 공통 */
+  /* 고정 너비 삭제 */
   .inner {
     width: 95%;
   }
+  /* 여백 조정 */
   .sub-title {
     margin-bottom: 20px;
   }
+  /* 고정 너비 삭제, 서식 변경 */
   .sub-title + p {
     width: 100%;
     font-size: 14px;
   }
+  /* 고정 높이 삭제, 여백 조정 */
   section {
     height: initial;
     margin-bottom: 50px;
@@ -375,3 +379,4 @@
     right: 30px;
     bottom: 30px;
   }
+}
