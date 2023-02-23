@@ -150,14 +150,17 @@
     display: none;
   } */
   /*^ main */
+  /* 중앙 정렬, 고정 너비 초기화 */
   #main {
     margin: 0 auto;
     width: 100%;
   }
+  /** main banner */
+  /* 전체 화면 */
   #main .main-banner {
     height: 100vh;
   }
-
+  /* 애니메이션 제거, 크기, 위치 조정 */
   .main-down {
     transform: none;
     left: initial;
@@ -171,6 +174,7 @@
     width: 40px;
     height: 40px;
   }
+  /* 선택 표시자 */
   .pager {
     display: flex;
     position: absolute;
@@ -181,55 +185,68 @@
     z-index: 600;
     gap: 10px;
   }
+  /* 크기 및 스타일 */
   .pager > div {
     width: 15px;
     height: 15px;
     border-radius: 50%;
     background: #cccccc;
   }
+  /* 선택된 페이지 색상 */
   .pager > .select {
     background: #fff;
   }
+  /* 제목 서식 */
   .main-banner .text-box > h2 {
     font-size: 4.285714em;
   }
+  /** product */
   .product > .sec-title {
     font-size: 25px;
     word-break: keep-all;
   }
+  /* 너비 초기화 */
   .product > ul {
     width: 100%;
   }
+  /* 세로 정렬 */
   .product > ul {
     flex-direction: column;
   }
+  /* 너비 초기화, 높이 지정, 여백 제거 */
   .product .more-btn {
     width: 100%;
     height: 50px;
     line-height: 50px;
     margin: 0;
   }
+  /* 너비, 여백 조정 */
   .product > ul > li {
     margin: 0 auto 50px auto;
     width: 95%;
   }
+  /* flex 해제, absolute 해제 */
   .product > ul > li > ul {
     display: block;
     position: static;
     height: initial;
   }
+  /* 여백 제거, 높이 지정 */
   .product > ul > li > ul > li {
     padding: 0;
     height: 250px;
   }
+  /* 순서 변경 */
   .product .img-box {
     order: 2;
   }
+  /* 여백 제거, 텍스트 정렬 */
   .product .text-box-wrap > .text-box {
     padding: 0;
     /* flex: none; */
     text-align: end;
   }
+  /* 배경 제거 */
   .product .product__tv > ul > li,
   .product .product__commercial > ul > li,
   .product .product__it > ul > li,
@@ -237,30 +254,35 @@
   .product .product__automotive > ul > li {
     background: none;
   }
+  /* 여백 조정 */
   .product .text-box-wrap {
     margin: 0 10px 0 0;
   }
+  /* 서브 타이틀 서식 변경 */
   .product .text-box-wrap > .text-box > .sub-title {
     font-size: 20px;
   }
-  /** oled */
+  /** oled & lcd */
+  /* 여백 조정 */
   .technology-oled {
     margin-bottom: 100px;
   }
+  /* 배경 제거 */
   .technology-oled,
   .technology-oled2,
   .technology-lcd > .img-wrap {
     background: none;
   }
+  /* 텍스트 정렬 */
   .technology-oled > .sec-title {
     float: left;
   }
+  /* 텍스트 정렬 */
   .technology-lcd > .sec-title {
     position: absolute;
     top: 0;
   }
-  .technology-lcd > .img-wrap > .text-box > strong {
-  }
+  /* 이미지: blind 값 초기화, 여백 조정, 높이 지정 */
   .technology-oled .blind,
   .technology-lcd .blind {
     position: static;
@@ -270,22 +292,27 @@
     object-fit: cover;
     margin: 20px 0;
   }
+  /* 서브 타이틀 여백 조정 */
   .technology-oled > .sec-title,
   .technology-lcd > .sec-title {
     padding: 0 20px;
   }
+  /* 여백 제거, 단어 유지 */
   .technology-oled > .text-box > strong,
   .technology-lcd > .img-wrap > .text-box > strong {
     margin: 0;
     word-break: keep-all;
   }
+  /* 여백 조정 */
   .technology-lcd > .img-wrap > .text-box > strong {
     padding-left: 110px;
   }
+  /* 지정 너비 초기화 */
   .technology-oled > .text-box > p,
   .technology-lcd > .img-wrap > .text-box > p {
     width: 100%;
   }
+  /* absolute 제거, X값 translate 이동 제거 */
   .technology-oled > .text-box,
   .technology-lcd > .img-wrap > .text-box {
     position: static;
