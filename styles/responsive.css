@@ -1,6 +1,7 @@
 @media screen and (max-width: 767px) {
   body {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 1.2;
   }
 
   .gnb,
@@ -17,6 +18,7 @@
   .latest-news > div:last-of-type > .text-box > p:first-of-type,
   .latest-news > div > .text-box > p:last-of-type,
   .esg,
+  .foot-menu > ul > li:last-child,
   .foot-site > p {
     display: none;
   }
@@ -198,10 +200,6 @@
   .pager > .select {
     background: #fff;
   }
-  /* 제목 서식 */
-  .main-banner .text-box > h2 {
-    font-size: 4.285714em;
-  }
   /** product */
   .product > .sec-title {
     font-size: 25px;
@@ -368,47 +366,52 @@
     margin-bottom: 20px;
   }
   /** footer */
+  /* 지정 높이 제거 */
   footer {
     height: initial;
   }
+  /* 여백 조정, 세로, 왼쪽 정렬 */
   footer > .inner {
     padding: 0;
     margin: 0 auto;
     flex-direction: column;
     align-items: flex-start;
   }
+  /* 세로 정렬 */
   footer > .inner > div {
     display: flex;
     flex-direction: column;
   }
+  /* 순서 변경, 여백 제거 */
   .foot-menu {
     order: 1;
     padding: 0;
   }
+  /* 세로 정렬, 여백 조정 */
   .foot-menu > ul {
     flex-direction: column;
     margin: 20px 0 70px;
   }
+  /* 여백 조정 */
   .foot-menu > ul > li {
     margin: 10px 0;
   }
-  .foot-menu > ul > li:last-child {
-    display: none;
-  }
+  /* 순서 변경, 위치 변경 */
   .foot-site {
     order: 2;
-    width: 100%;
     margin: 0;
     position: absolute;
     top: 160px;
     width: 95%;
   }
+  /* 텍스트 정렬, 여백 조정 */
   .foot-site > strong {
     text-align: left;
     padding-left: 20px;
     background: url("../images/icon_chevron-down__white.svg") no-repeat 110px
       2px / 20px;
   }
+  /* 순서 변경, 정렬, 여백 조정 */
   footer > .inner > .foot-link {
     order: 3;
     flex-direction: row;
