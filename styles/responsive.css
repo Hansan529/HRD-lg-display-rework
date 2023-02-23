@@ -8,16 +8,19 @@
   .gnb-btn > li:nth-child(3),
   .gnb-btn > li::after,
   .slide-wrap,
-  .main-down,
   .product > ul > li > a,
   .product > ul > li > ul > li::after,
   .technology-oled2,
   .technology-lcd2,
-  .esg {
+  .esg,
+  .foot-site > p {
     display: none;
   }
 
   /*^ 공통 */
+  .inner {
+    width: 95%;
+  }
   .sub-title {
     margin-bottom: 20px;
   }
@@ -27,6 +30,7 @@
   }
   section {
     height: initial;
+    margin-bottom: 50px;
   }
   /*^ header */
   header {
@@ -34,7 +38,7 @@
     top: 0;
     width: 100vw;
     height: 70px;
-    padding: 0 10px;
+    padding: 0 20px;
   }
   .logo {
     margin: 0;
@@ -52,10 +56,86 @@
     padding-bottom: 0;
     height: 100%;
   }
-  .inner {
-    width: 95%;
+  /*^ asdie */
+  aside {
+    /* display: block; */
   }
+  aside > header {
+    display: none;
+  }
+  aside > main {
+    display: block;
+  }
+  aside > main > .mobile-btn-box-wrap {
+    all: unset;
+  }
+  aside > main > .mobile-btn-box-wrap > .mobile-btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  aside > main > .mobile-btn-box-wrap ul {
+    display: flex;
+    gap: 20px;
+    color: #999;
+    font-size: 20px;
+  }
+  aside > main > .mobile-btn-box-wrap ul > li > a.select {
+    color: #fff;
+  }
+  aside > main > .mobile-btn-box-wrap button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("../images/icon_chevron-right__white.svg") no-repeat left /
+        22px 30px,
+      url("../images/icon_chevron-left__white.svg") no-repeat right / 22px 30px;
+  }
+  aside > main > .mobile-btn-box-wrap .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  aside > main > .mobile-btn-box-wrap .search > input {
+    all: unset;
+    border-bottom: 1px solid #fff;
+    padding: 0 10px 10px;
+    width: 90%;
+  }
+  aside > main > .mobile-btn-box-wrap .search > i {
+    margin-left: 20px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url("../images/icon_utill.png");
+    right: 20px;
+    bottom: 10px;
+  }
+  aside > main > .btn-box-wrap {
+    display: none;
+  }
+  aside > main > ul {
+    display: block;
+  }
+  aside > main > ul > li > .mobile-title {
+    top: initial;
+    position: initial;
+    background: url("../images/icon_chevron-right__white.svg") no-repeat right /
+      24px;
+    font-size: 1.714286em;
+    padding: 15px 0;
+  }
+  aside > main > ul > li > .depth2-wrap {
+    display: none;
+  }
+  /* aside > main > ul > .aside__product > .depth2-wrap {
+    display: block;
+  } */
 
+  /* aside > main > ul > li > .depth2-wrap > .depth2 > ul {
+    display: none;
+  } */
   /*^ main */
   #main {
     margin: 0 auto;
@@ -63,6 +143,38 @@
   }
   #main .main-banner {
     height: 100vh;
+  }
+  .main-down {
+    transform: none;
+    left: initial;
+    right: 30px;
+    bottom: 30px;
+    animation: none;
+    background-image: url("../images/icon_chevron-down.svg");
+    background-color: #fff;
+    background-size: 50%;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+  }
+  .pager {
+    display: flex;
+    position: absolute;
+    top: initial;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 600;
+    gap: 10px;
+  }
+  .pager > div {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cccccc;
+  }
+  .pager > .select {
+    background: #fff;
   }
   .main-banner .text-box > h2 {
     font-size: 4.285714em;
@@ -118,19 +230,148 @@
     font-size: 20px;
   }
   /** oled */
+  .technology-oled {
+    margin-bottom: 100px;
+  }
+  .technology-oled,
+  .technology-oled2,
+  .technology-lcd > .img-wrap {
+    background: none;
+  }
+  .technology-oled > .sec-title {
+    float: left;
+  }
+  .technology-lcd > .sec-title {
+    position: absolute;
+    top: 0;
+  }
+  .technology-lcd > .img-wrap > .text-box > strong {
+  }
+  .technology-oled .blind,
+  .technology-lcd .blind {
+    position: static;
+    top: initial;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin: 20px 0;
+  }
   .technology-oled > .sec-title,
   .technology-lcd > .sec-title {
-    padding: 0;
+    padding: 0 20px;
+  }
+  .technology-oled > .text-box > strong,
+  .technology-lcd > .img-wrap > .text-box > strong {
+    margin: 0;
+    word-break: keep-all;
+  }
+  .technology-lcd > .img-wrap > .text-box > strong {
+    padding-left: 110px;
+  }
+  .technology-oled > .text-box > p,
+  .technology-lcd > .img-wrap > .text-box > p {
+    width: 100%;
   }
   .technology-oled > .text-box,
   .technology-lcd > .img-wrap > .text-box {
     position: static;
+    transform: none;
   }
-  footer {
+  /** latest news */
+  .latest-news > div {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .latest-news > div:first-of-type {
+    margin: 50px 0;
+  }
+  .latest-news > div > a {
+    margin-right: 10px;
+  }
+  .latest-news > div > a > img {
+    width: 200px;
+    height: 200px;
+  }
+  .latest-news > div > .text-box > .news__title > p {
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    width: 100%;
+    margin: 0;
+    word-break: normal;
+  }
+  .latest-news > div > .text-box > .news__title > p > a {
+    display: block;
+  }
+  .latest-news > div > .text-box > p {
+    margin: 20px 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 7;
+  }
+  .latest-news > div:last-of-type > .text-box > p:first-of-type,
+  .latest-news > div > .text-box > p:last-of-type {
     display: none;
   }
-}
-
-/*TODO 배경 날리고, 텍스트, 이미지 형식으로 만들기 */
-/*TODO ESG 제거 */
-/*TODO 뉴스 기존 레이아웃과 동일하게 크기만 다르게 */
+  .latest-news > div > .text-box > .news__title > .date {
+    float: none;
+    margin-bottom: 20px;
+  }
+  /** footer */
+  footer {
+    height: initial;
+  }
+  footer > .inner {
+    padding: 0;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  footer > .inner > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .foot-menu {
+    order: 1;
+    padding: 0;
+  }
+  .foot-menu > ul {
+    flex-direction: column;
+    margin: 20px 0 70px;
+  }
+  .foot-menu > ul > li {
+    margin: 10px 0;
+  }
+  .foot-menu > ul > li:last-child {
+    display: none;
+  }
+  .foot-site {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 160px;
+    width: 95%;
+  }
+  .foot-site > strong {
+    text-align: left;
+    padding-left: 20px;
+    background: url("../images/icon_chevron-down__white.svg") no-repeat 110px
+      2px / 20px;
+  }
+  footer > .inner > .foot-link {
+    order: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px 0;
+  }
+  /** top btn */
+  .top-btn {
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 30px;
+  }
