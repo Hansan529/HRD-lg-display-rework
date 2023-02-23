@@ -14,6 +14,8 @@
   .product > ul > li > ul > li::after,
   .technology-oled2,
   .technology-lcd2,
+  .latest-news > div:last-of-type > .text-box > p:first-of-type,
+  .latest-news > div > .text-box > p:last-of-type,
   .esg,
   .foot-site > p {
     display: none;
@@ -319,20 +321,25 @@
     transform: none;
   }
   /** latest news */
+  /* 지정 너비 초기화, 여백 조정 */
   .latest-news > div {
     width: 100%;
     padding: 0 10px;
   }
+  /* 여백 조정 */
   .latest-news > div:first-of-type {
     margin: 50px 0;
   }
+  /* 여백 조정 */
   .latest-news > div > a {
     margin-right: 10px;
   }
+  /* 이미지 크기 지정 */
   .latest-news > div > a > img {
     width: 200px;
     height: 200px;
   }
+  /* 줄바꿈, 서식 변경 */
   .latest-news > div > .text-box > .news__title > p {
     font-size: 16px;
     display: -webkit-box;
@@ -343,9 +350,11 @@
     margin: 0;
     word-break: normal;
   }
+  /* a 크기 조정 */
   .latest-news > div > .text-box > .news__title > p > a {
     display: block;
   }
+  /* 줄바꿈 */
   .latest-news > div > .text-box > p {
     margin: 20px 0 0;
     display: -webkit-box;
@@ -353,10 +362,7 @@
     overflow: hidden;
     -webkit-line-clamp: 7;
   }
-  .latest-news > div:last-of-type > .text-box > p:first-of-type,
-  .latest-news > div > .text-box > p:last-of-type {
-    display: none;
-  }
+  /* 날짜 위치 변경 */
   .latest-news > div > .text-box > .news__title > .date {
     float: none;
     margin-bottom: 20px;
