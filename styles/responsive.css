@@ -8,6 +8,8 @@
   .gnb-btn > li:nth-child(3),
   .gnb-btn > li::after,
   .slide-wrap,
+  aside > header,
+  aside > main > .btn-box-wrap,
   .product > ul > li > a,
   .product > ul > li > ul > li::after,
   .technology-oled2,
@@ -37,6 +39,7 @@
     margin-bottom: 50px;
   }
   /*^ header */
+  /* 세로 header를 가로로 이동 */
   header {
     flex-direction: row;
     top: 0;
@@ -44,50 +47,53 @@
     height: 70px;
     padding: 0 20px;
   }
+  /* 여백 제거 */
   .logo {
     margin: 0;
   }
+  /* 지정 높이 제거 */
   header .logo-wrap,
   .gnb-btn__wrap {
     height: 100%;
   }
+  /* 로고 중앙 정렬 */
   header .logo-wrap {
     display: flex;
     align-items: center;
   }
-  .gnb > li > a {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 100%;
-  }
   /*^ asdie */
-  aside {
-    /* display: block; */
-  }
-  aside > header {
-    display: none;
-  }
+  /* sitemap 더보기란 */
+  /* aside {
+    display: block;
+  } */
+  /* flex 해제 */
   aside > main {
     display: block;
   }
+  /* blind 값 초기화 */
   aside > main > .mobile-btn-box-wrap {
-    all: unset;
+    top: initial;
+    position: static;
   }
+  /* 가로 간격 조정 및 여백 */
   aside > main > .mobile-btn-box-wrap > .mobile-btn-wrap {
     display: flex;
     justify-content: space-between;
     margin: 30px 0;
   }
-  aside > main > .mobile-btn-box-wrap ul {
+  /* 가로 정렬, 여백 조정, 서식 변경 */
+  aside > main > .mobile-btn-box-wrap > .mobile-btn-wrap ul {
     display: flex;
     gap: 20px;
     color: #999;
     font-size: 20px;
   }
-  aside > main > .mobile-btn-box-wrap ul > li > a.select {
+  /* 선택된 텍스트 서식 변경 */
+  aside > main > .mobile-btn-box-wrap > .mobile-btn-wrap ul > li > a.select {
     color: #fff;
   }
-  aside > main > .mobile-btn-box-wrap button {
+  /* exit button 스타일 */
+  aside > main > .mobile-btn-box-wrap > .mobile-btn-wrap button {
     display: block;
     width: 30px;
     height: 30px;
@@ -95,19 +101,22 @@
         22px 30px,
       url("../images/icon_chevron-left__white.svg") no-repeat right / 22px 30px;
   }
+  /* 검색 input wrap: 중앙 정렬 및 여백 조절 */
   aside > main > .mobile-btn-box-wrap .search {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
   }
+  /* 기본 서식 제거 및 스타일 변경 */
   aside > main > .mobile-btn-box-wrap .search > input {
     all: unset;
     border-bottom: 1px solid #fff;
     padding: 0 10px 10px;
     width: 90%;
   }
-  aside > main > .mobile-btn-box-wrap .search > i {
+  /* 검색 아이콘 */
+  aside > main > .mobile-btn-box-wrap .search > a > i {
     margin-left: 20px;
     display: block;
     width: 28px;
@@ -116,12 +125,11 @@
     right: 20px;
     bottom: 10px;
   }
-  aside > main > .btn-box-wrap {
-    display: none;
-  }
+  /* flex 해제 */
   aside > main > ul {
     display: block;
   }
+  /* blind 값 제거, 서식 변경 */
   aside > main > ul > li > .mobile-title {
     top: initial;
     position: initial;
@@ -130,6 +138,7 @@
     font-size: 1.714286em;
     padding: 15px 0;
   }
+  /* depth 숨기기 */
   aside > main > ul > li > .depth2-wrap {
     display: none;
   }
@@ -148,6 +157,7 @@
   #main .main-banner {
     height: 100vh;
   }
+
   .main-down {
     transform: none;
     left: initial;
