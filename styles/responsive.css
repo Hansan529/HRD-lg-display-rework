@@ -1,33 +1,18 @@
-@media screen and (max-width: 767px) {
+/* 태블릿 */
+@media screen and (max-width: 1280px) {
   body {
-    font-size: 12px;
-    line-height: 1.2;
+    font-size: 14px;
   }
-
-  .gnb,
-  .gnb-btn > li:first-child,
-  .gnb-btn > li:nth-child(3),
   .gnb-btn > li::after,
-  .slide-wrap,
-  aside > header,
-  aside > main > .btn-box-wrap,
-  .product > .sec-title,
-  .product > ul > li > a,
-  .product > ul > li > ul > li::after,
-  .technology-oled2,
-  .technology-lcd2,
-  .latest-news > div:last-of-type > .text-box > p:first-of-type,
-  .latest-news > div > .text-box > p:last-of-type,
-  .esg,
-  .foot-menu > ul > li:last-child,
-  .foot-site > p {
+  .slide-btn,
+  .slide-btn-ps {
     display: none;
   }
-
   /*^ 공통 */
   /* 고정 너비 삭제 */
   .inner {
     width: 95%;
+    margin-left: calc(var(--header-size) / 1.5);
   }
   /* 여백 조정 */
   .sub-title {
@@ -39,32 +24,37 @@
     font-size: 12px;
     line-height: 1;
   }
-  /* 고정 높이 삭제, 여백 조정 */
-  section {
-    height: initial;
-  }
   /*^ header */
-  /* 세로 header를 가로로 이동 */
   header {
-    flex-direction: row;
     top: 0;
-    width: 100vw;
-    height: 70px;
-    padding: 0 20px;
+    width: calc(var(--header-size) / 1.5);
   }
-  /* 여백 제거 */
   .logo {
-    margin: 0;
+    width: 140px;
+    height: 25px;
+    background-size: cover;
   }
-  /* 지정 높이 제거 */
-  header .logo-wrap,
+  header > nav:first-of-type {
+    height: 70%;
+  }
+  .gnb > li > a {
+    background: url("../images/icon_chevron-right__white.svg") no-repeat 95% /
+      14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
   .gnb-btn__wrap {
-    height: 100%;
+    height: 20%;
   }
-  /* 로고 중앙 정렬 */
-  header .logo-wrap {
-    display: flex;
+  .gnb-btn {
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .gnb-btn > li {
+    width: 50%;
+  }
+  .gnb-btn > li > button {
+    margin: 0 auto;
   }
   /*^ asdie */
   /* sitemap 더보기란 */
@@ -155,6 +145,216 @@
     display: none;
   } */
   /*^ main */
+  #main {
+    margin-left: calc(var(--header-size) / 1.5);
+    width: calc(100vw - (var(--header-size) / 1.5));
+  }
+  .main-banner {
+    height: 100vh;
+  }
+  .gnb > li > a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  /* 애니메이션 제거, 크기, 위치 조정 */
+  .main-down {
+    transform: none;
+    left: initial;
+    right: 30px;
+    bottom: 30px;
+    animation: none;
+    background-image: url("../images/icon_chevron-down.svg");
+    background-color: #fff;
+    background-size: 50%;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+  }
+  /* 선택 표시자 */
+  .pager {
+    display: flex;
+  }
+  /** product */
+  .product > .sec-title {
+    font-size: 25px;
+    text-shadow: none;
+  }
+  /** technology */
+  .technology-oled2 {
+    padding: 0 65px;
+  }
+  .technology-oled2 > ul > li {
+    flex-direction: column;
+    top: 0;
+    transform: translate(-50%, 0);
+    height: 100%;
+  }
+  .technology-oled2 > ul > li > .img-box-wrap {
+    margin-bottom: 0px;
+  }
+  .technology-oled2 > ul > li > .img-box-wrap > .img-box img {
+    width: 250px;
+    height: 250px;
+  }
+  .technology-oled2 > ul > .card-1 .img-box {
+    transform: perspective(300px);
+  }
+  .technology-oled2 > ul > .card-2 .img-box {
+    transform: perspective(300px) translateX(300px) translateZ(-100px)
+      rotateY(30deg);
+  }
+  .technology-oled2 > ul > .card-3 .img-box {
+    transform: perspective(300px) translateX(300px) translateZ(-300px)
+      rotateY(150deg);
+  }
+  .technology-oled2 > ul > .card-4 .img-box {
+    transform: perspective(300px) translateZ(-300px) rotateY(180deg);
+  }
+  .technology-oled2 > ul > .card-5 .img-box {
+    transform: perspective(300px) translateX(-300px) translateZ(-300px)
+      rotateY(-90deg);
+  }
+  .technology-oled2 > ul > .card-6 .img-box {
+    transform: perspective(300px) translateX(-300px) translateZ(-100px)
+      rotateY(-30deg);
+  }
+  .technology-oled2 > ul > li > .text-box > a {
+    padding: 40px;
+    position: relative;
+  }
+  .technology-oled2 > ul > li > .text-box > a > * {
+    position: relative;
+    z-index: 10;
+  }
+  .technology-oled2 > ul > li > .text-box > a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.7;
+  }
+  .technology-oled2 > ul > .card-1 .text-box,
+  .technology-oled2 > ul > .card-2 .text-box,
+  .technology-oled2 > ul > .card-3 .text-box,
+  .technology-oled2 > ul > .card-4 .text-box,
+  .technology-oled2 > ul > .card-5 .text-box,
+  .technology-oled2 > ul > .card-6 .text-box {
+    width: 100%;
+    flex: 1;
+    margin: 0;
+    background: none;
+  }
+  .technology-oled2 > ul > .card-1 .text-box > a::after {
+    background: url("../images/oled-1.jpg") no-repeat center / cover;
+  }
+  .technology-oled2 > ul > .card-2 .text-box > a::after {
+    background: url("../images/oled-2.jpg") no-repeat center / cover;
+  }
+  .technology-oled2 > ul > .card-3 .text-box > a::after {
+    background: url("../images/oled-3.jpg") no-repeat center / cover;
+  }
+  .technology-oled2 > ul > .card-4 .text-box > a::after {
+    background: url("../images/oled-4.jpg") no-repeat center / cover;
+  }
+  .technology-oled2 > ul > .card-5 .text-box > a::after {
+    background: url("../images/oled-5.jpg") no-repeat center / cover;
+  }
+  .technology-oled2 > ul > .card-6 .text-box > a::after {
+    background: url("../images/oled-6-2.jpg") no-repeat center / cover;
+  }
+  .technology-oled2 > ul > li > .text-box .sub-title {
+    margin-bottom: 50px;
+  }
+  .technology-oled2 > ul > li > .text-box .sub-title + p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .technology-lcd > .img-wrap > .text-box {
+    bottom: 50px;
+  }
+  .technology-lcd > .img-wrap > .text-box > p {
+    width: 100%;
+  }
+  .technology-lcd2 ul {
+    width: calc((100vw - (var(--header-size) / 1.5)) * 4);
+  }
+  .latest-news {
+    height: initial;
+  }
+  footer > .inner {
+    width: calc(100vw - (var(--header-size) / 1.5));
+    padding: 0 35px;
+  }
+  .foot-link {
+    gap: 20px;
+  }
+  .foot-link > a {
+    width: 100px;
+    padding: 0 10px;
+  }
+  .foot-site > p {
+    padding: 0 15px;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .gnb,
+  .gnb-btn > li:first-child,
+  .gnb-btn > li:nth-child(3),
+  .gnb-btn > li::after,
+  .slide-wrap,
+  aside > header,
+  aside > main > .btn-box-wrap,
+  .product > .sec-title,
+  .product > ul > li > a,
+  .product > ul > li > ul > li::after,
+  .technology-oled2,
+  .technology-lcd2,
+  .latest-news > div:last-of-type > .text-box > p:first-of-type,
+  .latest-news > div > .text-box > p:last-of-type,
+  .esg,
+  .foot-menu > ul > li:last-child,
+  .foot-site > p {
+    display: none;
+  }
+  /* 고정 높이 삭제, 여백 조정 */
+  section {
+    height: initial;
+  }
+  /*^ header */
+  /* 세로 header를 가로로 이동 */
+  header {
+    flex-direction: row;
+    top: 0;
+    width: 100vw;
+    height: 70px;
+    padding: 0 20px;
+  }
+  /* 여백 제거 */
+  .logo {
+    margin: 0;
+  }
+  /* 지정 높이 제거 */
+  header .logo-wrap,
+  .gnb-btn__wrap {
+    height: 100%;
+  }
+  /* 로고 중앙 정렬 */
+  header .logo-wrap {
+    display: flex;
+    align-items: center;
+  }
+  /*^ main */
   /* 중앙 정렬, 고정 너비 초기화 */
   #main {
     margin: 0;
@@ -175,43 +375,8 @@
     margin-bottom: 20px;
     line-height: 1;
   }
-  /* 애니메이션 제거, 크기, 위치 조정 */
-  .main-down {
-    transform: none;
-    left: initial;
-    right: 30px;
-    bottom: 30px;
-    animation: none;
-    background-image: url("../images/icon_chevron-down.svg");
-    background-color: #fff;
-    background-size: 50%;
-    background-position: center;
-    width: 40px;
-    height: 40px;
-  }
-  /* 선택 표시자 */
-  .pager {
-    display: flex;
-    position: absolute;
-    top: initial;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 600;
-    gap: 10px;
-  }
-  /* 크기 및 스타일 */
-  .pager > div {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #cccccc;
-  }
-  /* 선택된 페이지 색상 */
-  .pager > .select {
-    background: #fff;
-  }
   /** product */
+  /* 크기 및 스타일 */
   .product > .mobile-sec-title {
     top: initial;
     position: static;
