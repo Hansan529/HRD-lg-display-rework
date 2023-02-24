@@ -839,27 +839,27 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
   display: inline-block;
   text-align: center;
 }
-. .technology-oled2 > ul > .card-1 .img-box {
+.technology-oled2 > ul > .card-1 .img-box {
   transform: perspective(300px);
 }
 .technology-oled2 > ul > .card-2 .img-box {
-  transform: perspective(300px) translateX(300px) translateZ(-100px)
+  transform: perspective(300px) translateX(400px) translateZ(-100px)
     rotateY(30deg);
 }
 .technology-oled2 > ul > .card-3 .img-box {
-  transform: perspective(300px) translateX(300px) translateZ(-250px)
-    rotateY(170deg);
+  transform: perspective(300px) translateX(400px) translateZ(-300px)
+    rotateY(150deg);
 }
 .technology-oled2 > ul > .card-4 .img-box {
-  transform: perspective(300px) translateZ(-300px) rotateY(-180deg);
+  transform: perspective(300px) translateZ(-400px) rotateY(180deg);
 }
 .technology-oled2 > ul > .card-5 .img-box {
-  transform: perspective(300px) translateX(-475px) translateZ(-250px)
-    rotateY(190deg);
+  transform: perspective(300px) translateX(-400px) translateZ(-300px)
+    rotateY(-90deg);
 }
 .technology-oled2 > ul > .card-6 .img-box {
-  transform: perspective(300px) translateX(-475px) translateZ(-100px)
-    rotateY(-20deg);
+  transform: perspective(300px) translateX(-400px) translateZ(-100px)
+    rotateY(-30deg);
 }
 .technology-oled2 > ul > li > .img-box-wrap > .img-box img {
   border-radius: 10px;
@@ -877,10 +877,17 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
   width: 675px;
   visibility: hidden;
 }
-.technology-oled2 > ul > .card-1 .text-box {
+.technology-oled2 > ul > .card-1 .text-box,
+.technology-oled2 > ul > .card-2 .text-box,
+.technology-oled2 > ul > .card-3 .text-box,
+.technology-oled2 > ul > .card-4 .text-box,
+.technology-oled2 > ul > .card-5 .text-box,
+.technology-oled2 > ul > .card-6 .text-box {
   flex: 1;
   margin-left: 65px;
   z-index: 50;
+}
+.technology-oled2 > ul > .card-1 .text-box {
   visibility: visible;
 }
 .technology-oled2 > ul > .card-1 .text-box {
