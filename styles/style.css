@@ -47,9 +47,9 @@ button.prev,
 button.next {
   cursor: pointer;
 }
-header {
+/* header {
   font-size: 18px;
-}
+} */
 /* 서브 제목 */
 .sub-title {
   display: inline-block;
@@ -114,7 +114,7 @@ header > nav:first-of-type {
   display: block;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1em;
   padding: 27.5px 20px;
 }
 .gnb > li > .depth {
@@ -603,6 +603,27 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
     bottom: 3%;
   }
 }
+.pager {
+  display: none;
+  position: absolute;
+  top: initial;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 600;
+  gap: 10px;
+}
+/* 크기 및 스타일 */
+.pager > div {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #cccccc;
+}
+/* 선택된 페이지 색상 */
+.pager > .select {
+  background: #fff;
+}
 /** product */
 /* 섹션 타이틀 */
 .product > .sec-title {
@@ -617,7 +638,7 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 }
 /* 목록 분할 */
 .product > ul > li {
-  width: calc(1510px / 5);
+  width: calc(100% / 5);
 }
 /* .product > ul > li > a:target {
   border-bottom-style: #fff;
@@ -720,7 +741,7 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 }
 /* 너비 위치 조정 */
 .product > ul {
-  width: 1510px;
+  width: 90%;
   margin: 0 auto;
   position: relative;
   text-align: center;
