@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./styles/common.css" />
-    <!-- <link rel="stylesheet" href="./styles/style.css" /> -->
-    <link rel="stylesheet" href="./styles/responsive.css" />
     <link rel="stylesheet" href="./styles/subpage/product.css" />
+    <!-- <link rel="stylesheet" href="./styles/style.css" /> -->
+    <!-- <link rel="stylesheet" href="./styles/responsive.css" /> -->
     <title>LG Display</title>
   </head>
   <body>
@@ -18,7 +18,7 @@
     </ul>
     <header>
       <div class="logo-wrap">
-        <h1 class="logo">LG Display 로고</h1>
+        <h1 class="logo"><a href="./index.html">LG Display 로고</a></h1>
       </div>
       <nav id="nav">
         <ul class="gnb">
@@ -304,46 +304,40 @@
       <section class="product__tv-cinematic --inner">
         <h2 class="sec-title">TV Display</h2>
         <h3 class="product__sub-title">Cinematic Sound OLED TV</h3>
-        <div class="product__content-wrap --flex">
-          <div class="product__img-box">
+        <div class="product__content-wrap --flex --align-items__center">
+          <div class="product__img-box cinematic__img-1 --flex__1">
             <img src="./images/product-tv_1.jpg" alt="" />
           </div>
-          <div class="product__text-box">
-            <p class="product__content-title">해방된 소리, TV를 입다</p>
+          <div class="product__text-box --flex__1">
+            <p class="product__sub-title">해방된 소리, TV를 입다</p>
             <p class="product__content">
               화면에서 고음질의 사운드를 만들어내는 Cinematic Sound OLED는
               당신의 시선이 향하는 곳에서 소리를 느낄 수 있습니다.
             </p>
           </div>
         </div>
-        <div class="product__content-wrap">
-          <h3 class="product_sub-title">
-            TV를 볼 때 시선은 앞을 향하지만, 소리는 옆에서 들려와 어색하지
-            않으셨나요?
-          </h3>
+        <div class="product__content-wrap --text-align__center">
           <div class="product__text-box">
-            측면에서 나오는 TV소리는 장면과의 일치감을 저해하여 혼란스럽고
-            어색함을 느끼게 합니다. Cinematic Sound OLED는 화면과 사운드의
-            정확한 일치로 높은 몰입도와 생동감을 선사합니다. 전면 지향의
-            사운드는 기존 TV 대비 더욱 생생하고 현장감 있는 사운드를
-            만들어냅니다. Cinematic Sound OLED로 영화관에 있는 듯한 최상의
-            몰입형 사운드를 경험해보세요.
+            <h3 class="product__sub-title">
+              TV를 볼 때 시선은 앞을 향하지만, 소리는 옆에서 들려와 어색하지
+              않으셨나요?
+            </h3>
+            <p class="product__content">
+              측면에서 나오는 TV소리는 장면과의 일치감을 저해하여 혼란스럽고
+              어색함을 느끼게 합니다. Cinematic Sound OLED는 화면과 사운드의
+              정확한 일치로 높은 몰입도와 생동감을 선사합니다. 전면 지향의
+              사운드는 기존 TV 대비 더욱 생생하고 현장감 있는 사운드를
+              만들어냅니다. Cinematic Sound OLED로 영화관에 있는 듯한 최상의
+              몰입형 사운드를 경험해보세요.
+            </p>
           </div>
-          <div class="product__img-box">
+          <div class="product__img-box cinematic__img-2">
             <img src="./images/product-tv_2.png" alt="" />
-            <p class="product__inner-text">
-              자발광 구조의 얇은 OLED 패널을 진동판으로 사용하여 더욱 심플한
-              디자인과 전면 지향 음질 구현
-            </p>
-            <p class="product__inner-text">
-              뒷면에 부착된 Exciter로 패널 자체 진동을 통해 전면으로 소리를
-              전달하여 더욱 명확한 소리 표현
-            </p>
           </div>
         </div>
       </section>
       <section class="product__tv-wallpaper">
-        <div class="product__wallpaper-sec">
+        <div class="product__wallpaper-sec --flex">
           <div class="product__img-box">
             <img src="./images/product-tv_3.jpg" alt="" />
           </div>
@@ -366,19 +360,23 @@
             </p>
           </div>
         </div>
-        <div class="product__wallpaper-sec --inner">
+        <div class="product__wallpaper-sec --flex --inner">
           <div class="product__content-wrap">
             <h3 class="product__sub-title">Slim LCD</h3>
             <div class="product__img-box">
               <img src="./images/product-tv_slimLcd.png" alt="slim lcd" />
             </div>
-            <p class="product__content">
-              백라이트가 필요한 비자발광 디스플레이
-            </p>
-            <p class="product__content--sm">
-              LED Housing 및 Cover Shield 존재
-              <strong class="--white --bold">벽 밀착 어려움 (13.7mm ↑)</strong>
-            </p>
+            <div class="product__text-box">
+              <p class="product__content">
+                백라이트가 필요한 비자발광 디스플레이
+              </p>
+              <p class="product__content--sm">
+                LED Housing 및 Cover Shield 존재
+                <strong class="--white --bold"
+                  >벽 밀착 어려움 (13.7mm ↑)</strong
+                >
+              </p>
+            </div>
             <a href="#void" class="product__more-btn more-btn">자세히보기</a>
           </div>
           <div class="product__content-wrap">
@@ -389,20 +387,22 @@
                 alt="wallpaper oled"
               />
             </div>
-            <p class="product__content">
-              백라이트가 필요 없는 자발광 디스플레이
-            </p>
-            <p class="product__content--sm">
-              TFT Glass + Metal Encap. Only
-              <strong class="--white --bold">벽 완전 밀착 (Zero Gap)</strong>
-            </p>
+            <div class="product__text-box">
+              <p class="product__content">
+                백라이트가 필요 없는 자발광 디스플레이
+              </p>
+              <p class="product__content--sm">
+                TFT Glass + Metal Encap. Only
+                <strong class="--white --bold">벽 완전 밀착 (Zero Gap)</strong>
+              </p>
+            </div>
             <a href="#void" class="product__more-btn more-btn">자세히보기</a>
           </div>
         </div>
       </section>
-      <section class="product__tv-rollable">
-        <div class="product__rollable-sec">
-          <div class="product__text-box">
+      <section class="product__tv-rollable --text-align__center">
+        <div class="product__rollable-sec --flex">
+          <div class="product__text-box --flex__1">
             <h2 class="sec-title">Rollable OLED TV</h2>
             <h3 class="product__sub-title">MINIMALISM으로 얻은 공간의 자유</h3>
             <p class="product__content">
@@ -418,19 +418,19 @@
               요소를 제거하여, 주변과 완벽한 조화를 이루게 해줍니다. 부분
               화면에서부터 전체 화면까지 Roll-up, Roll-down 으로 조절 가능한
               새로운 개념의 디스플레이를 누려보세요.
-              <br />지금까지 세상에 없었던 혁신적인 디자인, Rollable OLED
+              <br /><br />지금까지 세상에 없었던 혁신적인 디자인, Rollable OLED
               스크린에서만 만날 수 있습니다.
             </p>
           </div>
-          <div class="product__img-box">
+          <div class="product__img-box --flex__1">
             <img src="./images/product-tv_4.jpg" alt="" />
           </div>
         </div>
-        <div class="product__rollable-sec--fit --inner">
+        <div class="product__rollable-sec --inner">
           <div class="product__content-wrap">
             <h3 class="product__sub-title">FULL SCREEN</h3>
             <div class="product__img-box">
-              <img src="./images/product-tv_5.png" alt="" />
+              <img src="./images/product-tv_5.png" alt="" class="--img-white" />
             </div>
             <p class="product__content">
               자발광 구조의 얇은 OLED 패널을 진동판으로 사용하여 더욱 심플한
@@ -439,14 +439,15 @@
           </div>
           <div class="product__content-wrap">
             <h3 class="product__sub-title">MINIMAL MODE</h3>
-            <div class="product__img-box">
+            <div class="product__img-box --flex">
               <img
-                src="./images/product-tv_6
+                src="./images/product-tv_6.png
               "
                 alt=""
+                class="--img-white"
               />
               <img
-                src="./images/product-tv_7
+                src="./images/product-tv_7.png
               "
                 alt=""
               />
@@ -461,7 +462,7 @@
             <h3 class="product__sub-title">21:9 SCREEN</h3>
             <div class="product__img-box">
               <img
-                src="./images/product-tv_8
+                src="./images/product-tv_8.jpg
               "
                 alt=""
               />
@@ -483,9 +484,11 @@
       </section>
       <section class="product__tv-lcd --inner">
         <h2 class="sec-title">LCD TV</h2>
-        <div class="product__text-box">
+        <div
+          class="product__text-box --flex --justify__space-between --text-align__center"
+        >
           <h3 class="product__sub-title">차별화 기술로 이뤄낸 LCD TV의 진화</h3>
-          <p class="product__content">
+          <p class="product__content --flex__1">
             LG디스플레이는 더욱 혁신적인 디자인과 진일보한 화질을 구현하는 LCD
             TV용 제품을 개발/생산하고 있습니다.
           </p>
@@ -493,15 +496,15 @@
         <div class="product__img-box product__bg-1">
           <img src="./images/product-tv_9.jpg" alt="lcd tv" />
         </div>
-        <div class="product__content-wrap product__bg-2">
+        <div class="product__content-wrap product__bg-2 --text-align__center">
           <h3 class="product__sub-title">세상의 진짜 빛을 담는 HDR</h3>
-          <p class="product__content">
+          <p class="product__content --white">
             LG디스플레이는 독자적인 HDR 알고리즘으로 더 우수한 HDR(High Dynamic
             Range, 명암비를 극대화하는 기술)을 구현합니다.
           </p>
         </div>
         <div class="product__content-wrap">
-          <div class="product__text-box">
+          <div class="product__text-box --text-align__center">
             <h3 class="product__sub-title">보다 섬세한 디테일을 완성하는 8K</h3>
             <p class="product__content">
               8K(7680 x 4320)제품은 UHD 대비 4배 더 선명한 영상을 시청할 수 있는
@@ -510,7 +513,7 @@
             </p>
           </div>
           <div class="product__img-box">
-            <img src="./images/product-tv_10.jpg" alt="8k" />
+            <img src="./images/product-tv_11.png" alt="8k" />
           </div>
         </div>
       </section>
