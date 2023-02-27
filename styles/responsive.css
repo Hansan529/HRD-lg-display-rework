@@ -321,7 +321,7 @@
   .technology-oled2,
   .technology-lcd2,
   .latest-news > div:last-of-type > .text-box > p:first-of-type,
-  .latest-news > div > .text-box > p:last-of-type,
+  .latest-news > div:last-of-type > .text-box > p:last-of-type,
   .esg,
   .foot-menu > ul > li:last-child,
   .foot-site > p {
