@@ -466,6 +466,77 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
   position: relative;
 }
 
+/*^ footer */
+footer {
+  height: 210px;
+  background: #333333;
+  position: relative;
+  z-index: 500;
+}
+footer > .inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 75px;
+}
+.foot-menu {
+  flex: 2;
+  padding-right: 75px;
+}
+.foot-menu > ul {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.foot-menu > .call,
+.foot-menu > .copy {
+  font-size: 0.777778em;
+  color: #999;
+  line-height: 1.75;
+}
+.foot-menu > .call > a {
+  color: #ccc;
+}
+.foot-link {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+.foot-link > a {
+  display: block;
+  width: 145px;
+  height: 35px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 0.777778em;
+}
+.foot-link > a > img {
+  display: inline;
+}
+.foot-site {
+  width: 15%;
+  margin-left: 50px;
+}
+.foot-site > strong {
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  font-weight: 500;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+.foot-site > p {
+  padding: 0 30px;
+  line-height: 1.5;
+}
+.foot-site > p > a {
+  font-size: 0.777778em;
+}
+
 .hidden {
   display: none;
 }
