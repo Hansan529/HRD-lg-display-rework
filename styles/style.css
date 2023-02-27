@@ -660,6 +660,13 @@
 .esg > ul > li > div:hover span {
   color: #fff;
 }
+.esg > ul > li.active > div img {
+  filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg)
+    brightness(111%) contrast(101%);
+}
+.esg > ul > li.active > div span {
+  color: #fff;
+}
 .env,
 .social,
 .gover {
@@ -919,6 +926,7 @@
   margin-bottom: 25px;
   font-size: 0.777778em;
   word-break: keep-all;
+  color: #ccc;
 }
 
 /*^ footer */
@@ -957,11 +965,11 @@ footer > .inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 35px;
+  gap: 25px;
 }
 .foot-link > a {
   display: block;
-  width: 150px;
+  width: 145px;
   height: 35px;
   text-align: center;
   line-height: 30px;

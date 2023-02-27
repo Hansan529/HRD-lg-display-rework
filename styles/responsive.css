@@ -398,6 +398,7 @@
     line-height: 30px;
     margin: 0;
     border-radius: 30px;
+    background: #eee;
   }
   /* 너비, 여백 조정 */
   .product > ul > li {
@@ -412,18 +413,34 @@
   }
   /* 여백 제거, 높이 지정 */
   .product > ul > li > ul > li {
-    padding: 0;
-    height: 250px;
+    padding: 0 0 20px;
+    height: 170px;
+    justify-content: space-between;
+    border-bottom: 1px solid #666;
+    border-radius: 0;
   }
+
   /* 순서 변경 */
   .product .img-box {
+    flex: none;
     order: 2;
+    width: 40%;
     border: none;
+  }
+  .product .img-box > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .product .img-box img {
+    width: 100%;
+    /* height: initial; */
+    object-fit: cover;
   }
   /* 여백 제거, 텍스트 정렬 */
   .product .text-box-wrap > .text-box {
     padding: 0;
-    /* flex: none; */
+    flex: 1;
     text-align: start;
     align-items: flex-start;
   }
@@ -438,6 +455,8 @@
   /* 여백 조정 */
   .product .text-box-wrap {
     margin: 0 10px 0 0;
+    width: initial;
+    flex: 1;
     align-items: start;
   }
   /* 서브 타이틀 서식 변경 */
@@ -559,6 +578,7 @@
   footer > .inner {
     padding: 0;
     margin: 0 auto;
+    width: 80%;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -587,7 +607,7 @@
     margin: 0;
     position: absolute;
     top: 160px;
-    width: 95%;
+    width: 50%;
   }
   /* 텍스트 정렬, 여백 조정 */
   .foot-site > strong {

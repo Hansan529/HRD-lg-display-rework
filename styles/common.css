@@ -9,7 +9,7 @@ body {
   background: #000;
 }
 .inner {
-  width: 1710px;
+  max-width: 1710px;
   margin-left: var(--header-size);
   /* background-color: rgba(255, 0, 0, 0.5); */
 }
@@ -462,7 +462,7 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 }
 /* header를 제외한 영역 */
 #main section {
-  width: 100%;
+  /* width: 100%; */
   position: relative;
 }
 
@@ -472,6 +472,7 @@ aside .depth2-wrap > .depth2 > ul > li > a:hover {
 .red {
   color: red;
 }
+
 .top-btn {
   display: block;
   width: 70px;
