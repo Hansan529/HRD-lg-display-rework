@@ -89,7 +89,12 @@ header .logo-wrap {
   width: 170px;
   height: 35px;
   background: url("../images/logo_en.png") 0 0;
+}
+.logo > a {
+  display: block;
   text-indent: -9999em;
+  width: 100%;
+  height: 100%;
 }
 /* 라이트 모드 로고 */
 .logo-wrap .light {
@@ -532,6 +537,7 @@ footer > .inner {
 .foot-site > p {
   padding: 0 30px;
   line-height: 1.5;
+  white-space: nowrap;
 }
 .foot-site > p > a {
   font-size: 0.777778em;
