@@ -61,3 +61,6 @@
 .--bold {
   font-weight: bold;
 }
+.--text-shadow {
+  text-shadow: 0 0 10px #000;
+}
