@@ -518,21 +518,21 @@
   padding: calc((100vh - 720px) / 2) 0;
 }
 .technology-lcd2 > .overflow {
-  width: 1500px;
+  width: 85%;
   height: 720px;
   margin: 0 auto;
   overflow: hidden;
 }
 .technology-lcd2 ul {
   display: flex;
-  width: calc(1500px * 4);
+  width: calc(100% * 4);
   height: 100%;
 }
 .technology-lcd2 ul > li {
   width: calc(100% / 4);
 }
 .technology-lcd2 ul > li:first-child {
-  background: url("../images/lcd-1.png") no-repeat 100% 0 / cover;
+  background: url("../images/lcd-1.png") no-repeat center / contain;
 }
 .technology-lcd2 ul > li:nth-child(2) {
   background: url("../images/lcd-2.jpg") no-repeat 0 / cover;
@@ -544,16 +544,19 @@
   background: url("../images/lcd-4.jpg") no-repeat 100% 0 / cover;
 }
 .technology-lcd2 ul > li > a {
-  display: flex;
+  display: block;
   width: 100%;
   height: 100%;
-  align-items: center;
-  padding: 0 100px;
+  position: relative;
 }
 .technology-lcd2 ul > li .text-box {
   width: 40%;
   text-align: center;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(0, -50%);
+  word-break: keep-all;
 }
 .technology-lcd2 ul > li .text-box::after {
   content: "";
@@ -612,9 +615,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: initial;
 }
 .esg > h2 {
-  margin-top: 150px;
+  margin: 150px 0;
 }
 .esg > div {
   flex: 1;
@@ -691,7 +695,7 @@
   font-size: 28px;
 }
 .env th > img {
-  width: 120px;
+  width: 70%;
   margin: 0 auto;
 }
 .env th,
