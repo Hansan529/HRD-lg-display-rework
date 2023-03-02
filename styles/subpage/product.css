@@ -1,20 +1,50 @@
-section {
+#main section {
   height: initial;
+  padding-bottom: 50px;
+}
+.sec-title {
+  text-align: inherit;
 }
 h2.sec-title {
   margin-bottom: 50px;
-  font-size: 20px;
-}
-.product__sub-title {
   font-size: 30px;
+  position: relative;
+  padding-left: 20px;
+}
+h2.sec-title::before {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 50px;
+  background: #ba1038;
+  position: absolute;
+  left: 0;
+}
+.--text-align__end > h2.sec-title {
+  padding: 0 20px 0 0;
+}
+.--text-align__end > h2.sec-title::before {
+  left: initial;
+  right: 0;
+}
+.wallpaper__pt1 > .product__text-box,
+.rollable-sec > .product__text-box {
+  padding: 50px 30px 30px;
+}
+
+.product__sub-title {
+  font-size: 25px;
   font-weight: 400;
   margin-bottom: 20px;
+  word-break: keep-all;
 }
 .product__content {
   word-break: keep-all;
+  font-size: 16px;
 }
 .product__tv-cinematic > .sec-title {
   text-align: start;
+  margin-top: 50px;
 }
 .product__tv-cinematic > .product__content-wrap {
   margin-bottom: 100px;
@@ -23,10 +53,7 @@ h2.sec-title {
   object-fit: cover;
   margin: 0 auto;
 }
-.product__tv-cinematic
-  > .product__content-wrap:first-of-type
-  > .product__img-box
-  > img {
+.cinematic__pt1 > .product__img-box > img {
   width: 100%;
   height: 400px;
 }
@@ -37,8 +64,8 @@ h2.sec-title {
   font-weight: lighter;
   font-size: 20px;
 }
-.product__tv-cinematic .product__content-wrap:last-child .product__content {
-  width: 65%;
+.product__tv-cinematic .cinematic__pt2 .product__content {
+  width: 70%;
   margin: 50px auto;
 }
 .cinematic__img-1 {
@@ -50,6 +77,8 @@ h2.sec-title {
   position: relative;
   background: #fff;
   padding: 50px 0;
+  max-width: 1540px;
+  margin: 0 auto;
 }
 .cinematic__img-2::before,
 .cinematic__img-2::after {
@@ -59,7 +88,7 @@ h2.sec-title {
 }
 .cinematic__img-2::before {
   content: "자발광 구조의 얇은 OLED 패널을 진동판으로 사용하여 더욱 심플한 디자인과 전면 지향 음질 구현";
-  left: 200px;
+  left: 23%;
   top: 50%;
   transform: translateY(-30%);
   width: 300px;
@@ -78,96 +107,108 @@ h2.sec-title {
 .product__tv-wallpaper {
   background: #666;
 }
-.product__wallpaper-sec {
-  margin-bottom: 70px;
-}
-.product__wallpaper-sec img {
+.wallpaper-sec img {
   width: 100%;
 }
-.product__wallpaper-sec:first-child > div {
-  flex: 1;
-  text-align: center;
+.wallpaper__pt2,
+.rollable__pt2 {
+  padding-top: 50px;
 }
-.product__wallpaper-sec:first-child > .product__img-box {
+.wallpaper__pt1 > div {
+  flex: 1;
+}
+.wallpaper__pt > .product__img-box {
   height: 600px;
   overflow: hidden;
 }
-.product__wallpaper-sec:first-child > .product__text-box {
-  padding: 30px;
-}
-.product__wallpaper-sec:first-child
-  > .product__text-box
-  > .product__content:first-of-type {
+.wallpaper__pt1 > .product__text-box > .product__content:first-of-type {
   margin-bottom: 100px;
 }
-.product__wallpaper-sec:last-child > div {
+.wallpaper__pt2 > div {
   flex: 1;
   text-align: center;
 }
-.product__wallpaper-sec:last-child > div > .product__sub-title {
+.wallpaper__pt2 > div > .product__sub-title {
   display: inline-block;
   background: #999;
-  padding: 10px 100px;
+  width: 400px;
+  height: 70px;
+  line-height: 70px;
+  white-space: nowrap;
 }
-.product__wallpaper-sec:last-child > div > .product__img-box > img {
+.wallpaper__pt2 > div > .product__img-box > img {
   width: 50%;
   margin: 0 auto;
 }
-.product__wallpaper-sec:last-child > div > .product__text-box {
+.wallpaper__pt2 > div > .product__text-box {
   color: #999;
   line-height: 2;
 }
-.product__wallpaper-sec:last-child
-  > div
-  > .product__text-box
-  .product__content {
+.wallpaper__pt2 > div > .product__text-box .product__content {
   font-size: 22px;
   color: #ccc;
 }
-.product__wallpaper-sec:last-child > div > .product__text-box strong {
+.wallpaper__pt2 > div > .product__text-box strong {
   display: block;
   margin-bottom: 30px;
 }
-.product__wallpaper-sec:last-child > div > .product__more-btn {
+.wallpaper__pt2 > div > .product__more-btn {
   transition: 0.3s;
   padding: 10px 30px;
   border-radius: 10px;
+  background: #999;
 }
-.product__wallpaper-sec:last-child > div > .product__more-btn:hover {
+.wallpaper__pt2 > div > .product__more-btn:hover {
   background: #000;
 }
 /* rollable */
-.product__tv-rollable
-  > .product__rollable-sec:first-child
-  .product__text-box
-  > .sec-title
-  ~ p:first-of-type {
+.rollable__pt1 .product__text-box > .sec-title ~ p:first-of-type {
   margin-bottom: 100px;
 }
-.product__tv-rollable > .product__rollable-sec:first-child img {
+.rollable__pt1 img {
   height: 100%;
+  object-fit: cover;
 }
-.product__rollable-sec > .product__text-box {
-  padding: 30px 50px;
+.rollable-sec > .product__text-box {
   margin-bottom: 100px;
 }
-.product__rollable-sec:last-child > div > .product__content-wrap:first-child,
-.product__rollable-sec:last-child > div > .product__content-wrap:nth-child(2) {
+.rollable-sec > .product__text-box > .product__content {
+  width: 80%;
+  margin-left: auto;
+}
+.rollable__pt2 > div > .product__content-wrap:first-child,
+.rollable__pt2 > div > .product__content-wrap:nth-child(2) {
   display: inline-block;
   width: 40%;
 }
-.product__rollable-sec:last-child
-  .product__content-wrap:first-child
-  > .product__img-box
-  > img {
+.rollable-sec .product__content {
+  margin: 10px 0;
+}
+.rollable__pt2 .product__content-wrap > .product__img-box > img {
   width: 100px;
   margin: 0 auto;
 }
-.product__rollable-sec:last-child
-  > .product__content-wrap
-  > .product__text-box {
-  width: 70%;
+.rollable__pt2 > .product__content-wrap:last-child > .product__img-box > img {
+  width: 100%;
+  margin: 0;
+}
+/* .rollable__pt2  */
+.rollable__pt2 > .product__content-wrap > .product__text-box {
+  width: 60%;
   margin: 0 auto;
+}
+.rollable__pt2
+  > .product__content-wrap
+  > .product__text-box
+  > .product__content {
+  margin: 30px 0 80px;
+}
+.rollable__pt2 > .product__content-wrap {
+  margin-top: 30px;
+}
+/* tv-lcd */
+.product__tv-lcd > .product__text-box:first-of-type {
+  margin-bottom: 30px;
 }
 .product__tv-lcd .product__bg-1 {
   position: relative;
@@ -182,7 +223,8 @@ h2.sec-title {
   height: 100%;
   left: 0;
   top: 0;
-  background: #fff url("../../images/product-tv_9.jpg") no-repeat 0 / cover;
+  background: #fff url("../../images/product-tv_9.jpg") no-repeat center 70% /
+    cover;
   opacity: 0.7;
 }
 .product__tv-lcd .product__bg-1 img {
@@ -191,12 +233,19 @@ h2.sec-title {
   position: relative;
   z-index: 10;
   object-fit: cover;
+  object-position: center 70%;
 }
 .product__tv-lcd .product__bg-2 {
-  background: url("../../images/product-tv_10.jpg") no-repeat center 80% / cover;
+  margin: 100px 0;
+  background: url("../../images/product-tv_10.jpg") no-repeat;
   background-attachment: fixed;
+  background-position: 80% 90%;
+  background-size: 80%;
   height: 300px;
 }
-.product__tv-lcd > div:last-of-type > .product__img-box > img {
+.product__tv-lcd > .product__content-wrap:last-child > .product__img-box {
+  margin-top: 30px;
+}
+.product__tv-lcd > .product__content-wrap:last-child > .product__img-box > img {
   margin: 0 auto;
 }
