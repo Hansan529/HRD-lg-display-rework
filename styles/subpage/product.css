@@ -1,3 +1,4 @@
+/*^ common */
 #main section {
   height: initial;
   padding-bottom: 50px;
@@ -20,18 +21,6 @@ h2.sec-title::before {
   position: absolute;
   left: 0;
 }
-.--text-align__end > h2.sec-title {
-  padding: 0 20px 0 0;
-}
-.--text-align__end > h2.sec-title::before {
-  left: initial;
-  right: 0;
-}
-.wallpaper__pt1 > .product__text-box,
-.rollable-sec > .product__text-box {
-  padding: 50px 30px 30px;
-}
-
 .product__sub-title {
   font-size: 25px;
   font-weight: 400;
@@ -42,6 +31,11 @@ h2.sec-title::before {
   word-break: keep-all;
   font-size: 16px;
 }
+.wallpaper__pt1 > .product__text-box,
+.rollable-sec > .product__text-box {
+  padding: 50px 30px 30px;
+}
+/*^ cinematic */
 .product__tv-cinematic > .sec-title {
   text-align: start;
   margin-top: 50px;
@@ -103,12 +97,16 @@ h2.sec-title::before {
   text-align: start;
 }
 
-/* wallpaper */
+/*^ wallpaper */
 .product__tv-wallpaper {
   background: #666;
 }
 .wallpaper-sec img {
   width: 100%;
+}
+.wallpaper__pt1,
+.wallpaper__pt2 {
+  display: flex;
 }
 .wallpaper__pt2,
 .rollable__pt2 {
@@ -117,7 +115,7 @@ h2.sec-title::before {
 .wallpaper__pt1 > div {
   flex: 1;
 }
-.wallpaper__pt > .product__img-box {
+.wallpaper__pt1 > .product__img-box {
   height: 600px;
   overflow: hidden;
 }
@@ -161,13 +159,14 @@ h2.sec-title::before {
 .wallpaper__pt2 > div > .product__more-btn:hover {
   background: #000;
 }
-/* rollable */
-.rollable__pt1 .product__text-box > .sec-title ~ p:first-of-type {
-  margin-bottom: 100px;
+.wallpaper__pt2 .product__content--sm > strong {
+  color: #fff;
+  font-weight: 700;
 }
-.rollable__pt1 img {
-  height: 100%;
-  object-fit: cover;
+
+/*^ rollable */
+.product__tv-rollable {
+  text-align: center;
 }
 .rollable-sec > .product__text-box {
   margin-bottom: 100px;
@@ -176,44 +175,89 @@ h2.sec-title::before {
   width: 80%;
   margin-left: auto;
 }
+.rollable-sec .product__content {
+  margin: 10px 0;
+}
+.product__tv-rollable h2.sec-title {
+  padding: 0 20px 0 0;
+}
+.product__tv-rollable h2.sec-title::before {
+  left: initial;
+  right: 0;
+}
+.rollable__pt1 {
+  display: flex;
+}
+.rollable__pt1 > div {
+  flex: 1;
+}
+.rollable__pt1 > .product__text-box {
+  text-align: end;
+}
+.rollable__pt1 .product__text-box > .sec-title ~ p:first-of-type {
+  margin-bottom: 100px;
+}
+.rollable__pt1 img {
+  height: 100%;
+  object-fit: cover;
+}
+.rollable__pt2 > .product__content-wrap--box {
+  display: flex;
+  justify-content: space-evenly;
+}
+.rollable__pt2
+  > .product__content-wrap--box
+  > .product__content-wrap:last-child
+  > ..product__img-box {
+  display: flex;
+  justify-content: space-evenly;
+}
 .rollable__pt2 > div > .product__content-wrap:first-child,
 .rollable__pt2 > div > .product__content-wrap:nth-child(2) {
   display: inline-block;
   width: 40%;
 }
-.rollable-sec .product__content {
-  margin: 10px 0;
-}
-.rollable__pt2 .product__content-wrap > .product__img-box > img {
-  width: 100px;
-  margin: 0 auto;
-}
 .rollable__pt2 > .product__content-wrap:last-child > .product__img-box > img {
   width: 100%;
   margin: 0;
 }
-/* .rollable__pt2  */
 .rollable__pt2 > .product__content-wrap > .product__text-box {
   width: 60%;
   margin: 0 auto;
 }
-.rollable__pt2
-  > .product__content-wrap
-  > .product__text-box
-  > .product__content {
-  margin: 30px 0 80px;
+.rollable__pt2 > .product__content-wrap--box .product__img-box {
+  display: flex;
+}
+.rollable__pt2 > .product__content-wrap--box .product__img-box > img {
+  width: 100px;
+  margin: 0 auto;
 }
 .rollable__pt2 > .product__content-wrap {
   margin-top: 30px;
+}
+.rollable__pt2 > .product__content-wrap .product__content {
+  margin: 30px 0 80px;
 }
 /* tv-lcd */
 .product__tv-lcd > .product__text-box:first-of-type {
   margin-bottom: 30px;
 }
+.product__tv-lcd > .product__content-wrap:last-child > .product__text-box {
+  text-align: center;
+}
 .product__tv-lcd .product__bg-1 {
   position: relative;
   overflow: hidden;
   height: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product__tv-lcd > .product__content-wrap:last-child > .product__img-box {
+  margin-top: 30px;
+}
+.product__tv-lcd > .product__content-wrap:last-child > .product__img-box > img {
+  margin: 0 auto;
 }
 .product__tv-lcd .product__bg-1::after {
   content: "";
@@ -236,6 +280,10 @@ h2.sec-title::before {
   object-position: center 70%;
 }
 .product__tv-lcd .product__bg-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 100px 0;
   background: url("../../images/product-tv_10.jpg") no-repeat;
   background-attachment: fixed;
@@ -243,9 +291,11 @@ h2.sec-title::before {
   background-size: 80%;
   height: 300px;
 }
-.product__tv-lcd > .product__content-wrap:last-child > .product__img-box {
-  margin-top: 30px;
+.product__tv-lcd .product__bg-2 > .product__content {
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  text-align: center;
 }
-.product__tv-lcd > .product__content-wrap:last-child > .product__img-box > img {
-  margin: 0 auto;
+.product__tv-lcd .product__bg-2 > .product__sub-title {
+  text-shadow: 0 0 10px #000;
 }

@@ -130,7 +130,7 @@
   .rollable__pt2 > div > .product__content-wrap:first-child,
   .rollable__pt2 > div > .product__content-wrap:nth-child(2) {
     display: block;
-    width: 100%;
+    /* width: 100%; */
   }
   .rollable__pt2 > .--flex > .product__content-wrap:last-child {
     margin: 50px 0;
