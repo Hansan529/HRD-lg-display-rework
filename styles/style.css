@@ -22,19 +22,21 @@
   align-items: center;
   text-align: center;
   z-index: 500;
+  position: relative;
+  transition: 0.5s;
 }
 /* 배너 이미지 */
-.main-banner > ul > li:first-child {
+.main-banner > ul > .bg-1 {
   background: url("../images/main-banner_1.jpg") no-repeat 0 / cover;
 }
-.main-banner > ul > li:nth-child(2) {
+.main-banner > ul > .bg-2 {
   background: url("../images/main-banner_2.jpeg") no-repeat center / cover;
 }
-.main-banner > ul > li:nth-child(3) {
+.main-banner > ul > .bg-3 {
   background: #000 url("../images/main-banner_3.jpg") no-repeat 0px 100px /
     cover;
 }
-.main-banner > ul > li:last-child {
+.main-banner > ul > .bg-4 {
   background: url("../images/main-banner_4.jpg") no-repeat 0 / cover;
 }
 /* 배너 텍스트 */
