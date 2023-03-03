@@ -58,7 +58,17 @@ h2.sec-title::before {
   font-weight: lighter;
   font-size: 20px;
 }
-.product__tv-cinematic .cinematic__pt2 .product__content {
+.cinematic__pt1 {
+  display: flex;
+  align-items: center;
+}
+.cinematic__pt1 > .product__text-box {
+  flex: 1;
+}
+.cinematic__pt2 {
+  text-align: center;
+}
+.cinematic__pt2 .product__content {
   width: 70%;
   margin: 50px auto;
 }
@@ -66,6 +76,7 @@ h2.sec-title::before {
   border-radius: 10px;
   overflow: hidden;
   margin-right: 50px;
+  flex: 1;
 }
 .cinematic__img-2 {
   position: relative;
@@ -174,6 +185,9 @@ h2.sec-title::before {
 .rollable-sec > .product__text-box > .product__content {
   width: 80%;
   margin-left: auto;
+}
+.rollable-sec .product__sub-title > span {
+  display: none;
 }
 .rollable-sec .product__content {
   margin: 10px 0;
