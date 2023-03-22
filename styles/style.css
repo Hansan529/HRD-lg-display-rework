@@ -6,6 +6,7 @@
 /* 전체화면 */
 .main-banner {
   position: relative;
+  overflow: hidden;
 }
 /* 배너 목록 너비 */
 .main-banner > ul {
