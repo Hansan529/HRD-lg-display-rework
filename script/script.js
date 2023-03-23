@@ -33,19 +33,20 @@ let bAutoPlay = 0;
 let bNum = 0;
 const bLength = $(".main-banner > ul > li").length;
 const bWidth = $(".main-banner > ul > li").width();
-const bObj = $(".main-banner .bg-1").clone();
-$(".main-banner > ul").append(bObj);
+
+const bObj = $(".main-banner>ul>li").first().clone();
+$(".main-banner>ul").append(bObj);
 const bCopyLength = $(".main-banner > ul > li").length;
 
 function bAnimation() {
-  $(".main-banner > ul")
-    .stop()
-    .animate(
-      {
-        marginLeft: -bNum * bWidth,
-      },
-      500
-    );
+  $(".main-banner > ul > li")
+    .eq(bNum)
+    .fadeIn(800)
+    .css({
+      display: "flex",
+    })
+    .siblings()
+    .hide();
 }
 function bPrevBtn() {
   if (bNum == 0) {
@@ -59,17 +60,16 @@ function bPrevBtn() {
   $(".main-banner #selected-page").text(bNum + 1);
 }
 function bNextBtn() {
-  if (bNum >= bLength) {
-    bNum = 0;
-    $(".main-banner > ul").css({
-      marginLeft: 0,
-    });
-  }
   bNum++;
+  if (bNum == bLength) {
+    bNum = 0;
+  }
   bAnimation();
   if (bNum < 4) {
     $(".main-banner #selected-page").text(bNum + 1);
   } else {
+    $(".main-banner>ul>li").hide();
+    $(".main-banner>ul>li").first().fadeIn;
     $(".main-banner #selected-page").text(1);
   }
 }
@@ -116,6 +116,50 @@ $(".product > ul > li").on("click", function () {
     borderBottomColor: "#fff",
   });
 });
+
+//^ technology oled
+// const cardList = document.querySelectorAll(".technology-oled2 > ul > li");
+// let cardNum = 0;
+// let transX = 0;
+// let transZ = 0;
+// let rotateY = 0;
+
+const tecNextBtn = document.querySelector(".technology-oled2 .next");
+const tecPrevBtn = document.querySelector(".technology-oled2 .prev");
+const tecList = document.querySelectorAll(".technology-oled2 > ul > li");
+const tecTextBox = document.querySelectorAll(
+  ".technology-oled2 > ul > li .text-box"
+);
+
+let cardIndex = 1;
+
+function cardPrevMove() {
+  cardIndex = (cardIndex % 6) + 1;
+  for (let i = 0; i < tecList.length; i++) {
+    tecList[i].classList.remove(`card-${(i + cardIndex - 1) % 6}`);
+    tecList[i].classList.add(`card-${((i + cardIndex - 1) % 6) + 1}`);
+    if (tecList[i].classList.length >= 2) {
+      tecList[i].classList.remove("card-6");
+    }
+    tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
+  }
+}
+function cardNextMove() {
+  cardIndex = (cardIndex % 6) + 1;
+  tecList[0].classList.remove(`card-${cardIndex + 4}`);
+  for (let i = 0; i < tecList.length; i++) {
+    tecList[i].classList.remove(`card-${i + cardIndex - 1}`);
+    tecList[i].classList.add(`card-${((i + cardIndex + 3) % 6) + 1}`);
+    tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
+  }
+}
+
+tecNextBtn.addEventListener("click", cardNextMove);
+tecPrevBtn.addEventListener("click", cardPrevMove);
+
+// document
+//   .querySelector(".technology-oled2 .next")
+//   .addEventListener("click", cardMove);
 
 //^ 반응형 체크
 let respon = false;

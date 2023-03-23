@@ -11,23 +11,26 @@
 /* 배너 목록 너비 */
 .main-banner > ul {
   display: flex;
-  width: 400%;
+  width: 100%;
   height: 100%;
 }
 /* 배너 목록 */
 .main-banner > ul > li {
-  width: 25%;
+  width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 500;
-  position: relative;
+  position: absolute;
   transition: 0.5s;
+  left: 0;
+  top: 0;
 }
 /* 배너 이미지 */
 .main-banner > ul > .bg-1 {
+  display: flex;
   background: url("../images/main-banner_1.jpg") no-repeat 0 / cover;
 }
 .main-banner > ul > .bg-2 {
@@ -392,7 +395,7 @@
   z-index: 20;
 }
 .technology-oled2 > ul > li > .img-box-wrap {
-  flex: 1;
+  flex: 0.6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,6 +403,7 @@
 .technology-oled2 > ul > li .img-box {
   display: inline-block;
   text-align: center;
+  transition: 1s;
 }
 .technology-oled2 > ul > .card-1 .img-box {
   transform: perspective(300px);
@@ -437,7 +441,6 @@
 }
 .technology-oled2 > ul > li > .text-box {
   width: 675px;
-  visibility: hidden;
 }
 .technology-oled2 > ul > .card-1 .text-box,
 .technology-oled2 > ul > .card-2 .text-box,
@@ -450,25 +453,7 @@
   z-index: 50;
 }
 .technology-oled2 > ul > .card-1 .text-box {
-  visibility: visible;
-}
-.technology-oled2 > ul > .card-1 .text-box {
   background: url("../images/oled-1.jpg") no-repeat center 100% / cover;
-}
-.technology-oled2 > ul > .card-2 .text-box {
-  background: url("../images/oled-2.jpg") no-repeat center / cover;
-}
-.technology-oled2 > ul > .card-3 .text-box {
-  background: url("../images/oled-3.jpg") no-repeat center / cover;
-}
-.technology-oled2 > ul > .card-4 .text-box {
-  background: url("../images/oled-4.jpg") no-repeat center / cover;
-}
-.technology-oled2 > ul > .card-5 .text-box {
-  background: url("../images/oled-5.jpg") no-repeat center / cover;
-}
-.technology-oled2 > ul > .card-6 .text-box {
-  background: url("../images/oled-6-2.jpg") no-repeat center 0 / cover;
 }
 .technology-oled2 > ul > li > .text-box > a {
   display: block;
@@ -492,7 +477,7 @@
 }
 .technology-oled2 > .slide-btn,
 .technology-lcd2 > .slide-btn {
-  width: calc(50% + 35px);
+  width: calc(40%);
   gap: 0;
   justify-content: space-between;
   position: absolute;
