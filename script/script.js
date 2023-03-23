@@ -166,21 +166,7 @@ document
   .querySelector(".technology-lcd2 .overflow > ul")
   .appendChild(lcdBannerList);
 
-const lcdSlidebarHandle = $(".technology-lcd2 .slide-bar");
-
-let lcdSlidebar = $("<div></div>")
-  .css({
-    width: "25%",
-    height: "7px",
-    "background-color": "#fff",
-    position: "absolute",
-    top: "0",
-    left: "0",
-  })
-  .addClass("slide-bar__now");
-
-lcdSlidebarHandle.append(lcdSlidebar);
-
+// 이동 애니메이션
 function lcdBtnMove() {
   $(".technology-lcd2 .overflow > ul")
     .stop()
@@ -193,7 +179,24 @@ function lcdBtnMove() {
       left: lcdNum * 25 + "%",
     });
 }
-
+// 다음 버튼
+function lcdNextBtn() {
+  lcdNum++;
+  if (lcdNum > lcdLength) {
+    $(".overflow > ul").css({
+      marginLeft: 0,
+    });
+    lcdNum = 1;
+  }
+  if (lcdNum == lcdLength) {
+    $(".slide-bar__now").css({
+      left: -lcdNum * lcdWidth,
+    });
+    lcdNum = 0;
+  }
+  lcdBtnMove();
+}
+// 이전 버튼
 function lcdPrevBtn() {
   console.log("lcdNum: ", lcdNum);
   if (lcdNum == 0) {
@@ -208,30 +211,28 @@ function lcdPrevBtn() {
   lcdNum--;
   lcdBtnMove();
 }
-
-function lcdNextBtn() {
-  lcdNum++;
-  if (lcdNum > lcdLength) {
-    $(".overflow > ul").css({
-      marginLeft: 0,
-    });
-    lcdNum = 1;
-  }
-  if (lcdNum == lcdLength) {
-    $(".slide-bar__now").css({
-      left: -lcdNum * lcdWidth,
-    });
-    lcdNum = 1;
-  }
-  lcdBtnMove();
-}
-
 document
   .querySelector(".technology-lcd2 .prev")
   .addEventListener("click", lcdPrevBtn);
 document
   .querySelector(".technology-lcd2 .next")
   .addEventListener("click", lcdNextBtn);
+
+//^ lcd2
+const lcdSlidebarHandle = $(".technology-lcd2 .slide-bar");
+
+let lcdSlidebar = $("<div></div>")
+  .css({
+    width: "25%",
+    height: "7px",
+    "background-color": "#fff",
+    position: "absolute",
+    top: "0",
+    left: "0",
+  })
+  .addClass("slide-bar__now");
+
+lcdSlidebarHandle.append(lcdSlidebar);
 
 //^ 반응형 체크
 let respon = false;

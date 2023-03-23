@@ -622,6 +622,7 @@
   transform: translateX(-50%);
   position: relative;
   overflow: hidden;
+  bottom: -10%;
 }
 /** ESG */
 .esg {
