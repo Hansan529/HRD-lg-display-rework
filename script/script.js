@@ -99,6 +99,8 @@ $(".main-banner .next").on("click", bNextBtn);
 $(".main-banner .prev").on("click", bPrevBtn);
 $(".main-banner .slide-btn-ps").on("click", bToggle);
 $(".main-down").on("click", bDownScroll);
+$(".main-banner .slide-btn").on("mouseenter", bToggle);
+$(".main-banner .slide-btn").on("mouseleave", bToggle);
 
 //^ product
 $(".product > ul > li").on("click", function () {
@@ -118,54 +120,64 @@ $(".product > ul > li").on("click", function () {
 });
 
 //^ technology oled
-// const cardList = document.querySelectorAll(".technology-oled2 > ul > li");
-// let cardNum = 0;
-// let transX = 0;
-// let transZ = 0;
-// let rotateY = 0;
-
+// $(".technology-oled2 .text-box").css("display", "none");
 const tecNextBtn = document.querySelector(".technology-oled2 .next");
 const tecPrevBtn = document.querySelector(".technology-oled2 .prev");
 const tecList = document.querySelectorAll(".technology-oled2 > ul > li");
 const tecTextBox = document.querySelectorAll(
   ".technology-oled2 > ul > li .text-box"
 );
+let listName = ["card-1", "card-2", "card-3", "card-4", "card-5", "card-6"];
 
-let cardIndex = 1;
-console.log("cardIndex: ", cardIndex);
+let cardIndex = 0;
 
 function cardPrevMove() {
-  cardIndex = (cardIndex % 6) + 1;
+  let list = listName.shift();
+  console.log(listName);
+  listName.push(list);
   for (let i = 0; i < tecList.length; i++) {
-    tecList[i].classList.remove(`card-${(i + cardIndex - 1) % 6}`);
-    tecList[i].classList.add(`card-${((i + cardIndex - 1) % 6) + 1}`);
-    if (tecList[i].classList.length >= 2) {
-      tecList[i].classList.remove("card-6");
-    }
-    tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
+    tecList[i].setAttribute("class", "");
+    tecList[i].classList.add(listName[i]);
   }
-  console.log("Prev-cardIndex: ", cardIndex);
-  return cardIndex;
+}
+function cardNextMove() {
+  let list = listName.pop();
+  console.log(listName);
+  listName.unshift(list);
+  for (let i = 0; i < tecList.length; i++) {
+    tecList[i].setAttribute("class", "");
+    tecList[i].classList.add(listName[i]);
+  }
 }
 
-function cardNextMove() {
-  cardIndex = ((cardIndex + 4) % 6) + 1;
-  for (let i = 0; i < tecList.length; i++) {
-    tecList[i].classList.remove(`card-${((i + cardIndex + 1) % 6) + 1}`);
-    if (tecList[i].classList.length >= 2) {
-      tecList[i].classList.remove(`card-${(i + cardIndex) % 6}`);
-    }
-    tecList[i].classList.add(`card-${((i + cardIndex) % 6) + 1}`);
-    tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
-  }
-  console.log("Next-cardIndex: ", cardIndex);
-  return cardIndex;
-}
-cardIndex = cardNextMove();
 tecNextBtn.addEventListener("click", cardNextMove);
 tecPrevBtn.addEventListener("click", cardPrevMove);
 
 //^ technology lcd
+let lcdNum = 1;
+const lcdLi = document.querySelector(".overflow > ul > li");
+const lcdBanner = document.querySelector(".technology-lcd2 .overflow > ul");
+let lcdBannerList = document
+  .querySelector(".technology-lcd2 .overflow > ul > li:first-child")
+  .cloneNode(true);
+document
+  .querySelector(".technology-lcd2 .overflow > ul")
+  .appendChild(lcdBannerList);
+
+function lcdNextBtn() {
+  lcdNum++;
+  if (lcdNum > 4) {
+    document.querySelector(".overflow > ul").style.marginLeft = 0;
+    lcdNum = 0;
+  }
+  document.querySelector(".overflow > ul").style.marginLeft =
+    lcdNum * offsetWidth;
+}
+
+document.querySelector(".technology-lcd2 .prev");
+document
+  .querySelector(".technology-lcd2 .next")
+  .addEventListener("click", lcdNextBtn);
 
 //^ 반응형 체크
 let respon = false;

@@ -452,8 +452,23 @@
   margin-left: 65px;
   z-index: 50;
 }
-.technology-oled2 > ul > .card-1 .text-box {
+.technology-oled2 > ul > li:first-child .text-box {
   background: url("../images/oled-1.jpg") no-repeat center 100% / cover;
+}
+.technology-oled2 > ul > li:nth-child(2) .text-box {
+  background: url("../images/oled-2.jpg") no-repeat center 100% / cover;
+}
+.technology-oled2 > ul > li:nth-child(3) .text-box {
+  background: url("../images/oled-3.jpg") no-repeat center 100% / cover;
+}
+.technology-oled2 > ul > li:nth-child(4) .text-box {
+  background: url("../images/oled-4.jpg") no-repeat center 100% / cover;
+}
+.technology-oled2 > ul > li:nth-child(5) .text-box {
+  background: url("../images/oled-5.jpg") no-repeat center 100% / cover;
+}
+.technology-oled2 > ul > li:last-child .text-box {
+  background: url("../images/oled-6.jpg") no-repeat center 100% / cover;
 }
 .technology-oled2 > ul > li > .text-box > a {
   display: block;
@@ -522,7 +537,8 @@
 .technology-lcd2 ul > li {
   width: calc(100% / 4);
 }
-.technology-lcd2 ul > li:first-child {
+.technology-lcd2 ul > li:first-child,
+.technology-lcd2 ul > li:last-child {
   background: url("../images/lcd-1.png") no-repeat center / contain;
 }
 .technology-lcd2 ul > li:nth-child(2) {
@@ -531,7 +547,7 @@
 .technology-lcd2 ul > li:nth-child(3) {
   background: url("../images/lcd-3.jpg") no-repeat 100% 0 / cover;
 }
-.technology-lcd2 ul > li:last-child {
+.technology-lcd2 ul > li:nth-child(4) {
   background: url("../images/lcd-4.jpg") no-repeat 100% 0 / cover;
 }
 .technology-lcd2 ul > li > a {
@@ -600,6 +616,10 @@
   width: 100%;
   left: 0;
   padding: 0 40px;
+}
+.technology-lcd2 > .slide-bar {
+  width: 70%;
+  transform: translateX(-50%);
 }
 /** ESG */
 .esg {
