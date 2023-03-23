@@ -41,7 +41,7 @@ const bCopyLength = $(".main-banner > ul > li").length;
 function bAnimation() {
   $(".main-banner > ul > li")
     .eq(bNum)
-    .fadeIn(800)
+    .fadeIn(1000)
     .css({
       display: "flex",
     })
@@ -81,7 +81,7 @@ function bToggle() {
       $(".main-banner .slide-btn-ps").removeClass("start").addClass("stop");
       break;
     default:
-      bAutoPlay = setInterval(bNextBtn, 2000);
+      bAutoPlay = setInterval(bNextBtn, 4000);
       $(".main-banner .slide-btn-ps").removeClass("stop").addClass("start");
       toggle = true;
       break;
