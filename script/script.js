@@ -154,8 +154,10 @@ tecNextBtn.addEventListener("click", cardNextMove);
 tecPrevBtn.addEventListener("click", cardPrevMove);
 
 //^ technology lcd
-let lcdNum = 1;
+let lcdNum = 0;
 const lcdLi = document.querySelector(".overflow > ul > li");
+const lcdWidth = $(".technology-lcd2 .overflow > ul> li").outerWidth();
+const lcdLength = $(".technology-lcd2 .overflow > ul> li").length;
 const lcdBanner = document.querySelector(".technology-lcd2 .overflow > ul");
 let lcdBannerList = document
   .querySelector(".technology-lcd2 .overflow > ul > li:first-child")
@@ -164,17 +166,69 @@ document
   .querySelector(".technology-lcd2 .overflow > ul")
   .appendChild(lcdBannerList);
 
-function lcdNextBtn() {
-  lcdNum++;
-  if (lcdNum > 4) {
-    document.querySelector(".overflow > ul").style.marginLeft = 0;
-    lcdNum = 0;
-  }
-  document.querySelector(".overflow > ul").style.marginLeft =
-    lcdNum * offsetWidth;
+const lcdSlidebarHandle = $(".technology-lcd2 .slide-bar");
+
+let lcdSlidebar = $("<div></div>")
+  .css({
+    width: "25%",
+    height: "7px",
+    "background-color": "#fff",
+    position: "absolute",
+    top: "0",
+    left: "0",
+  })
+  .addClass("slide-bar__now");
+
+lcdSlidebarHandle.append(lcdSlidebar);
+
+function lcdBtnMove() {
+  $(".technology-lcd2 .overflow > ul")
+    .stop()
+    .animate({
+      marginLeft: -lcdNum * lcdWidth,
+    });
+  $(".slide-bar__now")
+    .stop()
+    .animate({
+      left: lcdNum * 25 + "%",
+    });
 }
 
-document.querySelector(".technology-lcd2 .prev");
+function lcdPrevBtn() {
+  console.log("lcdNum: ", lcdNum);
+  if (lcdNum == 0) {
+    lcdNum = lcdLength;
+    $(".overflow > ul").css({
+      marginLeft: -lcdNum * lcdWidth,
+    });
+    $(".slide-bar__now").css({
+      left: lcdNum * 25 + "%",
+    });
+  }
+  lcdNum--;
+  lcdBtnMove();
+}
+
+function lcdNextBtn() {
+  lcdNum++;
+  if (lcdNum > lcdLength) {
+    $(".overflow > ul").css({
+      marginLeft: 0,
+    });
+    lcdNum = 1;
+  }
+  if (lcdNum == lcdLength) {
+    $(".slide-bar__now").css({
+      left: -lcdNum * lcdWidth,
+    });
+    lcdNum = 1;
+  }
+  lcdBtnMove();
+}
+
+document
+  .querySelector(".technology-lcd2 .prev")
+  .addEventListener("click", lcdPrevBtn);
 document
   .querySelector(".technology-lcd2 .next")
   .addEventListener("click", lcdNextBtn);

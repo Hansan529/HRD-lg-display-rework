@@ -620,6 +620,8 @@
 .technology-lcd2 > .slide-bar {
   width: 70%;
   transform: translateX(-50%);
+  position: relative;
+  overflow: hidden;
 }
 /** ESG */
 .esg {
