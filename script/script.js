@@ -132,6 +132,7 @@ const tecTextBox = document.querySelectorAll(
 );
 
 let cardIndex = 1;
+console.log("cardIndex: ", cardIndex);
 
 function cardPrevMove() {
   cardIndex = (cardIndex % 6) + 1;
@@ -143,23 +144,28 @@ function cardPrevMove() {
     }
     tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
   }
-}
-function cardNextMove() {
-  cardIndex = (cardIndex % 6) + 1;
-  tecList[0].classList.remove(`card-${cardIndex + 4}`);
-  for (let i = 0; i < tecList.length; i++) {
-    tecList[i].classList.remove(`card-${i + cardIndex - 1}`);
-    tecList[i].classList.add(`card-${((i + cardIndex + 3) % 6) + 1}`);
-    tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
-  }
+  console.log("Prev-cardIndex: ", cardIndex);
+  return cardIndex;
 }
 
+function cardNextMove() {
+  cardIndex = ((cardIndex + 4) % 6) + 1;
+  for (let i = 0; i < tecList.length; i++) {
+    tecList[i].classList.remove(`card-${((i + cardIndex + 1) % 6) + 1}`);
+    if (tecList[i].classList.length >= 2) {
+      tecList[i].classList.remove(`card-${(i + cardIndex) % 6}`);
+    }
+    tecList[i].classList.add(`card-${((i + cardIndex) % 6) + 1}`);
+    tecTextBox[i].style.backgroundImage = `url(../images/oled-${i + 1}.jpg)`;
+  }
+  console.log("Next-cardIndex: ", cardIndex);
+  return cardIndex;
+}
+cardIndex = cardNextMove();
 tecNextBtn.addEventListener("click", cardNextMove);
 tecPrevBtn.addEventListener("click", cardPrevMove);
 
-// document
-//   .querySelector(".technology-oled2 .next")
-//   .addEventListener("click", cardMove);
+//^ technology lcd
 
 //^ 반응형 체크
 let respon = false;
