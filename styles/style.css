@@ -630,9 +630,10 @@
   flex-direction: column;
   align-items: center;
   height: initial;
+  transition: 1s;
 }
 .esg > h2 {
-  margin: 150px 0;
+  margin: 100px 0;
 }
 .esg > div {
   flex: 1;
@@ -678,22 +679,31 @@
 .esg > ul > li > div:hover span {
   color: #fff;
 }
-.esg > ul > li.active > div img {
+.esg > ul > .active > div img {
   filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg)
     brightness(111%) contrast(101%);
 }
-.esg > ul > li.active > div span {
+.esg > ul > .active > div span {
   color: #fff;
 }
 .env,
 .social,
 .gover {
+  display: none;
   width: 90%;
-  padding: 100px 0;
+  padding: 100px 0 0;
+  position: absolute;
+  bottom: 0;
 }
-.env {
-  /* display: none; */
+.env.active,
+.social.active,
+.gover.active {
   display: flex;
+  position: relative;
+  height: 600px;
+}
+
+.env {
   justify-content: space-between;
   margin: 0 auto;
 }
@@ -857,9 +867,6 @@
 .env .chart > .chart-legend > div:last-child > .chart-legend__color {
   background: #666666;
 }
-.social {
-  display: flex;
-}
 .social > div {
   text-align: center;
   flex: 1;
@@ -888,6 +895,9 @@
 }
 .gover table > caption {
   text-align: start;
+}
+.gover table > caption .sub-title {
+  margin-bottom: 0;
 }
 .gover table tr > * {
   padding: 15px 0;

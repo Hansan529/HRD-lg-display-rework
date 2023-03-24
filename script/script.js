@@ -234,6 +234,46 @@ let lcdSlidebar = $("<div></div>")
 
 lcdSlidebarHandle.append(lcdSlidebar);
 
+//^ esg
+
+function esgAnimate() {
+  $(".esg").css(
+    {
+      height: "initial",
+    },
+    300
+  );
+  $(".esg article").css(
+    {
+      display: "flex",
+    },
+    300
+  );
+}
+
+function esgActive() {
+  console.log("실행");
+  let esgcheck1 = document.querySelector(".esg > ul > li:first-child").classList
+    .length;
+  let esgcheck2 = document.querySelector(".esg > ul > li:nth-child(2").classList
+    .length;
+  let esgcheck3 = document.querySelector(".esg > ul > li:last-child").classList
+    .length;
+  if (esgcheck1 == 1) {
+    $(".env").addClass("active").siblings().removeClass("active");
+  }
+  if (esgcheck2 == 1) {
+    $(".social").addClass("active").siblings().removeClass("active");
+  }
+  if (esgcheck3 == 1) {
+    $(".gover").addClass("active").siblings().removeClass("active");
+  }
+}
+
+$(".esg > ul > li").on("click", function () {
+  $(this).addClass("active").siblings().removeClass("active");
+  esgActive();
+});
 //^ 반응형 체크
 let respon = false;
 const responWidth = $("body").width();
