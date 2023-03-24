@@ -251,6 +251,7 @@ aside > header > .logo-wrap {
 /* 로고 위치 */
 aside > header > .logo-wrap > .logo {
   margin: 0 auto;
+  text-indent: -9999em;
 }
 aside > header > ul {
   flex: 1;
@@ -402,7 +403,14 @@ aside main > ul > li {
   flex: 1;
 }
 /* 반응형 (세로 짧아지면) */
-/* aside header > ul > li:nth-child(3),
+aside header > ul > li:first-child,
+aside main > ul > li:first-child,
+aside header > ul > li:nth-child(2),
+aside main > ul > li:nth-child(2) {
+  flex: 0.5;
+}
+
+aside header > ul > li:nth-child(3),
 aside header > ul > li:nth-child(4),
 aside main > ul > li:nth-child(3),
 aside main > ul > li:nth-child(4) {
@@ -420,7 +428,7 @@ aside main > ul > li:nth-child(4) .depth2-wrap {
 aside header > ul > li:last-child,
 aside main > ul > li:last-child {
   flex: none;
-} */
+}
 aside .depth2-wrap {
   line-height: initial;
   text-align: start;
@@ -501,6 +509,9 @@ footer > .inner {
 }
 .foot-menu > .call > a {
   color: #ccc;
+}
+.foot-menu > ul > li > a:hover {
+  text-decoration: underline;
 }
 .foot-link {
   flex: 1;

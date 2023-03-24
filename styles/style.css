@@ -691,7 +691,7 @@
 .gover {
   display: none;
   width: 90%;
-  padding: 100px 0 0;
+  padding: 100px 0 50px;
   position: absolute;
   bottom: 0;
 }
