@@ -104,7 +104,6 @@ let cardIndex = 0;
 
 function cardPrevMove() {
   let list = listName.shift();
-  console.log(listName);
   listName.push(list);
   for (let i = 0; i < tecList.length; i++) {
     tecList[i].setAttribute("class", "");
@@ -113,7 +112,6 @@ function cardPrevMove() {
 }
 function cardNextMove() {
   let list = listName.pop();
-  console.log(listName);
   listName.unshift(list);
   for (let i = 0; i < tecList.length; i++) {
     tecList[i].setAttribute("class", "");
@@ -234,7 +232,6 @@ function esgAnimate() {
 }
 
 function esgActive() {
-  console.log("실행");
   let esgcheck1 = document.querySelector(".esg > ul > li:first-child").classList
     .length;
   let esgcheck2 = document.querySelector(".esg > ul > li:nth-child(2").classList
