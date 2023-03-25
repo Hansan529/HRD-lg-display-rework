@@ -1,5 +1,18 @@
 @charset "UTF-8";
-@import url("../variables.css");
+:root {
+  --main-color: #d22323;
+  --header-size: 210px;
+}
+
+.--inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.--img-white {
+  filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg) brightness(111%) contrast(101%);
+}
+
 body {
   font-size: 18px;
   font-family: "Noto Sans KR", sans-serif;
@@ -8,10 +21,26 @@ body {
   color: #fff;
   background: #000;
 }
+@media screen and (max-width: 1600px) {
+  body {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  body {
+    font-size: 14px;
+  }
+}
 
 .inner {
   max-width: 1710px;
   margin-left: var(--header-size);
+}
+@media screen and (max-width: 1280px) {
+  .inner {
+    width: 95%;
+    margin-left: calc(var(--header-size) / 1.5);
+  }
 }
 
 section {
@@ -53,12 +82,24 @@ button.next {
   padding: 0 0 10px 10px;
   margin-bottom: 50px;
 }
+@media screen and (max-width: 1280px) {
+  .sub-title {
+    margin-bottom: 20px;
+  }
+}
 
 /* 본문 */
 .sub-title + p {
   width: 70%;
   line-height: 2;
   font-size: 18px;
+}
+@media screen and (max-width: 1280px) {
+  .sub-title + p {
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 .check {
@@ -80,6 +121,12 @@ header {
   left: 0;
   transition: 0.5s;
 }
+@media screen and (max-width: 1280px) {
+  header {
+    top: 0;
+    width: calc(var(--header-size) / 1.5);
+  }
+}
 header .logo-wrap {
   height: 10%;
 }
@@ -89,6 +136,13 @@ header .logo-wrap .logo {
   height: 35px;
   background: url("../../images/logo_en.png");
 }
+@media screen and (max-width: 1280px) {
+  header .logo-wrap .logo {
+    width: 140px;
+    height: 25px;
+    background-size: cover;
+  }
+}
 header .logo-wrap .logo > a {
   display: block;
   text-indent: -9999em;
@@ -97,6 +151,11 @@ header .logo-wrap .logo > a {
 }
 header > nav:first-of-type {
   height: 80%;
+}
+@media screen and (max-width: 1280px) {
+  header > nav:first-of-type {
+    height: 70%;
+  }
 }
 header > nav > .gnb {
   display: flex;
@@ -112,6 +171,17 @@ header > nav > .gnb > li > a {
   font-weight: 500;
   font-size: 1em;
   padding: 27.5px 20px;
+}
+@media screen and (max-width: 1280px) {
+  header > nav > .gnb > li > a {
+    background: url("../images/icon_chevron-right__white.svg") no-repeat 95%/14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
+@media screen and (min-height: 1081px) {
+  header > nav > .gnb > li > a {
+    padding: 50px 20px;
+  }
 }
 header > nav > .gnb > li > .depth {
   display: none;
@@ -149,6 +219,11 @@ header .gnb-btn__wrap {
   display: flex;
   align-items: flex-end;
 }
+@media screen and (max-width: 1280px) {
+  header .gnb-btn__wrap {
+    height: 20%;
+  }
+}
 header .gnb-btn__wrap > form {
   height: 100%;
   width: 100%;
@@ -161,8 +236,20 @@ header .gnb-btn__wrap > form .gnb-btn {
   gap: 20px;
   padding-bottom: 20px;
 }
+@media screen and (max-width: 1280px) {
+  header .gnb-btn__wrap > form .gnb-btn {
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+}
 header .gnb-btn__wrap > form .gnb-btn > li {
   position: relative;
+}
+@media screen and (max-width: 1280px) {
+  header .gnb-btn__wrap > form .gnb-btn > li {
+    width: 50%;
+  }
 }
 header .gnb-btn__wrap > form .gnb-btn > li > button {
   display: block;
@@ -170,6 +257,11 @@ header .gnb-btn__wrap > form .gnb-btn > li > button {
   height: 27px;
   background: url("../../images/icon_utill.png") no-repeat 0 0;
   text-indent: -9999em;
+}
+@media screen and (max-width: 1280px) {
+  header .gnb-btn__wrap > form .gnb-btn > li > button {
+    margin: 0 auto;
+  }
 }
 header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) > button {
   background-position-y: -28px;
@@ -190,6 +282,11 @@ header .gnb-btn__wrap > form .gnb-btn > li::after {
   right: -12px;
   top: 50%;
   transform: translateY(-50%);
+}
+@media screen and (max-width: 1280px) {
+  header .gnb-btn__wrap > form .gnb-btn > li::after {
+    display: none;
+  }
 }
 header .gnb-btn__wrap > form .gnb-btn > li:last-child::after {
   display: none;
@@ -255,6 +352,67 @@ aside > header > ul > li > button {
 aside > main {
   display: flex;
   padding: 0 50px;
+}
+@media screen and (max-width: 1280px) {
+  aside > main {
+    /* flex 해제 */
+    display: block;
+  }
+}
+@media screen and (max-width: 1280px) {
+  aside > main > .mobile-btn-box-wrap {
+    /* blind 값 초기화 */
+    top: initial;
+    position: static;
+  }
+  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap {
+    /* 가로 간격 조정 및 여백 */
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap > ul {
+    /* 가로 정렬, 여백 조정, 서식 변경 */
+    display: flex;
+    gap: 20px;
+    color: #999;
+    font-size: 20px;
+  }
+  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap > ul > li a.select {
+    /* 선택된 텍스트 서식 변경 */
+    color: #fff;
+  }
+  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap > button {
+    /* exit button 스타일 */
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("../../images/icon_chevron-right__white.svg") no-repeat left/22px 30px, url("../../images/icon_chevron-left__white.svg") no-repeat right/22px 30px;
+  }
+  aside > main > .mobile-btn-box-wrap .search {
+    /* 검색 input wrap: 중앙 정렬 및 여백 조절 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  aside > main > .mobile-btn-box-wrap .search > input {
+    /* 기본 서식 제거 및 스타일 변경 */
+    all: initial;
+    border-bottom: 1px solid #fff;
+    padding: 0 10px 10px;
+    width: 90%;
+  }
+  aside > main > .mobile-btn-box-wrap .search > a > i {
+    /* 검색 아이콘 */
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin-left: 20px;
+    background-image: url("../images/icon_utill.png");
+    right: 20px;
+    bottom: 10px;
+  }
 }
 aside > main > .btn-box-wrap {
   display: flex;
@@ -358,8 +516,22 @@ aside > main > ul {
   display: flex;
   flex: 1;
 }
+@media screen and (max-width: 1280px) {
+  aside > main > ul {
+    display: block;
+  }
+}
 aside > main > ul > li {
   flex: 1;
+}
+@media screen and (max-width: 1280px) {
+  aside > main > ul > li .mobile-title {
+    top: initial;
+    position: initial;
+    background: url("../../images/icon_chevron-right__white.svg") no-repeat right/24px;
+    font-size: 1.714286em;
+    padding: 15px 0;
+  }
 }
 aside > main > ul > li > .depth2-wrap {
   line-height: initial;
@@ -368,6 +540,11 @@ aside > main > ul > li > .depth2-wrap {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+@media screen and (max-width: 1280px) {
+  aside > main > ul > li > .depth2-wrap {
+    display: none;
+  }
 }
 aside > main > ul > li > .depth2-wrap > .depth2 {
   margin-top: 30px;
@@ -428,6 +605,11 @@ footer > .inner {
   height: 100%;
   padding: 0 75px;
 }
+@media screen and (min-width: 1921px) and (max-width: 2560px) {
+  footer > .inner {
+    margin: 0 auto;
+  }
+}
 footer > .inner > .foot-menu {
   flex: 2;
   padding-right: 75px;
@@ -455,6 +637,11 @@ footer > .inner .foot-link {
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
+}
+@media screen and (max-width: 1600px) {
+  footer > .inner .foot-link {
+    gap: 15px;
+  }
 }
 footer > .inner .foot-link > a {
   display: block;
