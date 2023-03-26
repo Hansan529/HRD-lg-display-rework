@@ -13,6 +13,53 @@
   filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg) brightness(111%) contrast(101%);
 }
 
+/* 1.조상에 미디어쿼리를 선언하기
+  자손들의 값들을 변경하면 DX(개발자 경험)이 더욱 뛰어나다, 
+  왜냐, 한 눈에 변화되는 코드만을 볼 수 있기 때문에 변화점에 대해 쉽게 알 수 있다.
+
+  ```
+  body {
+  @include respon(1600) {
+    font-size: 16px;
+    footer {
+      .inner {
+        .foot-link {
+          .foot-link {
+            gap: 15px;
+          }
+        }
+      }
+    }
+  }  
+  ```
+
+  해당 코드를 살펴보면, 스크린이 1600px 안에 포함되면
+  body의 font-size가 변경되며, footer .inner .foot-link .foot-link 의 gap이 15px로 변경 되는 걸 알 수 있다.
+
+  하지만 별도의 변화점을 추가하려면 경로를 일일이 추가해야하기 때문에 유지보수에서는 떨어진다.
+
+
+  2. 선언한 코드마다 미디어쿼리를 선언하기
+  어느 코드에서라도 미디어쿼리를 관리하기 쉽다. 기존에 선언한 코드에 작성하는 것이기에 별도의 경로를 추가하여 작성 할 필요 없으며,
+  하나의 코드에 선언되는 미디어쿼리의 수를 확인할 수 있다.
+
+  ```
+  header {
+    .gnb-btn__wrap {
+    @include respon(1280) {
+      height: 20%;
+    }
+    @include responOrientaion($wSize: 1280, $mode: portrait) {
+      height: 100%;
+    }
+  }
+    ```
+
+    .gnb-btn__wrap 이라는 클래스 요소가 1280px에서는 height 값이 20%, 세로모드일 경우 100%로 변경되는 것을 
+    한 눈에 보기 쉽다. 이로 인해서 값을 수정하기 쉬워 유지보수가 편리하다는 장점이 있다. 단, 미디어 쿼리를 여러번 선언하기에
+    코드가 길어 질 수 있다.
+
+*/
 body {
   font-size: 18px;
   font-family: "Noto Sans KR", sans-serif;
@@ -20,6 +67,8 @@ body {
   height: initial;
   color: #fff;
   background: #000;
+  /* 서브 제목 */
+  /* 본문 */
 }
 @media screen and (max-width: 1600px) {
   body {
@@ -31,78 +80,76 @@ body {
     font-size: 14px;
   }
 }
-
-.inner {
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+}
+body .inner {
   max-width: 1710px;
   margin-left: var(--header-size);
 }
 @media screen and (max-width: 1280px) {
-  .inner {
+  body .inner {
     width: 95%;
     margin-left: calc(var(--header-size) / 1.5);
   }
 }
-
-section {
+body section {
   height: 100vh;
 }
-
-.sec-title {
+@media screen and (max-width: 767px) {
+  body section {
+    height: initial;
+  }
+}
+body .sec-title {
   text-align: center;
   font-size: 2.625em;
 }
-
-.text-align-end {
+body .text-align-end {
   text-align: end;
   align-items: end;
 }
-
-.flex-end {
+body .flex-end {
   justify-content: flex-end;
 }
-
-.img-box img {
+body .img-box img {
   width: 100%;
   height: 100%;
 }
-
-.translucent {
+body .translucent {
   color: rgba(255, 255, 255, 0.5);
 }
-
-button.prev,
-button.next {
+body button.prev,
+body button.next {
   cursor: pointer;
 }
-
-/* 서브 제목 */
-.sub-title {
+body .sub-title {
   display: inline-block;
   font-size: 42px;
   padding: 0 0 10px 10px;
   margin-bottom: 50px;
 }
 @media screen and (max-width: 1280px) {
-  .sub-title {
+  body .sub-title {
     margin-bottom: 20px;
   }
 }
-
-/* 본문 */
-.sub-title + p {
+body .sub-title + p {
   width: 70%;
   line-height: 2;
   font-size: 18px;
 }
 @media screen and (max-width: 1280px) {
-  .sub-title + p {
+  body .sub-title + p {
     width: 100%;
     font-size: 12px;
     line-height: 1.5;
   }
 }
-
-.check {
+body .check {
   font-weight: 700;
 }
 
@@ -178,48 +225,52 @@ header > nav:first-of-type {
     height: 70%;
   }
 }
-header > nav > .gnb {
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header > nav:first-of-type {
+    height: 70%;
+  }
+}
+header > nav .gnb {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 @media screen and (max-width: 1280px) and (orientation: portrait) {
-  header > nav > .gnb {
+  header > nav .gnb {
     display: none;
   }
 }
-header > nav > .gnb > li {
+@media screen and (max-width: 767px) {
+  header > nav .gnb {
+    display: none;
+  }
+}
+header > nav .gnb > li {
   position: relative;
 }
-header > nav > .gnb > li > a {
+header > nav .gnb > li > a {
   display: block;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1em;
   padding: 27.5px 20px;
 }
-@media screen and (max-width: 1280px) {
-  header > nav > .gnb > li > a {
-    background: url("../images/icon_chevron-right__white.svg") no-repeat 95%/14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  }
-}
 @media screen and (min-height: 1081px) {
-  header > nav > .gnb > li > a {
+  header > nav .gnb > li > a {
     padding: 50px 20px;
   }
 }
-header > nav > .gnb > li > .depth {
+header > nav .gnb > li .depth {
   display: none;
   position: absolute;
   height: 100%;
   z-index: 1000;
 }
-header > nav > .gnb > li > .depth > li {
+header > nav .gnb > li .depth > li {
   width: 210px;
   height: 100%;
 }
-header > nav > .gnb > li > .depth > li > a {
+header > nav .gnb > li .depth > li > a {
   display: flex;
   width: 100%;
   height: 100%;
@@ -228,13 +279,13 @@ header > nav > .gnb > li > .depth > li > a {
   padding-left: 20px;
   background-color: #333333;
 }
-header > nav > .gnb > li > .depth > li > a:hover {
+header > nav .gnb > li .depth > li > a:hover {
   background: var(--main-color);
 }
-header > nav > .gnb > li:hover > a {
+header > nav .gnb > li:hover > a {
   background: var(--main-color);
 }
-header > nav > .gnb > li:hover > .depth {
+header > nav .gnb > li:hover .depth {
   display: block;
   top: 0;
   right: 0;
@@ -306,7 +357,17 @@ header .gnb-btn__wrap > form .gnb-btn > li > button {
     margin: 0 auto;
   }
 }
+@media screen and (max-width: 767px) {
+  header .gnb-btn__wrap > form .gnb-btn > li:first-child {
+    display: none;
+  }
+}
 @media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
   header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) {
     display: none;
   }
@@ -357,14 +418,19 @@ aside > header {
   padding: 0 50px;
   position: initial;
 }
-aside > header > .logo-wrap {
+@media screen and (max-width: 767px) {
+  aside > header {
+    display: none;
+  }
+}
+aside > header .logo-wrap {
   width: 410px;
   height: 100%;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
 }
-aside > header > .logo-wrap > .logo {
+aside > header .logo-wrap .logo {
   margin: 0 auto;
   text-indent: -9999em;
 }
@@ -408,50 +474,50 @@ aside > main {
   }
 }
 @media screen and (max-width: 1280px) {
-  aside > main > .mobile-btn-box-wrap {
+  aside > main .mobile-btn-box-wrap {
     /* blind 값 초기화 */
     top: initial;
     position: static;
   }
-  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap {
+  aside > main .mobile-btn-box-wrap .mobile-btn-wrap {
     /* 가로 간격 조정 및 여백 */
     display: flex;
     justify-content: space-between;
     margin: 30px 0;
   }
-  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap > ul {
+  aside > main .mobile-btn-box-wrap .mobile-btn-wrap > ul {
     /* 가로 정렬, 여백 조정, 서식 변경 */
     display: flex;
     gap: 20px;
     color: #999;
     font-size: 20px;
   }
-  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap > ul > li a.select {
+  aside > main .mobile-btn-box-wrap .mobile-btn-wrap > ul > li a.select {
     /* 선택된 텍스트 서식 변경 */
     color: #fff;
   }
-  aside > main > .mobile-btn-box-wrap .mobile-btn-wrap > button {
+  aside > main .mobile-btn-box-wrap .mobile-btn-wrap > button {
     /* exit button 스타일 */
     display: block;
     width: 30px;
     height: 30px;
     background: url("../../images/icon_chevron-right__white.svg") no-repeat left/22px 30px, url("../../images/icon_chevron-left__white.svg") no-repeat right/22px 30px;
   }
-  aside > main > .mobile-btn-box-wrap .search {
+  aside > main .mobile-btn-box-wrap .search {
     /* 검색 input wrap: 중앙 정렬 및 여백 조절 */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
   }
-  aside > main > .mobile-btn-box-wrap .search > input {
+  aside > main .mobile-btn-box-wrap .search > input {
     /* 기본 서식 제거 및 스타일 변경 */
     all: initial;
     border-bottom: 1px solid #fff;
     padding: 0 10px 10px;
     width: 90%;
   }
-  aside > main > .mobile-btn-box-wrap .search > a > i {
+  aside > main .mobile-btn-box-wrap .search > a > i {
     /* 검색 아이콘 */
     display: block;
     width: 28px;
@@ -462,7 +528,7 @@ aside > main {
     bottom: 10px;
   }
 }
-aside > main > .btn-box-wrap {
+aside > main .btn-box-wrap {
   display: flex;
   flex-direction: column;
   width: 410px;
@@ -470,7 +536,12 @@ aside > main > .btn-box-wrap {
   padding: 70px;
   padding-left: 0;
 }
-aside > main > .btn-box-wrap > div {
+@media screen and (max-width: 767px) {
+  aside > main .btn-box-wrap {
+    display: none;
+  }
+}
+aside > main .btn-box-wrap > div {
   background: no-repeat 0px 0;
   border-radius: 20px;
   padding: 10px 20px;
@@ -479,41 +550,41 @@ aside > main > .btn-box-wrap > div {
   position: relative;
   font-size: 1.333333em;
 }
-aside > main > .btn-box-wrap > div i {
+aside > main .btn-box-wrap > div i {
   display: block;
   background-image: url("../../images/icon_utill.png");
   background-repeat: no-repeat;
   width: 28px;
   height: 28px;
 }
-aside > main > .btn-box-wrap > .search {
+aside > main .btn-box-wrap .search {
   padding: 0;
   height: 125px;
   font-weight: 500;
 }
-aside > main > .btn-box-wrap > .search > a {
+aside > main .btn-box-wrap .search > a {
   display: block;
   width: 100%;
   height: 100%;
   padding: 10px 20px;
 }
-aside > main > .btn-box-wrap > .search > a > i {
+aside > main .btn-box-wrap .search > a > i {
   position: absolute;
   bottom: 10px;
   right: 20px;
   background-position: -28px 0;
 }
-aside > main > .btn-box-wrap .lang {
+aside > main .btn-box-wrap .lang {
   flex-wrap: wrap;
 }
-aside > main > .btn-box-wrap .lang > i {
+aside > main .btn-box-wrap .lang > i {
   background-position: -28px -28px;
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap {
+aside > main .btn-box-wrap .lang .lang-wrap {
   width: 100%;
   padding: 10px 30px 0;
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button {
+aside > main .btn-box-wrap .lang .lang-wrap button {
   background-position: left center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -525,39 +596,39 @@ aside > main > .btn-box-wrap .lang > .lang-wrap button {
   text-align: start;
   font-size: 20px;
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button > i {
+aside > main .btn-box-wrap .lang .lang-wrap button > i {
   background: none;
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button.check > i {
+aside > main .btn-box-wrap .lang .lang-wrap button.check > i {
   background: url("../../images/check.png") no-repeat center/cover;
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button:first-of-type {
+aside > main .btn-box-wrap .lang .lang-wrap button:first-of-type {
   background-image: url("../../images/lang-1.png");
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button:nth-of-type(2) {
+aside > main .btn-box-wrap .lang .lang-wrap button:nth-of-type(2) {
   background-image: url("../../images/lang-2.png");
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button:nth-of-type(3) {
+aside > main .btn-box-wrap .lang .lang-wrap button:nth-of-type(3) {
   background-image: url("../../images/lang-3.png");
 }
-aside > main > .btn-box-wrap .lang > .lang-wrap button:last-of-type {
+aside > main .btn-box-wrap .lang .lang-wrap button:last-of-type {
   background-image: url("../../images/lang-4.png");
 }
-aside > main > .btn-box-wrap > .dark-mode > i {
+aside > main .btn-box-wrap .dark-mode > i {
   background-image: url("../../images/dark-mode.png");
   background-size: cover;
 }
-aside > main > .btn-box-wrap > .dark-mode > div {
+aside > main .btn-box-wrap .dark-mode > div {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
   margin-bottom: 30px;
 }
-aside > main > .btn-box-wrap > .dark-mode > div > button {
+aside > main .btn-box-wrap .dark-mode > div > button {
   width: 50px;
 }
 aside > main > ul {
@@ -581,7 +652,7 @@ aside > main > ul > li {
     padding: 15px 0;
   }
 }
-aside > main > ul > li > .depth2-wrap {
+aside > main > ul > li .depth2-wrap {
   line-height: initial;
   text-align: start;
   width: 100%;
@@ -590,42 +661,42 @@ aside > main > ul > li > .depth2-wrap {
   flex-wrap: wrap;
 }
 @media screen and (max-width: 1280px) {
-  aside > main > ul > li > .depth2-wrap {
+  aside > main > ul > li .depth2-wrap {
     display: none;
   }
 }
-aside > main > ul > li > .depth2-wrap > .depth2 {
+aside > main > ul > li .depth2-wrap .depth2 {
   margin-top: 30px;
   padding: 0 20px;
 }
-aside > main > ul > li > .depth2-wrap > .depth2 > .depth-title {
+aside > main > ul > li .depth2-wrap .depth2 .depth-title {
   font-size: 1.333333em;
   font-weight: 700;
 }
-aside > main > ul > li > .depth2-wrap > .depth2 > ul {
+aside > main > ul > li .depth2-wrap .depth2 > ul {
   margin-top: 10px;
 }
-aside > main > ul > li > .depth2-wrap > .depth2 > ul > li {
+aside > main > ul > li .depth2-wrap .depth2 > ul > li {
   color: #ccc;
   line-height: 1.5;
   padding-left: 10px;
   position: relative;
 }
-aside > main > ul > li > .depth2-wrap > .depth2 > ul > li::before {
+aside > main > ul > li .depth2-wrap .depth2 > ul > li::before {
   content: "-";
   display: inline;
   margin-right: 10px;
 }
-aside > main > ul > li > .depth2-wrap > .depth2 > ul > li > a {
+aside > main > ul > li .depth2-wrap .depth2 > ul > li > a {
   transition: 0.3s;
   font-size: 16px;
 }
-aside > main > ul > li > .depth2-wrap > .depth2 > ul > li > a:hover {
+aside > main > ul > li .depth2-wrap .depth2 > ul > li > a:hover {
   color: #eee;
   font-weight: 700;
   font-size: 18px;
 }
-aside > main > ul > li:nth-child(2) > .depth2-wrap {
+aside > main > ul > li:nth-child(2) .depth2-wrap {
   text-align: center;
 }
 
@@ -660,44 +731,49 @@ footer {
   position: relative;
   z-index: 500;
 }
-footer > .inner {
+footer .inner {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 75px;
 }
 @media screen and (min-width: 1921px) and (max-width: 2560px) {
-  footer > .inner {
+  footer .inner {
     margin: 0 auto;
   }
 }
-footer > .inner > .foot-menu {
+footer .inner .foot-menu {
   flex: 2;
   padding-right: 75px;
 }
-footer > .inner > .foot-menu > ul {
+footer .inner .foot-menu > ul {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-footer > .inner > .foot-menu > ul > li > a:hover {
+footer .inner .foot-menu > ul > li > a:hover {
   text-decoration: underline;
 }
 @media screen and (max-width: 1280px) and (orientation: portrait) {
-  footer > .inner > .foot-menu > ul > li:last-child {
+  footer .inner .foot-menu > ul > li:last-child {
     display: none;
   }
 }
-footer > .inner > .foot-menu > .call,
-footer > .inner > .foot-menu > .copy {
+@media screen and (max-width: 767px) {
+  footer .inner .foot-menu > ul > li:last-child {
+    display: none;
+  }
+}
+footer .inner .foot-menu .call,
+footer .inner .foot-menu .copy {
   font-size: 0.777778em;
   color: #999;
   line-height: 1.75;
 }
-footer > .inner > .foot-menu > .call > a {
+footer .inner .foot-menu .call > a {
   color: #ccc;
 }
-footer > .inner .foot-link {
+footer .inner .foot-link {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
@@ -705,11 +781,11 @@ footer > .inner .foot-link {
   gap: 25px;
 }
 @media screen and (max-width: 1600px) {
-  footer > .inner .foot-link {
+  footer .inner .foot-link {
     gap: 15px;
   }
 }
-footer > .inner .foot-link > a {
+footer .inner .foot-link > a {
   display: block;
   width: 145px;
   height: 35px;
@@ -719,14 +795,14 @@ footer > .inner .foot-link > a {
   border-radius: 50px;
   font-size: 0.777778em;
 }
-footer > .inner .foot-link > a > img {
+footer .inner .foot-link > a > img {
   display: inline;
 }
-footer > .inner .foot-site {
+footer .inner .foot-site {
   width: 15%;
   margin-left: 50px;
 }
-footer > .inner .foot-site > strong {
+footer .inner .foot-site > strong {
   display: block;
   text-align: center;
   border-bottom: 1px solid #fff;
@@ -734,12 +810,12 @@ footer > .inner .foot-site > strong {
   margin-bottom: 5px;
   padding-bottom: 10px;
 }
-footer > .inner .foot-site > p {
+footer .inner .foot-site > p {
   padding: 0 30px;
   line-height: 1.5;
   white-space: nowrap;
 }
-footer > .inner .foot-site > p > a {
+footer .inner .foot-site > p > a {
   font-size: 0.777778em;
 }
 
@@ -802,13 +878,13 @@ body.white aside {
 body.white aside > header > ul > li > button {
   background: url("../../images/icon_chevron-right.svg") no-repeat 1.5px center/30px, url("../../images/icon_chevron-left.svg") no-repeat calc(100% - 1.5px) center/30px;
 }
-body.white aside > main > ul > li > .depth2-wrap > .depth2 {
+body.white aside > main > ul > li .depth2-wrap .depth2 {
   color: #333;
 }
-body.white aside > main > ul > li > .depth2-wrap > .depth2 > ul > li {
+body.white aside > main > ul > li .depth2-wrap .depth2 > ul > li {
   color: #333;
 }
-body.white aside > main > ul > li > .depth2-wrap > .depth2 > ul > li > a:hover {
+body.white aside > main > ul > li .depth2-wrap .depth2 > ul > li > a:hover {
   color: #000;
 }
 body.white footer {

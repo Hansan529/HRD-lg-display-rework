@@ -34,19 +34,6 @@
   .main-banner {
     height: 100vh;
   }
-  .main-banner .main-down {
-    width: 40px;
-    height: 40px;
-    transform: none;
-    left: initial;
-    right: 30px;
-    bottom: 30px;
-    animation: none;
-    background-image: url("../images/icon_chevron-down.svg");
-    background-color: #fff;
-    background-size: 50%;
-    background-position: center;
-  }
   .main-banner .pager {
     display: flex;
   }
@@ -104,6 +91,11 @@
   gap: 20px;
   z-index: 500;
 }
+@media screen and (max-width: 767px) {
+  .main-banner .slide-wrap {
+    display: none;
+  }
+}
 .main-banner .main-down {
   position: absolute;
   bottom: 2%;
@@ -114,6 +106,21 @@
   background: url("../../images/top-btn.png") no-repeat;
   animation: move__ani 1s ease-out infinite alternate;
   z-index: 500;
+}
+@media screen and (max-width: 1280px) {
+  .main-banner .main-down {
+    width: 40px;
+    height: 40px;
+    transform: none;
+    left: initial;
+    right: 30px;
+    bottom: 30px;
+    animation: none;
+    background-image: url("../../images/icon_chevron-down.svg");
+    background-color: #fff;
+    background-size: 50%;
+    background-position: center;
+  }
 }
 @keyframes move__ani {
   from {
@@ -162,9 +169,6 @@
   /* 이미지 */
 }
 @media screen and (max-width: 1280px) {
-  .slide-btn {
-    display: none;
-  }
   .slide-btn > button.slide-btn-ps {
     display: none;
   }
@@ -194,6 +198,11 @@
   /* 시작,종료 버튼 크기 */
   /* 상태 이미지 */
 }
+@media screen and (max-width: 1280px) {
+  .slide-btn button {
+    display: none;
+  }
+}
 .slide-btn button.slide-btn-ps {
   display: block;
   width: 52px;
@@ -221,6 +230,11 @@
   .product > .sec-title {
     font-size: 25px;
     text-shadow: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product > .sec-title {
+    display: none;
   }
 }
 .product > ul {
@@ -254,20 +268,6 @@
 }
 .product > ul > li.product__automotive > ul > li {
   background: url("../../images/product-bg-5.jpg") no-repeat center/cover;
-}
-.product > ul > li > button {
-  font-size: 1.375em;
-  padding-bottom: 10px;
-  border-bottom: 7px solid #666666;
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: #ccc;
-  transition: 0.5s;
-}
-.product > ul > li > button:hover {
-  color: #fff;
-  border-bottom: 7px solid #fff;
 }
 .product > ul > li > ul {
   /* display: none; */
@@ -303,6 +303,30 @@
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
+}
+@media screen and (max-width: 767px) {
+  .product > ul > li > ul > li::after {
+    display: none;
+  }
+}
+.product > ul > li > button {
+  font-size: 1.375em;
+  padding-bottom: 10px;
+  border-bottom: 7px solid #666666;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+  transition: 0.5s;
+}
+@media screen and (max-width: 767px) {
+  .product > ul > li > button {
+    display: none;
+  }
+}
+.product > ul > li > button:hover {
+  color: #fff;
+  border-bottom: 7px solid #fff;
 }
 .product .text-box-wrap {
   display: flex;
@@ -389,60 +413,9 @@
   background: url("../../images/technology-1.jpg") no-repeat -100px -100vh/120%;
   padding: 140px 65px;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 767px) {
   .technology-oled2 {
-    padding: 0 65px;
-  }
-  .technology-oled2 > ul > li {
-    flex-direction: column;
-    top: 0;
-    transform: translate(-50%, 0);
-    height: 100%;
-  }
-  .technology-oled2 > ul > li > div.img-box-wrap {
-    margin-bottom: 0;
-  }
-  .technology-oled2 > ul > li > div.img-box-wrap > .img-box img {
-    width: 250px;
-    height: 250px;
-  }
-  .technology-oled2 > ul > li > div.text-box {
-    width: 100%;
-    flex: 1;
-    margin: 0;
-    background: none;
-  }
-}
-@media screen and (max-width: 1280px) and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a {
-    padding: 40px;
-    position: relative;
-  }
-  .technology-oled2 > ul > li > div.text-box > a > * {
-    position: relative;
-    z-index: 10;
-  }
-  .technology-oled2 > ul > li > div.text-box > a::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 0.7;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a .sub-title {
-    margin-bottom: 50px;
-  }
-}
-@media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a > p {
-    font-size: 16px;
-    line-height: 1.5;
+    display: none;
   }
 }
 .technology-oled2 > ul {
@@ -457,6 +430,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: 650px;
+}
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li {
+    flex-direction: column;
+    top: 0;
+    transform: translate(-50%, 0);
+    height: 100%;
+  }
 }
 .technology-oled2 > ul > li.card-1 {
   z-index: 50;
@@ -518,6 +499,11 @@
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.img-box-wrap {
+    margin-bottom: 0;
+  }
+}
 .technology-oled2 > ul > li > div.img-box-wrap > .img-box {
   display: inline-block;
   text-align: center;
@@ -532,6 +518,12 @@
      object-fit: cover;
   margin-bottom: 31px;
 }
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.img-box-wrap > .img-box img {
+    width: 250px;
+    height: 250px;
+  }
+}
 .technology-oled2 > ul > li > div.img-box-wrap > .img-box strong {
   display: block;
   font-size: 1.75rem;
@@ -542,24 +534,69 @@
   margin-left: 65px;
   z-index: 50;
 }
-.technology-oled2 > ul > li > div.text-box > a {
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.text-box {
+    width: 100%;
+    flex: 1;
+    margin: 0;
+    background: none;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.text-box > a {
+    padding: 40px;
+    position: relative;
+  }
+}
+.technology-oled2 > ul > li > div.text-box > a > * {
   display: block;
   width: 100%;
   height: 100%;
   padding: 140px 40px;
   word-break: keep-all;
 }
-.technology-oled2 > ul > li > div.text-box > a .sub-title {
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.text-box > a > * {
+    position: relative;
+    z-index: 10;
+  }
+}
+.technology-oled2 > ul > li > div.text-box > a > * .sub-title {
   font-size: 2.111111em;
   text-shadow: 0 0 5px #000;
   letter-spacing: -0.5px;
   padding: 0;
   margin-bottom: 100px;
 }
-.technology-oled2 > ul > li > div.text-box > a p {
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.text-box > a > * .sub-title {
+    margin-bottom: 50px;
+  }
+}
+.technology-oled2 > ul > li > div.text-box > a > * p {
   text-shadow: 0 0 5px #000;
 }
-.technology-oled2 .slide-btn {
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.text-box > a > * p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .technology-oled2 > ul > li > div.text-box > a > *::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.7;
+  }
+}
+
+.slide-btn {
   width: 40%;
   gap: 0;
   justify-content: space-between;
@@ -574,14 +611,6 @@
 .technology-lcd {
   display: flex;
   flex-direction: column;
-}
-@media screen and (max-width: 1280px) {
-  .technology-lcd .img-wrap .text-box {
-    bottom: 50px;
-  }
-  .technology-lcd .img-wrap .text-box > p {
-    width: 100%;
-  }
 }
 .technology-lcd .sec-title {
   padding: 100px 100px 50px;
@@ -598,6 +627,11 @@
   text-align: center;
   transform: translateX(-50%);
 }
+@media screen and (max-width: 1280px) {
+  .technology-lcd .img-wrap .text-box {
+    bottom: 50px;
+  }
+}
 .technology-lcd .img-wrap .text-box > strong {
   display: block;
   margin-bottom: 60px;
@@ -608,9 +642,19 @@
   margin: 0 auto;
   word-break: keep-all;
 }
+@media screen and (max-width: 1280px) {
+  .technology-lcd .img-wrap .text-box > p {
+    width: 100%;
+  }
+}
 
 .technology-lcd2 {
   padding: calc((100vh - 720px) / 2) 0;
+}
+@media screen and (max-width: 767px) {
+  .technology-lcd2 {
+    display: none;
+  }
 }
 .technology-lcd2 > .overflow {
   width: 85%;
@@ -713,6 +757,11 @@
   align-items: center;
   height: initial;
   transition: 1s;
+}
+@media screen and (max-width: 767px) {
+  .esg {
+    display: none;
+  }
 }
 .esg > h2 {
   margin: 100px 0;
@@ -1012,17 +1061,6 @@
     height: initial;
   }
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  .latest-news > div:last-child {
-    margin-bottom: 50px;
-  }
-  .latest-news > div > a {
-    margin-right: 50px;
-  }
-  .latest-news > div > a > img {
-    width: 300px;
-  }
-}
 .latest-news .sec-title {
   padding: 60px 0 0;
 }
@@ -1035,14 +1073,39 @@
   margin-top: 90px;
   margin-bottom: 90px;
 }
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  .latest-news > div:first-of-type {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .latest-news > div:last-of-type .text-box p:first-of-type {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .latest-news > div:last-of-type .text-box p:last-of-type {
+    display: none;
+  }
+}
 .latest-news > div > a {
   margin-right: 110px;
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  .latest-news > div > a {
+    margin-right: 50px;
+  }
 }
 .latest-news > div > a > img {
   width: 480px;
   height: 270px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  .latest-news > div > a > img {
+    width: 300px;
+  }
 }
 .latest-news > div .text-box {
   flex: 1;
