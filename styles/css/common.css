@@ -183,10 +183,26 @@ header {
     padding: 0 20px;
   }
 }
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: row;
+    top: 0;
+    width: 100vw;
+    height: 70px;
+    padding: 0 20px;
+  }
+}
 header .logo-wrap {
   height: 10%;
 }
 @media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .logo-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 767px) {
   header .logo-wrap {
     height: 100%;
     display: flex;
@@ -207,6 +223,11 @@ header .logo-wrap .logo {
   }
 }
 @media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .logo-wrap .logo {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 767px) {
   header .logo-wrap .logo {
     margin: 0;
   }
@@ -302,6 +323,11 @@ header .gnb-btn__wrap {
   }
 }
 @media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .gnb-btn__wrap {
+    height: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
   header .gnb-btn__wrap {
     height: 100%;
   }
@@ -719,9 +745,20 @@ aside > main > ul > li:nth-child(2) .depth2-wrap {
     width: 100%;
   }
 }
+@media screen and (max-width: 767px) {
+  #main {
+    margin: 0;
+    width: 100%;
+  }
+}
 #main section {
-  /* width: 100%; */
   position: relative;
+}
+@media screen and (max-width: 767px) {
+  #main section {
+    width: 95%;
+    margin: 0 auto 50px auto;
+  }
 }
 
 /*^ footer */
