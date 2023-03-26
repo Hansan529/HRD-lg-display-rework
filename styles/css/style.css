@@ -411,6 +411,14 @@
   width: 40%;
   flex-direction: column;
 }
+@media screen and (max-width: 767px) {
+  .product > ul > li > ul > li > div.text-box-wrap {
+    margin: 0 10px 0 0;
+    width: initial;
+    flex: 1;
+    align-items: start;
+  }
+}
 .product > ul > li > ul > li > div.text-box-wrap .text-box {
   display: inline-flex;
   flex: 1;
@@ -430,6 +438,13 @@
 }
 .product > ul > li > ul > li > div.text-box-wrap .text-box .sub-title {
   border-bottom: 2px solid #fff;
+}
+@media screen and (max-width: 767px) {
+  .product > ul > li > ul > li > div.text-box-wrap .text-box .sub-title {
+    padding: 0;
+    border: none;
+    font-size: 16px;
+  }
 }
 .product > ul > li > ul > li > div.text-box-wrap .more-btn {
   transition: all 0.5s;
