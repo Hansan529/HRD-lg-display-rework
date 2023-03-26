@@ -127,8 +127,24 @@ header {
     width: calc(var(--header-size) / 1.5);
   }
 }
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header {
+    flex-direction: row;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+  }
+}
 header .logo-wrap {
   height: 10%;
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .logo-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }
 header .logo-wrap .logo {
   margin: 35px auto 0;
@@ -141,6 +157,11 @@ header .logo-wrap .logo {
     width: 140px;
     height: 25px;
     background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .logo-wrap .logo {
+    margin: 0;
   }
 }
 header .logo-wrap .logo > a {
@@ -161,6 +182,11 @@ header > nav > .gnb {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header > nav > .gnb {
+    display: none;
+  }
 }
 header > nav > .gnb > li {
   position: relative;
@@ -224,6 +250,11 @@ header .gnb-btn__wrap {
     height: 20%;
   }
 }
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .gnb-btn__wrap {
+    height: 100%;
+  }
+}
 header .gnb-btn__wrap > form {
   height: 100%;
   width: 100%;
@@ -243,12 +274,24 @@ header .gnb-btn__wrap > form .gnb-btn {
     gap: 0;
   }
 }
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .gnb-btn__wrap > form .gnb-btn {
+    flex-wrap: nowrap;
+    padding-bottom: 0;
+    gap: 10px;
+  }
+}
 header .gnb-btn__wrap > form .gnb-btn > li {
   position: relative;
 }
 @media screen and (max-width: 1280px) {
   header .gnb-btn__wrap > form .gnb-btn > li {
     width: 50%;
+  }
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .gnb-btn__wrap > form .gnb-btn > li:first-child {
+    display: none;
   }
 }
 header .gnb-btn__wrap > form .gnb-btn > li > button {
@@ -261,6 +304,11 @@ header .gnb-btn__wrap > form .gnb-btn > li > button {
 @media screen and (max-width: 1280px) {
   header .gnb-btn__wrap > form .gnb-btn > li > button {
     margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) {
+    display: none;
   }
 }
 header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) > button {
@@ -587,6 +635,19 @@ aside > main > ul > li:nth-child(2) > .depth2-wrap {
   margin-left: var(--header-size);
   width: calc(100vw - var(--header-size));
 }
+@media screen and (max-width: 1280px) {
+  #main {
+    margin-left: calc(var(--header-size) / 1.5);
+    width: calc(100vw - var(--header-size) / 1.5);
+  }
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  #main {
+    margin-top: 100px;
+    margin-left: 0;
+    width: 100%;
+  }
+}
 #main section {
   /* width: 100%; */
   position: relative;
@@ -621,6 +682,11 @@ footer > .inner > .foot-menu > ul {
 }
 footer > .inner > .foot-menu > ul > li > a:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  footer > .inner > .foot-menu > ul > li:last-child {
+    display: none;
+  }
 }
 footer > .inner > .foot-menu > .call,
 footer > .inner > .foot-menu > .copy {
@@ -713,8 +779,11 @@ body.white header {
 body.white header .logo-wrap .logo {
   background-position-y: -35px;
 }
-body.white header > nav > .gnb > li > .depth > li > a {
+body.white header > nav .gnb > li .depth > li > a {
   background-color: #ccc;
+}
+body.white header > nav .gnb > li > a {
+  padding: 0 10px;
 }
 body.white header .gnb-btn__wrap > form .gnb-btn > li > button {
   background-position-x: -27px;
@@ -747,41 +816,79 @@ body.white footer {
   position: relative;
   z-index: 500;
 }
-body.white footer > .inner {
+@media screen and (max-width: 1280px) {
+  body.white footer .inner {
+    width: calc(100vw - var(--header-size) / 1.5);
+    padding: 0 35px;
+  }
+}
+@media screen and (max-width: 1280px) and (orientation: portrait) {
+  body.white footer .inner {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  body.white footer .inner .foot-menu > ul {
+    font-size: 20px;
+  }
+  body.white footer .inner .foot-menu .call,
+  body.white footer .inner .foot-menu .copy {
+    font-size: 14px;
+  }
+  body.white footer .inner .foot-link {
+    order: 3;
+    grid-column: span 2;
+  }
+  body.white footer .inner .foot-link > a {
+    width: 150px;
+  }
+  body.white footer .inner .foot-site {
+    width: 100%;
+    margin-left: 0;
+    font-size: 18px;
+  }
+}
+body.white footer .inner {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 75px;
 }
-body.white footer > .inner > .foot-menu {
+body.white footer .inner .foot-menu {
   flex: 2;
   padding-right: 75px;
 }
-body.white footer > .inner > .foot-menu > ul {
+body.white footer .inner .foot-menu > ul {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-body.white footer > .inner > .foot-menu > ul > li > a:hover {
+body.white footer .inner .foot-menu > ul > li > a:hover {
   text-decoration: underline;
 }
-body.white footer > .inner > .foot-menu > .call,
-body.white footer > .inner > .foot-menu > .copy {
+body.white footer .inner .foot-menu .call,
+body.white footer .inner .foot-menu .copy {
   font-size: 0.777778em;
   color: #999;
   line-height: 1.75;
 }
-body.white footer > .inner > .foot-menu > .call > a {
+body.white footer .inner .foot-menu .call > a {
   color: #ccc;
 }
-body.white footer > .inner .foot-link {
+body.white footer .inner .foot-link {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
 }
-body.white footer > .inner .foot-link > a {
+@media screen and (max-width: 1280px) {
+  body.white footer .inner .foot-link {
+    gap: 20px;
+  }
+}
+body.white footer .inner .foot-link > a {
   display: block;
   width: 145px;
   height: 35px;
@@ -791,14 +898,20 @@ body.white footer > .inner .foot-link > a {
   border-radius: 50px;
   font-size: 0.777778em;
 }
-body.white footer > .inner .foot-link > a > img {
+@media screen and (max-width: 1280px) {
+  body.white footer .inner .foot-link > a {
+    width: 100px;
+    padding: 0 10px;
+  }
+}
+body.white footer .inner .foot-link > a > img {
   display: inline;
 }
-body.white footer > .inner .foot-site {
+body.white footer .inner .foot-site {
   width: 15%;
   margin-left: 50px;
 }
-body.white footer > .inner .foot-site > strong {
+body.white footer .inner .foot-site > strong {
   display: block;
   text-align: center;
   border-bottom: 1px solid #fff;
@@ -806,12 +919,17 @@ body.white footer > .inner .foot-site > strong {
   margin-bottom: 5px;
   padding-bottom: 10px;
 }
-body.white footer > .inner .foot-site > p {
+body.white footer .inner .foot-site > p {
   padding: 0 30px;
   line-height: 1.5;
   white-space: nowrap;
 }
-body.white footer > .inner .foot-site > p > a {
+@media screen and (max-width: 1280px) {
+  body.white footer .inner .foot-site > p {
+    padding: 0 15px;
+  }
+}
+body.white footer .inner .foot-site > p > a {
   font-size: 0.777778em;
 }
 body.white .hidden {
