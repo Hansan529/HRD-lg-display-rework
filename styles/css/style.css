@@ -1,18 +1,4 @@
 @charset "UTF-8";
-:root {
-  --main-color: #d22323;
-  --header-size: 210px;
-}
-
-.--inner {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.--img-white {
-  filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg) brightness(111%) contrast(101%);
-}
-
 ::-webkit-scrollbar {
   width: 0;
 }
@@ -43,7 +29,7 @@
 }
 @media screen and (max-width: 767px) {
   .main-banner {
-    width: 100%;
+    width: 100% !important;
     height: 100vh;
   }
 }
@@ -977,7 +963,7 @@
   word-break: keep-all;
 }
 .technology-lcd2 .slide-btn {
-  width: 40%;
+  width: 100%;
   gap: 0;
   justify-content: space-between;
   position: absolute;
@@ -986,7 +972,6 @@
   transform: translateY(-50%);
   background: none;
   z-index: 90;
-  width: 100%;
   left: 0;
   padding: 0 40px;
 }
