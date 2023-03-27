@@ -17,7 +17,6 @@
   자손들의 값들을 변경하면 DX(개발자 경험)이 더욱 뛰어나다, 
   왜냐, 한 눈에 변화되는 코드만을 볼 수 있기 때문에 변화점에 대해 쉽게 알 수 있다.
 
-  ```
   body {
   @include respon(1600) {
     font-size: 16px;
@@ -31,7 +30,7 @@
       }
     }
   }  
-  ```
+}
 
   해당 코드를 살펴보면, 스크린이 1600px 안에 포함되면
   body의 font-size가 변경되며, footer .inner .foot-link .foot-link 의 gap이 15px로 변경 되는 걸 알 수 있다.
@@ -43,17 +42,16 @@
   어느 코드에서라도 미디어쿼리를 관리하기 쉽다. 기존에 선언한 코드에 작성하는 것이기에 별도의 경로를 추가하여 작성 할 필요 없으며,
   하나의 코드에 선언되는 미디어쿼리의 수를 확인할 수 있다.
 
-  ```
   header {
     .gnb-btn__wrap {
     @include respon(1280) {
       height: 20%;
     }
-    @include responOrientaion($wSize: 1280, $mode: portrait) {
+    @include responOrientaion($mode: portrait) {
       height: 100%;
     }
   }
-    ```
+}
 
     .gnb-btn__wrap 이라는 클래스 요소가 1280px에서는 height 값이 20%, 세로모드일 경우 100%로 변경되는 것을 
     한 눈에 보기 쉽다. 이로 인해서 값을 수정하기 쉬워 유지보수가 편리하다는 장점이 있다. 단, 미디어 쿼리를 여러번 선언하기에
@@ -104,16 +102,21 @@ body section {
     height: initial;
   }
 }
+@media screen and (max-width: 767px) {
+  body section > .sec-title::after {
+    content: "";
+    display: block;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    background: #cc0033;
+    top: 0;
+    left: 0px;
+  }
+}
 body .sec-title {
   text-align: center;
   font-size: 2.625em;
-}
-body .text-align-end {
-  text-align: end;
-  align-items: end;
-}
-body .flex-end {
-  justify-content: flex-end;
 }
 body .img-box img {
   width: 100%;
@@ -174,33 +177,17 @@ header {
     width: calc(var(--header-size) / 1.5);
   }
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header {
-    flex-direction: row;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    padding: 0 20px;
-  }
-}
 @media screen and (max-width: 767px) {
   header {
     flex-direction: row;
-    top: 0;
     width: 100vw;
     height: 70px;
     padding: 0 20px;
+    align-items: center;
   }
 }
 header .logo-wrap {
   height: 10%;
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header .logo-wrap {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
 }
 @media screen and (max-width: 767px) {
   header .logo-wrap {
@@ -222,11 +209,6 @@ header .logo-wrap .logo {
     background-size: cover;
   }
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header .logo-wrap .logo {
-    margin: 0;
-  }
-}
 @media screen and (max-width: 767px) {
   header .logo-wrap .logo {
     margin: 0;
@@ -246,20 +228,10 @@ header > nav:first-of-type {
     height: 70%;
   }
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header > nav:first-of-type {
-    height: 70%;
-  }
-}
 header > nav .gnb {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header > nav .gnb {
-    display: none;
-  }
 }
 @media screen and (max-width: 767px) {
   header > nav .gnb {
@@ -322,16 +294,6 @@ header .gnb-btn__wrap {
     height: 20%;
   }
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header .gnb-btn__wrap {
-    height: 100%;
-  }
-}
-@media screen and (max-width: 767px) {
-  header .gnb-btn__wrap {
-    height: 100%;
-  }
-}
 header .gnb-btn__wrap > form {
   height: 100%;
   width: 100%;
@@ -347,15 +309,8 @@ header .gnb-btn__wrap > form .gnb-btn {
 @media screen and (max-width: 1280px) {
   header .gnb-btn__wrap > form .gnb-btn {
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0;
-  }
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header .gnb-btn__wrap > form .gnb-btn {
-    flex-wrap: nowrap;
-    padding-bottom: 0;
     gap: 10px;
+    padding-bottom: 0;
   }
 }
 header .gnb-btn__wrap > form .gnb-btn > li {
@@ -364,11 +319,6 @@ header .gnb-btn__wrap > form .gnb-btn > li {
 @media screen and (max-width: 1280px) {
   header .gnb-btn__wrap > form .gnb-btn > li {
     width: 50%;
-  }
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header .gnb-btn__wrap > form .gnb-btn > li:first-child {
-    display: none;
   }
 }
 header .gnb-btn__wrap > form .gnb-btn > li > button {
@@ -385,11 +335,6 @@ header .gnb-btn__wrap > form .gnb-btn > li > button {
 }
 @media screen and (max-width: 767px) {
   header .gnb-btn__wrap > form .gnb-btn > li:first-child {
-    display: none;
-  }
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) {
     display: none;
   }
 }
@@ -474,7 +419,7 @@ aside > header > ul > li {
 }
 aside > header > ul > li:last-child {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 aside > header > ul > li > a {
@@ -738,13 +683,6 @@ aside > main > ul > li:nth-child(2) .depth2-wrap {
     width: calc(100vw - var(--header-size) / 1.5);
   }
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  #main {
-    margin-top: 100px;
-    margin-left: 0;
-    width: 100%;
-  }
-}
 @media screen and (max-width: 767px) {
   #main {
     margin: 0;
@@ -768,47 +706,104 @@ footer {
   position: relative;
   z-index: 500;
 }
+@media screen and (max-width: 767px) {
+  footer {
+    height: initial;
+  }
+}
 footer .inner {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 75px;
 }
-@media screen and (min-width: 1921px) and (max-width: 2560px) {
+@media screen and (max-width: 1600px) {
   footer .inner {
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .inner {
+    /* 여백 조정, 세로, 왼쪽 정렬 */
+    display: grid;
+    width: 90%;
+    padding: 0;
     margin: 0 auto;
+    align-items: flex-start;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .inner > div {
+    /* 세로 정렬 */
+    display: flex;
+    flex-direction: column;
   }
 }
 footer .inner .foot-menu {
-  flex: 2;
   padding-right: 75px;
+}
+@media screen and (max-width: 1600px) {
+  footer .inner .foot-menu {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-menu {
+    padding: 0;
+    order: 1;
+  }
 }
 footer .inner .foot-menu > ul {
   display: flex;
-  justify-content: space-between;
+  gap: 50px;
   margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-menu > ul {
+    flex-direction: column;
+    margin: 20px 0 10px;
+    font-size: 14px;
+    gap: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-menu > ul > li {
+    margin: 10px 0;
+  }
 }
 footer .inner .foot-menu > ul > li > a:hover {
   text-decoration: underline;
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  footer .inner .foot-menu > ul > li:last-child {
-    display: none;
-  }
 }
 @media screen and (max-width: 767px) {
   footer .inner .foot-menu > ul > li:last-child {
     display: none;
   }
 }
-footer .inner .foot-menu .call,
+footer .inner .foot-menu .call {
+  font-size: 0.777778em;
+  color: #999;
+  line-height: 1.75;
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-menu .call {
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+}
+footer .inner .foot-menu .call > a {
+  color: #ccc;
+}
 footer .inner .foot-menu .copy {
   font-size: 0.777778em;
   color: #999;
   line-height: 1.75;
 }
-footer .inner .foot-menu .call > a {
-  color: #ccc;
+@media screen and (max-width: 767px) {
+  footer .inner .foot-menu .copy {
+    font-size: 10px;
+    line-height: 2.5;
+  }
 }
 footer .inner .foot-link {
   flex: 1;
@@ -820,6 +815,15 @@ footer .inner .foot-link {
 @media screen and (max-width: 1600px) {
   footer .inner .foot-link {
     gap: 15px;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-link {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    order: 3;
+    grid-column: span 2;
   }
 }
 footer .inner .foot-link > a {
@@ -839,6 +843,19 @@ footer .inner .foot-site {
   width: 15%;
   margin-left: 50px;
 }
+@media screen and (max-width: 1600px) {
+  footer .inner .foot-site {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-site {
+    margin: 20px 0 0;
+    font-size: 14px;
+    width: 100%;
+    order: 2;
+  }
+}
 footer .inner .foot-site > strong {
   display: block;
   text-align: center;
@@ -847,13 +864,33 @@ footer .inner .foot-site > strong {
   margin-bottom: 5px;
   padding-bottom: 10px;
 }
+@media screen and (max-width: 767px) {
+  footer .inner .foot-site > strong {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
 footer .inner .foot-site > p {
   padding: 0 30px;
   line-height: 1.5;
   white-space: nowrap;
 }
+@media screen and (max-width: 767px) {
+  footer .inner .foot-site > p {
+    padding: 10px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #666;
+  }
+}
 footer .inner .foot-site > p > a {
   font-size: 0.777778em;
+}
+@media screen and (max-width: 767px) {
+  footer .inner .foot-site > p > a {
+    padding: 0 40px;
+    font-size: 12px;
+    color: #ccc;
+  }
 }
 
 .hidden {
@@ -929,44 +966,17 @@ body.white footer {
   position: relative;
   z-index: 500;
 }
-@media screen and (max-width: 1280px) {
-  body.white footer .inner {
-    width: calc(100vw - var(--header-size) / 1.5);
-    padding: 0 35px;
-  }
-}
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  body.white footer .inner {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
-  body.white footer .inner .foot-menu > ul {
-    font-size: 20px;
-  }
-  body.white footer .inner .foot-menu .call,
-  body.white footer .inner .foot-menu .copy {
-    font-size: 14px;
-  }
-  body.white footer .inner .foot-link {
-    order: 3;
-    grid-column: span 2;
-  }
-  body.white footer .inner .foot-link > a {
-    width: 150px;
-  }
-  body.white footer .inner .foot-site {
-    width: 100%;
-    margin-left: 0;
-    font-size: 18px;
-  }
-}
 body.white footer .inner {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 75px;
+}
+@media screen and (max-width: 1280px) {
+  body.white footer .inner {
+    width: calc(100vw - var(--header-size) / 1.5);
+    padding: 0 35px;
+  }
 }
 body.white footer .inner .foot-menu {
   flex: 2;
@@ -1059,4 +1069,12 @@ body.white .top-btn {
   z-index: 100;
   transition: 0.5s;
   opacity: 0;
+}
+@media screen and (max-width: 767px) {
+  body.white .top-btn {
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 30px;
+  }
 }

@@ -17,16 +17,24 @@
   width: 0;
 }
 
-/** 배너 */
+/* 애니메이션 */
+@keyframes move__ani {
+  from {
+    bottom: 2%;
+  }
+  80% {
+    bottom: 3%;
+  }
+  to {
+    bottom: 3%;
+  }
+}
 /* 전체화면 */
 .main-banner {
   position: relative;
   overflow: hidden;
   /* 배너 목록 너비 */
   /* 배너 텍스트 */
-  /* 위치 조정 */
-  /* 하단 알림이 */
-  /* 애니메이션 */
 }
 @media screen and (max-width: 1280px) {
   .main-banner {
@@ -74,10 +82,9 @@
 }
 .main-banner .text-box {
   width: 80%;
-  /* 배너 부제목 */
+  /* 배너 제목 */
 }
 .main-banner .text-box > h2 {
-  /* 배너 제목 */
   font-size: 4em;
   font-weight: bolder;
   text-shadow: 0 0 10px #000;
@@ -89,6 +96,7 @@
   }
 }
 .main-banner .text-box > p {
+  /* 배너 부제목 */
   font-size: 1.5em;
   text-shadow: 0 0 10px #000;
 }
@@ -102,10 +110,12 @@
 }
 @media screen and (max-width: 767px) {
   .main-banner .slide-wrap {
+    /* 위치 조정 */
     display: none;
   }
 }
 .main-banner .main-down {
+  /* 하단 알림이 */
   position: absolute;
   bottom: 2%;
   left: 50%;
@@ -131,17 +141,6 @@
     background-position: center;
   }
 }
-@keyframes move__ani {
-  from {
-    bottom: 2%;
-  }
-  80% {
-    bottom: 3%;
-  }
-  to {
-    bottom: 3%;
-  }
-}
 .main-banner .pager {
   display: none;
   position: absolute;
@@ -151,7 +150,6 @@
   transform: translateX(-50%);
   z-index: 600;
   gap: 10px;
-  /* 크기 및 스타일 */
 }
 @media screen and (max-width: 1280px) {
   .main-banner .pager {
@@ -159,17 +157,17 @@
   }
 }
 .main-banner .pager > div {
+  /* 크기 및 스타일 */
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background: #cccccc;
-  /* 선택된 페이지 색상 */
 }
 .main-banner .pager > div.select {
+  /* 선택된 페이지 색상 */
   background: #fff;
 }
 
-/* 버튼 배경 */
 .slide-btn {
   background: rgba(0, 0, 0, 0.5);
   padding: 0 20px;
@@ -179,28 +177,18 @@
   gap: 5px;
   /* 슬라이드 버튼 크기 */
   /* 슬라이드 순서 */
-  /* 활성화된 배너 순서 */
-  /* 이미지 */
-}
-@media screen and (max-width: 1280px) {
-  .slide-btn > button.slide-btn-ps {
-    display: none;
-  }
 }
 .slide-btn > button {
   display: block;
   width: 32px;
   height: 52px;
+  /* 시작,종료 버튼 크기 */
+  /* 상태 이미지 */
 }
-.slide-btn > p {
-  color: #ccc;
-  margin: 0 5px;
-  font-size: 1.5em;
-  font-weight: thin;
-}
-.slide-btn > p#selected-page {
-  color: #fff;
-  font-weight: 600;
+@media screen and (max-width: 1280px) {
+  .slide-btn > button {
+    display: none;
+  }
 }
 .slide-btn > button.prev {
   background: url("../../images/icon_chevron-left__white.svg") no-repeat center/70%;
@@ -208,26 +196,34 @@
 .slide-btn > button.next {
   background: url("../../images/icon_chevron-right__white.svg") no-repeat center/70%;
 }
-.slide-btn button {
-  /* 시작,종료 버튼 크기 */
-  /* 상태 이미지 */
-}
-@media screen and (max-width: 1280px) {
-  .slide-btn button {
-    display: none;
-  }
-}
-.slide-btn button.slide-btn-ps {
+.slide-btn > button.slide-btn-ps {
   display: block;
   width: 52px;
   height: 52px;
   border-radius: 50%;
 }
-.slide-btn button.start {
+@media screen and (max-width: 1280px) {
+  .slide-btn > button.slide-btn-ps {
+    /* 버튼 배경 */
+    display: none;
+  }
+}
+.slide-btn > button.start {
   background: rgba(0, 0, 0, 0.5) url("../../images/pause.png") no-repeat center/60%;
 }
-.slide-btn button.stop {
+.slide-btn > button.stop {
   background: rgba(0, 0, 0, 0.5) url("../../images/play_arrow.png") no-repeat center/80%;
+}
+.slide-btn > p {
+  color: #ccc;
+  margin: 0 5px;
+  font-size: 1.5em;
+  font-weight: thin;
+  /* 활성화된 배너 순서 */
+}
+.slide-btn > p#selected-page {
+  color: #fff;
+  font-weight: 600;
 }
 
 /** product */
@@ -238,24 +234,41 @@
 @media screen and (max-width: 767px) {
   .product .mobile-sec-title {
     top: initial;
-    font-size: 20px;
     margin-top: 20px;
-    margin-bottom: 40px;
+    /* 서브 타이틀 여백 조정 */
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: start;
   }
 }
-.product > .sec-title {
+@media screen and (max-width: 767px) {
+  .product .mobile-sec-title::after {
+    content: "";
+    display: block;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    background: #cc0033;
+    top: 0;
+    left: 0px;
+  }
+}
+.product .sec-title {
   padding-top: 60px;
   margin: 0 0 60px;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
 }
 @media screen and (max-width: 1280px) {
-  .product > .sec-title {
+  .product .sec-title {
     font-size: 25px;
     text-shadow: none;
   }
 }
 @media screen and (max-width: 767px) {
-  .product > .sec-title {
+  .product .sec-title {
     display: none;
   }
 }
@@ -308,16 +321,16 @@
   /* product tv 배경 */
   background: url("../../images/product-bg-1.jpg") no-repeat center/cover;
 }
-@media screen and (max-width: 767px) {
-  .product > ul > li.product__tv > ul > li {
-    background: none;
-  }
-}
 .product > ul > li.product__tv > ul > li .text-box-wrap {
   text-align: end;
 }
 .product > ul > li.product__tv > ul > li .text-box-wrap .text-box {
   align-items: flex-end;
+}
+@media screen and (max-width: 767px) {
+  .product > ul > li.product__tv > ul > li .text-box-wrap .text-box {
+    align-items: flex-start;
+  }
 }
 .product > ul > li.product__tv > ul > li .text-box-wrap .text-box .more-btn {
   left: initial;
@@ -326,24 +339,19 @@
 .product > ul > li.product__commercial > ul > li {
   background: url("../../images/product-bg-2.jpg") no-repeat right center/cover;
 }
-@media screen and (max-width: 767px) {
-  .product > ul > li.product__commercial > ul > li {
-    background: none;
-  }
-}
 .product > ul > li.product__it > ul > li {
   background: url("../../images/product-bg-3.jpg") no-repeat center/cover;
-}
-@media screen and (max-width: 767px) {
-  .product > ul > li.product__it > ul > li {
-    background: none;
-  }
 }
 .product > ul > li.product__it > ul > li .text-box-wrap {
   text-align: end;
 }
 .product > ul > li.product__it > ul > li .text-box-wrap .text-box {
   align-items: flex-end;
+}
+@media screen and (max-width: 767px) {
+  .product > ul > li.product__it > ul > li .text-box-wrap .text-box {
+    align-items: flex-start;
+  }
 }
 .product > ul > li.product__it > ul > li .text-box-wrap .text-box .more-btn {
   left: initial;
@@ -352,18 +360,8 @@
 .product > ul > li.product__mobile > ul > li {
   background: url("../../images/product-bg-4.jpg") no-repeat center/cover;
 }
-@media screen and (max-width: 767px) {
-  .product > ul > li.product__mobile > ul > li {
-    background: none;
-  }
-}
 .product > ul > li.product__automotive > ul > li {
   background: url("../../images/product-bg-5.jpg") no-repeat center/cover;
-}
-@media screen and (max-width: 767px) {
-  .product > ul > li.product__automotive > ul > li {
-    background: none;
-  }
 }
 .product > ul > li > ul {
   text-align: start;
@@ -399,6 +397,7 @@
     justify-content: space-between;
     border-bottom: 1px solid #fff;
     border-radius: 0;
+    background: none !important;
   }
 }
 .product > ul > li > ul > li > div {
@@ -523,26 +522,85 @@
 .technology-oled {
   background: url("../../images/technology-1.jpg") no-repeat -100px 0/120%;
 }
-.technology-oled > .sec-title {
+@media screen and (max-width: 767px) {
+  .technology-oled {
+    margin-bottom: 100px;
+    background: none;
+  }
+}
+.technology-oled .sec-title {
   padding: 100px 100px 50px;
   text-align: start;
 }
-.technology-oled > .text-box {
+@media screen and (max-width: 767px) {
+  .technology-oled .sec-title {
+    /* 서브 타이틀 여백 조정 */
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: start;
+  }
+}
+.technology-oled .text-box {
   position: absolute;
   left: 50%;
   bottom: 160px;
   text-align: center;
   transform: translateX(-50%);
 }
-.technology-oled > .text-box > strong {
+@media screen and (max-width: 767px) {
+  .technology-oled .text-box {
+    display: flex;
+    position: static;
+    flex-direction: column;
+    transform: none;
+  }
+}
+.technology-oled .text-box > strong {
   display: block;
   margin-bottom: 60px;
   font-size: 1.375em;
 }
-.technology-oled > .text-box > p {
+@media screen and (max-width: 767px) {
+  .technology-oled .text-box > strong {
+    /* 여백 제거, 단어 유지 */
+    margin: 0;
+    word-break: keep-all;
+    text-align: start;
+    font-weight: 500;
+    order: 1;
+  }
+}
+@media screen and (max-width: 767px) {
+  .technology-oled .text-box > img {
+    order: 3;
+  }
+}
+@media screen and (max-width: 767px) {
+  .technology-oled .text-box > img.blind {
+    width: 100%;
+    height: 300px;
+    position: static;
+    top: initial;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.technology-oled .text-box > p {
   width: 60%;
   margin: 0 auto;
   word-break: keep-all;
+}
+@media screen and (max-width: 767px) {
+  .technology-oled .text-box > p {
+    width: 100%;
+    order: 2;
+    margin: 10px 0;
+    text-align: start;
+    color: #bbb;
+  }
 }
 
 .technology-oled2 {
@@ -678,13 +736,7 @@
     background: none;
   }
 }
-@media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a {
-    padding: 40px;
-    position: relative;
-  }
-}
-.technology-oled2 > ul > li > div.text-box > a > * {
+.technology-oled2 > ul > li > div.text-box > a {
   display: block;
   width: 100%;
   height: 100%;
@@ -692,12 +744,12 @@
   word-break: keep-all;
 }
 @media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a > * {
+  .technology-oled2 > ul > li > div.text-box > a {
+    padding: 40px;
     position: relative;
-    z-index: 10;
   }
 }
-.technology-oled2 > ul > li > div.text-box > a > * .sub-title {
+.technology-oled2 > ul > li > div.text-box > a .sub-title {
   font-size: 2.111111em;
   text-shadow: 0 0 5px #000;
   letter-spacing: -0.5px;
@@ -705,21 +757,21 @@
   margin-bottom: 100px;
 }
 @media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a > * .sub-title {
+  .technology-oled2 > ul > li > div.text-box > a .sub-title {
     margin-bottom: 50px;
   }
 }
-.technology-oled2 > ul > li > div.text-box > a > * p {
+.technology-oled2 > ul > li > div.text-box > a p {
   text-shadow: 0 0 5px #000;
 }
 @media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a > * p {
+  .technology-oled2 > ul > li > div.text-box > a p {
     font-size: 16px;
     line-height: 1.5;
   }
 }
 @media screen and (max-width: 1280px) {
-  .technology-oled2 > ul > li > div.text-box > a > *::after {
+  .technology-oled2 > ul > li > div.text-box > a::after {
     content: "";
     display: block;
     width: 100%;
@@ -731,8 +783,7 @@
     opacity: 0.7;
   }
 }
-
-.slide-btn {
+.technology-oled2 .slide-btn {
   width: 40%;
   gap: 0;
   justify-content: space-between;
@@ -748,13 +799,30 @@
   display: flex;
   flex-direction: column;
 }
-.technology-lcd .sec-title {
-  padding: 100px 100px 50px;
-  text-align: start;
+@media screen and (max-width: 767px) {
+  .technology-lcd {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  .technology-lcd .sec-title {
+    /* 서브 타이틀 여백 조정 */
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: start;
+  }
 }
 .technology-lcd .img-wrap {
   flex: 1;
   background: url("../../images/technology-2.jpg") no-repeat center 70%/150%;
+}
+@media screen and (max-width: 767px) {
+  .technology-lcd .img-wrap {
+    background: none;
+  }
 }
 .technology-lcd .img-wrap .text-box {
   position: absolute;
@@ -768,10 +836,43 @@
     bottom: 50px;
   }
 }
+@media screen and (max-width: 767px) {
+  .technology-lcd .img-wrap .text-box {
+    display: flex;
+    position: static;
+    flex-direction: column;
+    transform: none;
+  }
+}
 .technology-lcd .img-wrap .text-box > strong {
   display: block;
   margin-bottom: 60px;
   font-size: 1.375em;
+}
+@media screen and (max-width: 767px) {
+  .technology-lcd .img-wrap .text-box > strong {
+    /* 여백 제거, 단어 유지 */
+    margin: 0;
+    word-break: keep-all;
+    text-align: start;
+    font-weight: 500;
+    order: 1;
+  }
+}
+@media screen and (max-width: 767px) {
+  .technology-lcd .img-wrap .text-box > img {
+    order: 3;
+  }
+}
+@media screen and (max-width: 767px) {
+  .technology-lcd .img-wrap .text-box > img.blind {
+    width: 100%;
+    height: 300px;
+    position: static;
+    top: initial;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 .technology-lcd .img-wrap .text-box > p {
   width: 60%;
@@ -783,6 +884,14 @@
     width: 100%;
   }
 }
+@media screen and (max-width: 767px) {
+  .technology-lcd .img-wrap .text-box > p {
+    order: 2;
+    margin: 10px 0;
+    text-align: start;
+    color: #bbb;
+  }
+}
 
 .technology-lcd2 {
   padding: calc((100vh - 720px) / 2) 0;
@@ -792,39 +901,45 @@
     display: none;
   }
 }
-.technology-lcd2 > .overflow {
+.technology-lcd2 .overflow {
   width: 85%;
   height: 720px;
   margin: 0 auto;
   overflow: hidden;
 }
-.technology-lcd2 > .overflow > ul {
+.technology-lcd2 .overflow > ul {
   display: flex;
   width: 400%;
   height: 100%;
 }
-.technology-lcd2 > .overflow > ul > li {
+.technology-lcd2 .overflow > ul > li {
   width: 25%;
 }
-.technology-lcd2 > .overflow > ul > li:first-child, .technology-lcd2 > .overflow > ul > li:last-child {
+.technology-lcd2 .overflow > ul > li:first-child {
   background: url("../../images/lcd-1.png") no-repeat center/contain;
 }
-.technology-lcd2 > .overflow > ul > li:nth-child(2) {
+.technology-lcd2 .overflow > ul > li:first-child > a {
+  justify-content: flex-end;
+}
+.technology-lcd2 .overflow > ul > li:last-child {
+  background: url("../../images/lcd-1.png") no-repeat center/contain;
+}
+.technology-lcd2 .overflow > ul > li:nth-child(2) {
   background: url("../../images/lcd-2.jpg") no-repeat 0/cover;
 }
-.technology-lcd2 > .overflow > ul > li:nth-child(3) {
+.technology-lcd2 .overflow > ul > li:nth-child(3) {
   background: url("../../images/lcd-3.jpg") no-repeat 100% 0/cover;
 }
-.technology-lcd2 > .overflow > ul > li:nth-child(4) {
+.technology-lcd2 .overflow > ul > li:nth-child(4) {
   background: url("../../images/lcd-4.jpg") no-repeat 100% 0/cover;
 }
-.technology-lcd2 > .overflow > ul > li > a {
+.technology-lcd2 .overflow > ul > li > a {
   display: block;
   width: 100%;
   height: 100%;
   position: relative;
 }
-.technology-lcd2 > .overflow > ul > li > a > .text-box {
+.technology-lcd2 .overflow > ul > li > a .text-box {
   width: 40%;
   text-align: center;
   position: absolute;
@@ -833,7 +948,7 @@
   transform: translate(0, -50%);
   word-break: keep-all;
 }
-.technology-lcd2 > .overflow > ul > li > a > .text-box::after {
+.technology-lcd2 .overflow > ul > li > a .text-box::after {
   content: "";
   display: block;
   width: 500px;
@@ -846,7 +961,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.technology-lcd2 > .overflow > ul > li > a > .text-box > .sub-title {
+.technology-lcd2 .overflow > ul > li > a .text-box .sub-title {
   font-size: 2.111111em;
   text-shadow: 0 0 5px #000;
   letter-spacing: -0.5px;
@@ -854,7 +969,7 @@
   position: relative;
   z-index: 20;
 }
-.technology-lcd2 > .overflow > ul > li > a > .text-box > p {
+.technology-lcd2 .overflow > ul > li > a .text-box > p {
   position: relative;
   z-index: 20;
   width: 100%;
@@ -907,7 +1022,6 @@
 }
 .esg > ul {
   display: flex;
-  /* display: none; */
   width: 100%;
   flex: 1;
 }
@@ -970,50 +1084,58 @@
   .esg .env {
     overflow: hidden;
   }
-  .esg .env > table {
-    width: 100%;
-  }
-  .esg .env > table > tr > th > img {
-    width: 50%;
-  }
-  .esg .env > table > tr > td {
-    padding: 5px 10px;
-  }
-  .esg .env .chart {
-    width: 100%;
-  }
 }
 .esg .env > table {
   width: 47%;
 }
+@media screen and (max-width: 1600px) {
+  .esg .env > table {
+    width: 100%;
+  }
+}
 .esg .env > table .sub-title {
   margin: 0;
 }
-.esg .env > table tr th {
+.esg .env > table > tbody > tr > th {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   font-size: 28px;
 }
-.esg .env > table tr th > img {
+.esg .env > table > tbody > tr > th > img {
   width: 70%;
   margin: 0 auto;
 }
-.esg .env > table tr td {
+@media screen and (max-width: 1600px) {
+  .esg .env > table > tbody > tr > th > img {
+    width: 50%;
+  }
+}
+.esg .env > table > tbody > tr > td {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   padding: 10px 25px;
 }
-.esg .env > table tr td > img {
+@media screen and (max-width: 1600px) {
+  .esg .env > table > tbody > tr > td {
+    padding: 5px 10px;
+  }
+}
+.esg .env > table > tbody > tr > td > img {
   width: 30px;
   margin: 0 auto;
 }
-.esg .env > table tr:first-child th {
+.esg .env > table > tbody > tr:first-child th {
   border: none;
 }
 .esg .env .chart {
   width: 47%;
   position: relative;
   border-bottom: 1px solid #fff;
+}
+@media screen and (max-width: 1600px) {
+  .esg .env .chart {
+    width: 100%;
+  }
 }
 .esg .env .chart > p {
   text-align: center;
@@ -1128,10 +1250,6 @@
   font-size: 10px;
   font-weight: 200;
 }
-.esg .env .chart .chart-legend > div > .chart-legend__color {
-  width: 10px;
-  height: 10px;
-}
 .esg .env .chart .chart-legend > div:first-child > div {
   background: #cc6666;
 }
@@ -1141,11 +1259,15 @@
 .esg .env .chart .chart-legend > div:last-child > div {
   background: #666666;
 }
-.esg .social div {
+.esg .env .chart .chart-legend > div .chart-legend__color {
+  width: 10px;
+  height: 10px;
+}
+.esg .social > div {
   text-align: center;
   flex: 1;
 }
-.esg .social__left ul li {
+.esg .social__left > ul > li {
   width: 70%;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -1153,40 +1275,42 @@
   border-bottom: 1px solid #fff;
   padding-bottom: 10px;
 }
-.esg .social__right div {
+.esg .social__right > div {
   display: flex;
   flex-wrap: wrap;
 }
-.esg .social__right div a {
+.esg .social__right > div > a {
   font-size: 1.777778em;
   display: block;
   width: 50%;
   margin-bottom: 90px;
 }
-.esg .gover table {
+.esg .gover > table {
   width: 100%;
   text-align: center;
 }
-.esg .gover table caption {
+.esg .gover > table > caption {
   text-align: start;
 }
-.esg .gover table caption .sub-title {
+.esg .gover > table > caption .sub-title {
   margin-bottom: 0;
 }
-.esg .gover table tr * {
+.esg .gover > table > tbody tr {
   padding: 15px 0;
   border: 1px solid;
+}
+.esg .gover > table > tbody tr > * {
   background-color: #ccc;
   color: #000;
   border-color: #fff;
 }
-.esg .gover table tr th {
+.esg .gover > table > tbody tr > th {
   font-size: 1.444444em;
   background-color: #999;
   color: #fff;
   width: 16.6666666667%;
 }
-.esg .gover table tr td:first-child {
+.esg .gover > table > tbody tr > td:first-child {
   background-color: #999;
   color: #fff;
 }
@@ -1200,36 +1324,58 @@
 .latest-news .sec-title {
   padding: 60px 0 0;
 }
+@media screen and (max-width: 767px) {
+  .latest-news .sec-title {
+    /* 서브 타이틀 여백 조정 */
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: start;
+  }
+}
 .latest-news > div {
   display: flex;
   width: 90%;
   margin: 0 auto;
 }
+@media screen and (max-width: 767px) {
+  .latest-news > div {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
 .latest-news > div:first-of-type {
   margin-top: 90px;
   margin-bottom: 90px;
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
+@media screen and (max-width: 767px) {
   .latest-news > div:first-of-type {
-    margin-bottom: 50px;
+    margin: 50px 0;
   }
 }
 @media screen and (max-width: 767px) {
-  .latest-news > div:last-of-type .text-box p:first-of-type {
+  .latest-news > div:last-of-type .text-box .news__title > p {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  .latest-news > div:last-of-type .text-box > p:first-of-type {
     display: none;
   }
 }
 @media screen and (max-width: 767px) {
-  .latest-news > div:last-of-type .text-box p:last-of-type {
+  .latest-news > div:last-of-type .text-box > p:last-of-type {
     display: none;
   }
 }
 .latest-news > div > a {
   margin-right: 110px;
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
+@media screen and (max-width: 767px) {
   .latest-news > div > a {
-    margin-right: 50px;
+    margin-right: 20px;
   }
 }
 .latest-news > div > a > img {
@@ -1238,9 +1384,10 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
+@media screen and (max-width: 767px) {
   .latest-news > div > a > img {
-    width: 300px;
+    width: 150px;
+    height: 150px;
   }
 }
 .latest-news > div .text-box {
@@ -1254,12 +1401,46 @@
   word-break: keep-all;
   margin-bottom: 50px;
 }
+@media screen and (max-width: 767px) {
+  .latest-news > div .text-box .news__title > p {
+    /* 줄바꿈, 서식 변경 */
+    font-size: 16px;
+    display: -webkit-box;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    word-break: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+@media screen and (max-width: 767px) {
+  .latest-news > div .text-box .news__title > p > a {
+    /* a 크기 조정 */
+    display: block;
+  }
+}
 .latest-news > div .text-box .news__title .date {
   float: right;
+}
+@media screen and (max-width: 767px) {
+  .latest-news > div .text-box .news__title .date {
+    float: none;
+    margin-bottom: 20px;
+  }
 }
 .latest-news > div .text-box > p {
   margin-bottom: 25px;
   font-size: 0.777778em;
   word-break: keep-all;
   color: #ccc;
+}
+@media screen and (max-width: 767px) {
+  .latest-news > div .text-box > p {
+    margin: 20px 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 7;
+  }
 }
