@@ -5,15 +5,30 @@ document.querySelectorAll("header button").forEach(function (button) {
   });
 });
 
-$("header .more-btn").on("click", () => {
-  $("aside").fadeIn(500);
-});
+const headerMoreDom = document.querySelector(".gnb-btn > li > .more-btn");
 
+function asideOpen() {
+  asideDom.classList.remove("close");
+  asideDom.classList.add("open");
+}
+
+headerMoreDom.addEventListener("click", asideOpen);
 //^ aside btn
-$("aside header > ul > li:last > button").on("click", () => {
-  $("aside").fadeOut(500);
-});
+const asideDom = document.querySelector("aside");
+const asideCloseDom = document.querySelector(
+  "aside .logo-wrap+ul > li:last-child > button"
+);
+const asideCloseDomMobile = document.querySelector(
+  "aside .mobile-btn-wrap > button"
+);
 
+function asideClose() {
+  asideDom.classList.remove("open");
+  asideDom.classList.add("close");
+}
+
+asideCloseDom.addEventListener("click", asideClose);
+asideCloseDomMobile.addEventListener("click", asideClose);
 //^ top btn 버튼 액션
 function topBtnOpacity() {
   let posY = $(this).scrollTop();
