@@ -1,3 +1,4 @@
+const headerLangDom = document.querySelector(".gnb-btn > li > .language-btn");
 const headerModeDom = document.querySelector(".gnb-btn > li > .mode-btn");
 const headerMoreDom = document.querySelector(".gnb-btn > li > .more-btn");
 const asideDom = document.querySelector("aside");
@@ -23,12 +24,27 @@ function asideOpen() {
   asideDom.classList.add("open");
 }
 
-headerMoreDom.addEventListener("click", asideOpen);
-
+// 언어 선택창 활성화
+function enableLang() {
+  document.querySelector(".gnb-btn .language").classList.toggle("hidden");
+}
+// 언어 선택
+const languageBtn = document.querySelectorAll(".gnb-btn .language > div > div");
+languageBtn.forEach((sel) => {
+  sel.onclick = (e) => {
+    const index = e.target.parentNode;
+    for (i = 0; i < languageBtn.length; i++) {
+      languageBtn[i].classList.remove("active");
+    }
+    index.classList.add("active");
+  };
+});
+// 라이트모드
 function lightMode() {
   html.dataset.theme = "";
   darkModeImg();
 }
+// 다크모드
 function nightMode() {
   html.dataset.theme = "dark";
   darkModeImg();
@@ -43,8 +59,9 @@ function modeChange() {
   }
 }
 
+headerLangDom.addEventListener("click", enableLang);
+headerMoreDom.addEventListener("click", asideOpen);
 headerModeDom.addEventListener("click", modeChange);
-
 asideLightMode.addEventListener("click", lightMode);
 asideNightMode.addEventListener("click", nightMode);
 //^ aside btn
@@ -54,20 +71,18 @@ function asideClose() {
   asideDom.classList.add("close");
 }
 
+// 형제 선택
 const siblings = (t) => [...t.parentElement.children].filter((e) => e != t);
 
 // 언어 선택
-const test = document.querySelectorAll(".lang-wrap > button");
-test.forEach((sel) => {
+const language = document.querySelectorAll(".lang-wrap > button");
+language.forEach((sel) => {
   sel.onclick = (e) => {
     const index = e.target;
-    for (i = 0; i < test.length; i++) {
-      test[i].classList.remove("check");
+    for (i = 0; i < language.length; i++) {
+      language[i].classList.remove("check");
     }
     index.classList.add("check");
-    // siblings(test);
-    // console.log(siblings(test));
-    // for(i=0; i < test.length)
   };
 });
 asideCloseDom.addEventListener("click", asideClose);
