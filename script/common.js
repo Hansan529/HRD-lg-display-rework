@@ -1,3 +1,4 @@
+const headerSearDom = document.querySelector(".gnb-btn > li > .search-btn");
 const headerLangDom = document.querySelector(".gnb-btn > li > .language-btn");
 const headerModeDom = document.querySelector(".gnb-btn > li > .mode-btn");
 const headerMoreDom = document.querySelector(".gnb-btn > li > .more-btn");
@@ -24,8 +25,30 @@ function asideOpen() {
   asideDom.classList.add("open");
 }
 
+// 선택된 개체 활성화, 형제들 비활성화 - 함수화
+function activeClass(e, className, targetElems) {
+  const index = e.target.parentNode;
+  for (i = 0; i < targetElems.length; i++) {
+    targetElems[i].classList.remove(className);
+  }
+  index.classList.add(className);
+}
+
+// 검색창 활성화
+function enableSearch() {
+  let lang = document.querySelector(".gnb-btn .language");
+  if (lang.classList.length == 1) {
+    lang.classList.add("hidden");
+  }
+  document.querySelector(".gnb-btn .search").classList.toggle("hidden");
+}
+
 // 언어 선택창 활성화
 function enableLang() {
+  let search = document.querySelector(".gnb-btn .search");
+  if (search.classList.length == 1) {
+    search.classList.add("hidden");
+  }
   document.querySelector(".gnb-btn .language").classList.toggle("hidden");
 }
 // 언어 선택
@@ -39,6 +62,17 @@ languageBtn.forEach((sel) => {
     index.classList.add("active");
   };
 });
+
+// 모바일 언어 선택
+const asideLanguageBtn = document.querySelectorAll(
+  "aside .mobile-btn-wrap > ul > li"
+);
+asideLanguageBtn.forEach((sel) => {
+  sel.onclick = (e) => {
+    activeClass(e, "select", asideLanguageBtn);
+  };
+});
+
 // 라이트모드
 function lightMode() {
   html.dataset.theme = "";
@@ -59,6 +93,7 @@ function modeChange() {
   }
 }
 
+headerSearDom.addEventListener("click", enableSearch);
 headerLangDom.addEventListener("click", enableLang);
 headerMoreDom.addEventListener("click", asideOpen);
 headerModeDom.addEventListener("click", modeChange);
