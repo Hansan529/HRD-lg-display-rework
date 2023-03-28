@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@
     ></script>
     <title>LG Display</title>
   </head>
-  <body class="">
+  <body>
     <ul class="skip">
       <li><a href="#nav">메뉴바로가기</a></li>
       <li><a href="#main">본문바로가기</a></li>
@@ -93,7 +93,7 @@
         </form>
       </div>
     </header>
-    <aside class="close">
+    <aside class="">
       <header>
         <div class="logo-wrap"><h1 class="logo">LG Display 로고</h1></div>
         <ul>
@@ -149,8 +149,8 @@
           <div class="btn-box dark-mode">
             <i></i>
             <div>
-              <button><img src="./images/sun-mode.png" alt="sun" /></button>
-              <button><img src="./images/night-mode.png" alt="night" /></button>
+              <button class="sun-mode"></button>
+              <button class="night-mode"></button>
             </div>
           </div>
         </div>
@@ -712,7 +712,9 @@
         <div class="slide-btn">
           <button class="prev"></button><button class="next"></button>
         </div>
-        <div class="slide-bar"></div>
+        <div class="slide-bar">
+          <div class="slide-bar__now"></div>
+        </div>
       </section>
       <section class="esg">
         <h2 class="sec-title">ESG</h2>
@@ -720,23 +722,29 @@
           <li class="active">
             <div>
               <button>
-                <img src="./images/esg_1.png" alt="환경" /><span>환경</span>
+                <img src="./images/icon_esg-1.png" alt="환경" id="esg-1" /><span
+                  >환경</span
+                >
               </button>
             </div>
           </li>
           <li>
             <div>
               <button>
-                <img src="./images/esg_2.png" alt="사회" /><span>사회</span>
+                <img src="./images/icon_esg-2.png" alt="사회" id="esg-2" /><span
+                  >사회</span
+                >
               </button>
             </div>
           </li>
           <li>
             <div>
               <button>
-                <img src="./images/esg_3.png" alt="지배구조" /><span>
-                  지배구조
-                </span>
+                <img
+                  src="./images/icon_esg-3.png"
+                  alt="지배구조"
+                  id="esg-3"
+                /><span> 지배구조 </span>
               </button>
             </div>
           </li>

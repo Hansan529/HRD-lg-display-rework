@@ -84,10 +84,17 @@ $(".product > ul > li").on("click", function () {
     color: "#ccc",
     borderBottomColor: "#666666",
   });
-  $(".product > ul > li > ul.active").parent().children("button").css({
-    color: "#fff",
-    borderBottomColor: "#fff",
-  });
+  if (html.getAttribute("data-theme") == "dark") {
+    $(".product > ul > li > ul.active").parent().children("button").css({
+      color: "#fff",
+      borderBottomColor: "#fff",
+    });
+  } else {
+    $(".product > ul > li > ul.active").parent().children("button").css({
+      color: "#000",
+      borderBottomColor: "#000",
+    });
+  }
 });
 
 //^ technology oled
@@ -195,18 +202,6 @@ function lcdPrevBtn() {
 // 슬라이드바
 const lcdSlidebarHandle = $(".technology-lcd2 .slide-bar");
 
-let lcdSlidebar = $("<div></div>")
-  .css({
-    width: "25%",
-    height: "7px",
-    "background-color": "#fff",
-    position: "absolute",
-    top: "0",
-    left: "0",
-  })
-  .addClass("slide-bar__now");
-lcdSlidebarHandle.append(lcdSlidebar);
-
 document
   .querySelector(".technology-lcd2 .prev")
   .addEventListener("click", lcdPrevBtn);
@@ -253,6 +248,26 @@ $(".esg > ul > li").on("click", function () {
   $(this).addClass("active").siblings().removeClass("active");
   esgActive();
 });
+
+const html = document.querySelector("html");
+const esgImgDom1 = document.querySelector("#esg-1");
+const esgImgDom2 = document.querySelector("#esg-2");
+const esgImgDom3 = document.querySelector("#esg-3");
+
+function darkModeImg() {
+  if (html.getAttribute("data-theme") === "dark") {
+    // 다크 모드일 때 이미지를 바꾸세요.
+    esgImgDom1.src = "./images/icon_esg-1__white.png";
+    esgImgDom2.src = "./images/icon_esg-2__white.png";
+    esgImgDom3.src = "./images/icon_esg-3__white.png";
+  } else if (html.getAttribute("data-theme") === "") {
+    esgImgDom1.src = "./images/icon_esg-1.png";
+    esgImgDom2.src = "./images/icon_esg-2.png";
+    esgImgDom3.src = "./images/icon_esg-3.png";
+  }
+}
+darkModeImg();
+
 //^ 반응형 체크
 let respon = false;
 const responWidth = $("body").width();

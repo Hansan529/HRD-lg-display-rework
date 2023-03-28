@@ -1,13 +1,34 @@
 @charset "UTF-8";
+/* 기본 변수 값 */
+:root {
+  --bg: #fff;
+  --bg-down: #eee;
+  --txt: #000;
+  --txt-down: #ccc;
+}
+
+/* 다크 모드 변수 값 */
+[data-theme=dark] {
+  --bg: #000;
+  --bg-down: #333;
+  --txt: #fff;
+  --txt-down: #999;
+}
+
 body {
   font-size: 18px;
   font-family: "Noto Sans KR", sans-serif;
   width: 100%;
   height: initial;
-  color: #fff;
-  background: #000;
+  transition: 0.5s;
+  background-color: #fff;
+  color: #000;
   /* 서브 제목 */
   /* 본문 */
+}
+[data-theme=dark] body {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 @media screen and (max-width: 1600px) {
   body {
@@ -64,7 +85,7 @@ body .img-box img {
   height: 100%;
 }
 body .translucent {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 body button.prev,
 body button.next {
@@ -99,18 +120,22 @@ body .check {
 
 /*^ header */
 header {
+  display: flex;
   width: 210px;
   height: 100vh;
   position: fixed;
-  background-color: #333;
-  color: #fff;
-  display: flex;
+  background-color: #eee;
+  color: #000;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1000;
   bottom: 0;
   left: 0;
   transition: 0.5s;
+}
+[data-theme=dark] header {
+  background-color: var(--bg-down);
+  color: var(--txt);
 }
 @media screen and (max-width: 1280px) {
   header {
@@ -142,13 +167,10 @@ header .logo-wrap .logo {
   width: 170px;
   height: 35px;
   background: url("../../images/logo_en.png");
+  background-position-y: -35px;
 }
-@media screen and (max-width: 1280px) {
-  header .logo-wrap .logo {
-    width: 140px;
-    height: 25px;
-    background-size: cover;
-  }
+[data-theme=dark] header .logo-wrap .logo {
+  background-position-y: 0;
 }
 @media screen and (max-width: 767px) {
   header .logo-wrap .logo {
@@ -211,13 +233,17 @@ header > nav .gnb > li .depth > li > a {
   align-items: center;
   text-align: start;
   padding-left: 20px;
-  background-color: #333333;
+  background-color: #eee;
+}
+[data-theme=dark] header > nav .gnb > li .depth > li > a {
+  background-color: var(--bg-down);
+  color: var(--txt);
 }
 header > nav .gnb > li .depth > li > a:hover {
   background: #d22323;
 }
 header > nav .gnb > li:hover > a {
-  background: v #d22323;
+  background: #d22323;
 }
 header > nav .gnb > li:hover .depth {
   display: block;
@@ -267,12 +293,16 @@ header .gnb-btn__wrap > form .gnb-btn > li > button {
   width: 27px;
   height: 27px;
   background: url("../../images/icon_utill.png") no-repeat 0 0;
+  background-position-x: -27px;
   text-indent: -9999em;
 }
 @media screen and (max-width: 1280px) {
   header .gnb-btn__wrap > form .gnb-btn > li > button {
     margin: 0 auto;
   }
+}
+[data-theme=dark] header .gnb-btn__wrap > form .gnb-btn > li > button {
+  background-position-x: 0;
 }
 @media screen and (max-width: 767px) {
   header .gnb-btn__wrap > form .gnb-btn > li:first-child {
@@ -288,7 +318,10 @@ header .gnb-btn__wrap > form .gnb-btn > li:nth-child(3) > button {
   background-position-y: -28px;
 }
 header .gnb-btn__wrap > form .gnb-btn > li:nth-child(5) > button {
-  background: url("../../images/sun-mode-2.png") no-repeat 0 0/27px 27px;
+  background: url("../../images/icon_sun-mode.png") no-repeat 0 0/27px 27px;
+}
+[data-theme=dark] header .gnb-btn__wrap > form .gnb-btn > li:nth-child(5) > button {
+  background-image: url("../../images/icon_sun-mode__white.png");
 }
 header .gnb-btn__wrap > form .gnb-btn > li:last-child > button {
   background-position-y: -56px;
@@ -299,7 +332,7 @@ header .gnb-btn__wrap > form .gnb-btn > li::after {
   width: 1px;
   height: 20px;
   position: absolute;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   right: -12px;
   top: 50%;
   transform: translateY(-50%);
@@ -319,7 +352,14 @@ aside {
   z-index: 1500;
   width: 100vw;
   height: 100vh;
-  background: #666666;
+  transition: 0.5s;
+  visibility: hidden;
+  background-color: #fff;
+  color: #000;
+}
+[data-theme=dark] aside {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 aside.open {
   display: block;
@@ -380,7 +420,10 @@ aside > header > ul > li > a {
 aside > header > ul > li > button {
   width: 45px;
   height: 45px;
-  background: url("../../images/icon_chevron-right__white.svg") no-repeat 1.5px center/30px, url("../../images/icon_chevron-left__white.svg") no-repeat calc(100% - 1.5px) center/30px;
+  background: url("../../images/icon_chevron-right.svg") no-repeat 1.5px center/30px, url("../../images/icon_chevron-left.svg") no-repeat calc(100% - 1.5px) center/30px;
+}
+[data-theme=dark] aside > header > ul > li > button {
+  background-image: url("../../images/icon_chevron-right__white.svg"), url("../../images/icon_chevron-left__white.svg");
 }
 aside > main {
   display: flex;
@@ -414,14 +457,14 @@ aside > main {
   }
   aside > main .mobile-btn-box-wrap .mobile-btn-wrap > ul > li a.select {
     /* 선택된 텍스트 서식 변경 */
-    color: #fff;
+    color: #000;
   }
   aside > main .mobile-btn-box-wrap .mobile-btn-wrap > button {
     /* exit button 스타일 */
     display: block;
     width: 30px;
     height: 30px;
-    background: url("../../images/icon_chevron-right__white.svg") no-repeat left/22px 30px, url("../../images/icon_chevron-left__white.svg") no-repeat right/22px 30px;
+    background: url("../../images/icon_chevron-right.svg") no-repeat left/22px 30px, url("../../images/icon_chevron-left.svg") no-repeat right/22px 30px;
   }
   aside > main .mobile-btn-box-wrap .search {
     /* 검색 input wrap: 중앙 정렬 및 여백 조절 */
@@ -433,7 +476,7 @@ aside > main {
   aside > main .mobile-btn-box-wrap .search > input {
     /* 기본 서식 제거 및 스타일 변경 */
     all: initial;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #000;
     padding: 0 10px 10px;
     width: 90%;
   }
@@ -444,6 +487,7 @@ aside > main {
     height: 28px;
     margin-left: 20px;
     background-image: url("../../images/icon_utill.png");
+    background-position-x: -27px;
     right: 20px;
     bottom: 10px;
   }
@@ -465,17 +509,23 @@ aside > main .btn-box-wrap > div {
   background: no-repeat 0px 0;
   border-radius: 20px;
   padding: 10px 20px;
-  background: #fff;
+  background-color: #eee;
   color: #000;
   position: relative;
   font-size: 1.333333em;
 }
+[data-theme=dark] aside > main .btn-box-wrap > div {
+  background-color: var(--bg-down);
+  color: var(--txt);
+}
 aside > main .btn-box-wrap > div i {
   display: block;
-  background-image: url("../../images/icon_utill.png");
-  background-repeat: no-repeat;
   width: 28px;
   height: 28px;
+  background: url("../../images/icon_utill.png") no-repeat;
+}
+[data-theme=dark] aside > main .btn-box-wrap > div i {
+  background-position-x: 0px !important;
 }
 aside > main .btn-box-wrap .search {
   padding: 0;
@@ -492,7 +542,7 @@ aside > main .btn-box-wrap .search > a > i {
   position: absolute;
   bottom: 10px;
   right: 20px;
-  background-position: -28px 0;
+  background-position-x: -28px;
 }
 aside > main .btn-box-wrap .lang {
   flex-wrap: wrap;
@@ -524,7 +574,10 @@ aside > main .btn-box-wrap .lang .lang-wrap button > i {
   transform: translateY(-50%);
 }
 aside > main .btn-box-wrap .lang .lang-wrap button.check > i {
-  background: url("../../images/check.png") no-repeat center/cover;
+  background: url("../../images/icon_check.png") no-repeat center/cover;
+}
+[data-theme=dark] aside > main .btn-box-wrap .lang .lang-wrap button.check > i {
+  background-image: url("../../images/icon_check__white.png");
 }
 aside > main .btn-box-wrap .lang .lang-wrap button:first-of-type {
   background-image: url("../../images/lang-1.png");
@@ -539,8 +592,11 @@ aside > main .btn-box-wrap .lang .lang-wrap button:last-of-type {
   background-image: url("../../images/lang-4.png");
 }
 aside > main .btn-box-wrap .dark-mode > i {
-  background-image: url("../../images/dark-mode.png");
+  background-image: url("../../images/icon_dark-mode.png");
   background-size: cover;
+}
+[data-theme=dark] aside > main .btn-box-wrap .dark-mode > i {
+  background-image: url("../../images/icon_dark-mode__white.png");
 }
 aside > main .btn-box-wrap .dark-mode > div {
   display: flex;
@@ -550,6 +606,19 @@ aside > main .btn-box-wrap .dark-mode > div {
 }
 aside > main .btn-box-wrap .dark-mode > div > button {
   width: 50px;
+  height: 50px;
+}
+aside > main .btn-box-wrap .dark-mode > div > button.sun-mode {
+  background: url("../../images/icon_sun-mode.png") no-repeat 0 0/cover;
+}
+[data-theme=dark] aside > main .btn-box-wrap .dark-mode > div > button.sun-mode {
+  background-image: url("../../images/icon_sun-mode__white.png");
+}
+aside > main .btn-box-wrap .dark-mode > div > button.night-mode {
+  background: url("../../images/icon_night-mode.png") no-repeat 0 0/cover;
+}
+[data-theme=dark] aside > main .btn-box-wrap .dark-mode > div > button.night-mode {
+  background-image: url("../../images/icon_night-mode__white.png");
 }
 aside > main > ul {
   display: flex;
@@ -567,7 +636,7 @@ aside > main > ul > li {
   aside > main > ul > li .mobile-title {
     top: initial;
     position: initial;
-    background: url("../../images/icon_chevron-right__white.svg") no-repeat right/24px;
+    background: url("../../images/icon_chevron-right.svg") no-repeat right/24px;
     font-size: 1.714286em;
     padding: 15px 0;
   }
@@ -597,9 +666,12 @@ aside > main > ul > li .depth2-wrap .depth2 > ul {
   margin-top: 10px;
 }
 aside > main > ul > li .depth2-wrap .depth2 > ul > li {
-  color: #ccc;
-  padding-left: 10px;
   position: relative;
+  padding-left: 10px;
+  color: #999;
+}
+[data-theme=dark] aside > main > ul > li .depth2-wrap .depth2 > ul > li {
+  color: #ccc;
 }
 aside > main > ul > li .depth2-wrap .depth2 > ul > li::before {
   content: "-";
@@ -650,9 +722,13 @@ aside > main > ul > li:nth-child(2) .depth2-wrap {
 /*^ footer */
 footer {
   height: 210px;
-  background: #333333;
   position: relative;
+  background-color: #eee;
   z-index: 500;
+}
+[data-theme=dark] footer {
+  background-color: var(--bg-down);
+  color: var(--txt);
 }
 @media screen and (max-width: 767px) {
   footer {
@@ -662,8 +738,10 @@ footer {
 footer .inner {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   height: 100%;
   padding: 0 75px;
+  max-width: calc(100% - 210px);
 }
 @media screen and (max-width: 1600px) {
   footer .inner {
@@ -674,10 +752,11 @@ footer .inner {
   footer .inner {
     /* 여백 조정, 세로, 왼쪽 정렬 */
     display: grid;
-    width: 90%;
     padding: 0;
     margin: 0 auto;
+    max-width: 95%;
     align-items: flex-start;
+    justify-content: flex-start;
     grid-template-columns: 2fr 1fr;
   }
 }
@@ -729,9 +808,13 @@ footer .inner .foot-menu > ul > li > a:hover {
   }
 }
 footer .inner .foot-menu .call {
+  color: #000;
   font-size: 0.777778em;
-  color: #999;
   line-height: 1.75;
+}
+[data-theme=dark] footer .inner .foot-menu .call {
+  background-color: var(--bg-down);
+  color: var(--txt);
 }
 @media screen and (max-width: 767px) {
   footer .inner .foot-menu .call {
@@ -740,7 +823,7 @@ footer .inner .foot-menu .call {
   }
 }
 footer .inner .foot-menu .call > a {
-  color: #ccc;
+  color: #999;
 }
 footer .inner .foot-menu .copy {
   font-size: 0.777778em;
@@ -754,7 +837,6 @@ footer .inner .foot-menu .copy {
   }
 }
 footer .inner .foot-link {
-  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -762,6 +844,7 @@ footer .inner .foot-link {
 }
 @media screen and (max-width: 1600px) {
   footer .inner .foot-link {
+    flex: 1;
     gap: 15px;
   }
 }
@@ -780,9 +863,14 @@ footer .inner .foot-link > a {
   height: 35px;
   text-align: center;
   line-height: 30px;
-  border: 1px solid #fff;
+  background-color: #999;
+  color: #fff;
   border-radius: 50px;
   font-size: 0.777778em;
+}
+[data-theme=dark] footer .inner .foot-link > a {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 footer .inner .foot-link > a > img {
   display: inline;
@@ -807,10 +895,13 @@ footer .inner .foot-site {
 footer .inner .foot-site > strong {
   display: block;
   text-align: center;
-  border-bottom: 1px solid #fff;
   font-weight: 500;
   margin-bottom: 5px;
   padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+[data-theme=dark] footer .inner .foot-site > strong {
+  border-color: #fff;
 }
 @media screen and (max-width: 767px) {
   footer .inner .foot-site > strong {
@@ -832,12 +923,15 @@ footer .inner .foot-site > p {
 }
 footer .inner .foot-site > p > a {
   font-size: 0.777778em;
+  color: #333;
+}
+[data-theme=dark] footer .inner .foot-site > p > a {
+  color: #999;
 }
 @media screen and (max-width: 767px) {
   footer .inner .foot-site > p > a {
     padding: 0 40px;
     font-size: 12px;
-    color: #ccc;
   }
 }
 
@@ -858,195 +952,30 @@ footer .inner .foot-site > p > a {
   opacity: 0;
 }
 
-/*^ white mode  */
-body.white {
-  color: #333;
-  background: #eee;
-  /*^ header */
-  /*^ main */
-  /* header 여백 */
-  /*^ footer */
-}
-body.white .translucent {
-  color: rgba(0, 0, 0, 0.5);
-}
-body.white header {
-  background-color: #ccc;
-  color: #333;
-}
-body.white header .logo-wrap .logo {
-  background-position-y: -35px;
-}
-body.white header > nav .gnb > li .depth > li > a {
-  background-color: #ccc;
-}
-body.white header > nav .gnb > li > a {
-  padding: 0 10px;
-}
-body.white header .gnb-btn__wrap > form .gnb-btn > li > button {
-  background-position-x: -27px;
-}
-body.white header .gnb-btn__wrap > form .gnb-btn > li:nth-child(5) > button {
-  background-image: url("../../images/night-mode.png");
-  background-position: 0;
-}
-body.white header .gnb-btn__wrap > form .gnb-btn > li::after {
-  background: rgba(0, 0, 0, 0.5);
-}
-body.white aside {
-  /*TODO:  더보기 목록 확인 */
-  background: #999;
-}
-body.white aside > header > ul > li > button {
-  background: url("../../images/icon_chevron-right.svg") no-repeat 1.5px center/30px, url("../../images/icon_chevron-left.svg") no-repeat calc(100% - 1.5px) center/30px;
-}
-body.white aside > main > ul > li .depth2-wrap .depth2 {
-  color: #333;
-}
-body.white aside > main > ul > li .depth2-wrap .depth2 > ul > li {
-  color: #333;
-}
-body.white aside > main > ul > li .depth2-wrap .depth2 > ul > li > a:hover {
-  color: #000;
-}
-body.white footer {
-  background: #333333;
-  position: relative;
-  z-index: 500;
-}
-body.white footer .inner {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 75px;
-}
-@media screen and (max-width: 1280px) {
-  body.white footer .inner {
-    width: calc(100vw - 140px);
-    padding: 0 35px;
-  }
-}
-body.white footer .inner .foot-menu {
-  flex: 2;
-  padding-right: 75px;
-}
-body.white footer .inner .foot-menu > ul {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-body.white footer .inner .foot-menu > ul > li > a:hover {
-  text-decoration: underline;
-}
-body.white footer .inner .foot-menu .call,
-body.white footer .inner .foot-menu .copy {
-  font-size: 0.777778em;
-  color: #999;
-  line-height: 1.75;
-}
-body.white footer .inner .foot-menu .call > a {
-  color: #ccc;
-}
-body.white footer .inner .foot-link {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
-@media screen and (max-width: 1280px) {
-  body.white footer .inner .foot-link {
-    gap: 20px;
-  }
-}
-body.white footer .inner .foot-link > a {
-  display: block;
-  width: 145px;
-  height: 35px;
-  text-align: center;
-  line-height: 30px;
-  border: 1px solid #fff;
-  border-radius: 50px;
-  font-size: 0.777778em;
-}
-@media screen and (max-width: 1280px) {
-  body.white footer .inner .foot-link > a {
-    width: 100px;
-    padding: 0 10px;
-  }
-}
-body.white footer .inner .foot-link > a > img {
-  display: inline;
-}
-body.white footer .inner .foot-site {
-  width: 15%;
-  margin-left: 50px;
-}
-body.white footer .inner .foot-site > strong {
-  display: block;
-  text-align: center;
-  border-bottom: 1px solid #fff;
-  font-weight: 500;
-  margin-bottom: 5px;
-  padding-bottom: 10px;
-}
-body.white footer .inner .foot-site > p {
-  padding: 0 30px;
-  line-height: 1.5;
-  white-space: nowrap;
-}
-@media screen and (max-width: 1280px) {
-  body.white footer .inner .foot-site > p {
-    padding: 0 15px;
-  }
-}
-body.white footer .inner .foot-site > p > a {
-  font-size: 0.777778em;
-}
-body.white .hidden {
-  display: none;
-}
-body.white .top-btn {
-  display: block;
-  width: 70px;
-  height: 70px;
-  background: #cc0033 url("../../images/icon_chevron-up__white.svg") no-repeat center/50%;
-  position: fixed;
-  right: 70px;
-  bottom: 70px;
-  z-index: 100;
-  transition: 0.5s;
-  opacity: 0;
-}
-@media screen and (max-width: 767px) {
-  body.white .top-btn {
-    width: 40px;
-    height: 40px;
-    right: 30px;
-    bottom: 30px;
-  }
-}
-
+/*^ dark mode  */
 @keyframes open {
   from {
     opacity: 0;
+    visibility: hidden;
+  }
+  1% {
+    visibility: visible;
   }
   to {
     opacity: 1;
+    visibility: visible;
   }
 }
 @keyframes close {
   from {
     opacity: 1;
+    visibility: visible;
   }
   50% {
+    visibility: hidden;
     opacity: 0;
-    transform: translate(0, 0);
-  }
-  51% {
-    transform: translate(0, -100vh);
   }
   to {
-    transform: translate(0, -100vh);
+    visibility: hidden;
   }
 }

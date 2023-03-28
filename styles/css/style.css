@@ -1,4 +1,20 @@
 @charset "UTF-8";
+/* 기본 변수 값 */
+:root {
+  --bg: #fff;
+  --bg-down: #eee;
+  --txt: #000;
+  --txt-down: #ccc;
+}
+
+/* 다크 모드 변수 값 */
+[data-theme=dark] {
+  --bg: #000;
+  --bg-down: #333;
+  --txt: #fff;
+  --txt-down: #999;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
@@ -19,6 +35,7 @@
 .main-banner {
   position: relative;
   overflow: hidden;
+  color: #fff;
   /* 배너 목록 너비 */
   /* 배너 텍스트 */
 }
@@ -300,8 +317,12 @@
   }
 }
 .product > ul > li > button:hover {
+  color: #000;
+  border-bottom: 7px solid #000;
+}
+[data-theme=dark] .product > ul > li > button:hover {
   color: #fff;
-  border-bottom: 7px solid #fff;
+  border-color: #fff;
 }
 .product > ul > li.product__tv > ul > li {
   /* product tv 배경 */
@@ -356,6 +377,7 @@
   top: 50px;
   height: 65vh;
   width: 100%;
+  color: #fff;
   /* 목록 내용 이미지, 텍스트 정렬 */
 }
 @media screen and (max-width: 767px) {
@@ -441,6 +463,10 @@
   line-height: 60px;
   margin: 30px 0;
 }
+[data-theme=dark] .product > ul > li > ul > li > div.text-box-wrap .more-btn {
+  background-color: var(--bg);
+  color: var(--txt);
+}
 @media screen and (max-width: 767px) {
   .product > ul > li > ul > li > div.text-box-wrap .more-btn {
     width: 80%;
@@ -506,7 +532,12 @@
 /** tehonology */
 /** OLED */
 .technology-oled {
+  color: #fff;
   background: url("../../images/technology-1.jpg") no-repeat -100px 0/120%;
+}
+[data-theme=dark] .technology-oled {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 @media screen and (max-width: 767px) {
   .technology-oled {
@@ -585,13 +616,18 @@
     order: 2;
     margin: 10px 0;
     text-align: start;
-    color: #bbb;
+    color: #999;
   }
 }
 
 .technology-oled2 {
-  background: url("../../images/technology-1.jpg") no-repeat -100px -100vh/120%;
-  padding: 140px 65px;
+  color: #fff;
+  background: #000 url("../../images/technology-1.jpg") no-repeat -100px -100vh/120%;
+  padding: 140px 65px 0;
+}
+[data-theme=dark] .technology-oled2 {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 @media screen and (max-width: 767px) {
   .technology-oled2 {
@@ -784,6 +820,7 @@
 .technology-lcd {
   display: flex;
   flex-direction: column;
+  padding-top: 140px;
 }
 @media screen and (max-width: 767px) {
   .technology-lcd {
@@ -804,6 +841,11 @@
 .technology-lcd .img-wrap {
   flex: 1;
   background: url("../../images/technology-2.jpg") no-repeat center 70%/150%;
+  color: #fff;
+}
+[data-theme=dark] .technology-lcd .img-wrap {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 @media screen and (max-width: 767px) {
   .technology-lcd .img-wrap {
@@ -875,7 +917,7 @@
     order: 2;
     margin: 10px 0;
     text-align: start;
-    color: #bbb;
+    color: #999;
   }
 }
 
@@ -897,6 +939,7 @@
   display: flex;
   width: 400%;
   height: 100%;
+  color: #fff;
 }
 .technology-lcd2 .overflow > ul > li {
   width: 25%;
@@ -934,19 +977,6 @@
   transform: translate(0, -50%);
   word-break: keep-all;
 }
-.technology-lcd2 .overflow > ul > li > a .text-box::after {
-  content: "";
-  display: block;
-  width: 500px;
-  height: 500px; /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(252, 252, 252, 0) 74%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
-  opacity: 0.5;
-  border-radius: 50%;
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .technology-lcd2 .overflow > ul > li > a .text-box .sub-title {
   font-size: 2.111111em;
   text-shadow: 0 0 5px #000;
@@ -975,6 +1005,12 @@
   left: 0;
   padding: 0 40px;
 }
+[data-theme=""] .technology-lcd2 .slide-btn > .prev {
+  background-image: url("../../images/icon_chevron-left.svg");
+}
+[data-theme=""] .technology-lcd2 .slide-btn > .next {
+  background-image: url("../../images/icon_chevron-right.svg");
+}
 .technology-lcd2 .slide-bar {
   position: relative;
   width: 70%;
@@ -982,8 +1018,24 @@
   bottom: -10%;
   transform: translateX(-50%);
   height: 7px;
-  background: #666666;
+  background-color: #ccc;
   overflow: hidden;
+}
+[data-theme=dark] .technology-lcd2 .slide-bar {
+  background-color: var(--bg-down);
+  color: var(--txt);
+}
+.technology-lcd2 .slide-bar .slide-bar__now {
+  display: block;
+  width: 25%;
+  height: 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+}
+[data-theme=dark] .technology-lcd2 .slide-bar .slide-bar__now {
+  background-color: #fff;
 }
 
 /** ESG */
@@ -1024,10 +1076,11 @@
   display: block;
   width: 100%;
   height: 100%;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 .esg > ul > li > div > button > img {
   width: 70px;
-  filter: invert(67%) sepia(5%) saturate(7%) hue-rotate(331deg) brightness(89%) contrast(93%);
   margin: 0 auto;
   margin-bottom: 50px;
   transition: 0.5s;
@@ -1037,16 +1090,22 @@
   font-size: 1.555556em;
   transition: 0.5s;
 }
-.esg > ul > li > div:hover > button > img {
-  filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg) brightness(111%) contrast(101%);
+.esg > ul > li > div:hover > button {
+  opacity: 1;
 }
 .esg > ul > li > div:hover > button > span {
+  color: #000;
+}
+[data-theme=dark] .esg > ul > li > div:hover > button > span {
   color: #fff;
 }
-.esg > ul > li.active > div > button > img {
-  filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg) brightness(111%) contrast(101%);
+.esg > ul > li.active > div > button {
+  opacity: 1;
 }
 .esg > ul > li.active > div > button > span {
+  color: #000;
+}
+[data-theme=dark] .esg > ul > li.active > div > button > span {
   color: #fff;
 }
 .esg article {
@@ -1082,9 +1141,12 @@
   margin: 0;
 }
 .esg .env > table > tbody > tr > th {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   font-size: 28px;
+}
+[data-theme=dark] .esg .env > table > tbody > tr > th {
+  border-color: #fff;
 }
 .esg .env > table > tbody > tr > th > img {
   width: 70%;
@@ -1096,9 +1158,12 @@
   }
 }
 .esg .env > table > tbody > tr > td {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   padding: 10px 25px;
+}
+[data-theme=dark] .esg .env > table > tbody > tr > td {
+  border-color: #fff;
 }
 @media screen and (max-width: 1600px) {
   .esg .env > table > tbody > tr > td {
@@ -1115,7 +1180,10 @@
 .esg .env .chart {
   width: 47%;
   position: relative;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+[data-theme=dark] .esg .env .chart {
+  border-color: #fff;
 }
 @media screen and (max-width: 1600px) {
   .esg .env .chart {
@@ -1157,7 +1225,7 @@
   display: flex;
   width: 85%;
   position: absolute;
-  bottom: -25px;
+  bottom: -27px;
   left: 15%;
   text-align: center;
 }
@@ -1257,8 +1325,11 @@
   margin: 0 auto;
   margin-bottom: 20px;
   font-size: 0.888889em;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #000;
   padding-bottom: 10px;
+}
+[data-theme=dark] .esg .social__left > ul > li {
+  border-color: #fff;
 }
 .esg .social__right > div {
   display: flex;
@@ -1289,15 +1360,27 @@
   color: #000;
   border-color: #fff;
 }
+[data-theme=dark] .esg .gover > table > tbody tr > * {
+  background-color: var(--bg);
+  color: var(--txt);
+}
 .esg .gover > table > tbody tr > th {
   font-size: 1.444444em;
   background-color: #999;
   color: #fff;
   width: 16.6666666667%;
 }
+[data-theme=dark] .esg .gover > table > tbody tr > th {
+  background-color: var(--bg);
+  color: var(--txt);
+}
 .esg .gover > table > tbody tr > td:first-child {
   background-color: #999;
   color: #fff;
+}
+[data-theme=dark] .esg .gover > table > tbody tr > td:first-child {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 
 /** Latest News */
@@ -1418,7 +1501,7 @@
   margin-bottom: 25px;
   font-size: 0.777778em;
   word-break: keep-all;
-  color: #ccc;
+  color: #999;
 }
 @media screen and (max-width: 767px) {
   .latest-news > div .text-box > p {
