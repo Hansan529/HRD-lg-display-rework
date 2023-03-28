@@ -527,6 +527,9 @@ aside > main {
     height: 30px;
     background: url("../../images/icon_chevron-right.svg") no-repeat left/22px 30px, url("../../images/icon_chevron-left.svg") no-repeat right/22px 30px;
   }
+  [data-theme=dark] aside > main .mobile-btn-box-wrap .mobile-btn-wrap > button {
+    background-image: url("../../images/icon_chevron-right__white.svg"), url("../../images/icon_chevron-left__white.svg");
+  }
   aside > main .mobile-btn-box-wrap .search {
     /* 검색 input wrap: 중앙 정렬 및 여백 조절 */
     display: flex;
@@ -554,6 +557,9 @@ aside > main {
     background-position-x: -27px;
     right: 20px;
     bottom: 10px;
+  }
+  [data-theme=dark] aside > main .mobile-btn-box-wrap .search > a > i {
+    background-position-x: 0;
   }
 }
 aside > main .btn-box-wrap {
