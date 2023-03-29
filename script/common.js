@@ -25,9 +25,17 @@ function asideOpen() {
   asideDom.classList.add("open");
 }
 
-// 선택된 개체 활성화, 형제들 비활성화 - 함수화
-function activeClass(e, className, targetElems) {
+// 선택된 개체 부모 활성화, 형제들 비활성화 - 함수화
+function activeParentClass(e, className, targetElems) {
   const index = e.target.parentNode;
+  for (i = 0; i < targetElems.length; i++) {
+    targetElems[i].classList.remove(className);
+  }
+  index.classList.add(className);
+}
+// 선택된 개체 타겟 활성화, 형제들 비활성화 - 함수화
+function activeClass(e, className, targetElems) {
+  const index = e.target;
   for (i = 0; i < targetElems.length; i++) {
     targetElems[i].classList.remove(className);
   }
@@ -55,11 +63,7 @@ function enableLang() {
 const languageBtn = document.querySelectorAll(".gnb-btn .language > div > div");
 languageBtn.forEach((sel) => {
   sel.onclick = (e) => {
-    const index = e.target.parentNode;
-    for (i = 0; i < languageBtn.length; i++) {
-      languageBtn[i].classList.remove("active");
-    }
-    index.classList.add("active");
+    activeParentClass(e, "active", languageBtn);
   };
 });
 
@@ -69,7 +73,7 @@ const asideLanguageBtn = document.querySelectorAll(
 );
 asideLanguageBtn.forEach((sel) => {
   sel.onclick = (e) => {
-    activeClass(e, "select", asideLanguageBtn);
+    activeParentClass(e, "select", asideLanguageBtn);
   };
 });
 
@@ -113,11 +117,7 @@ const siblings = (t) => [...t.parentElement.children].filter((e) => e != t);
 const language = document.querySelectorAll(".lang-wrap > button");
 language.forEach((sel) => {
   sel.onclick = (e) => {
-    const index = e.target;
-    for (i = 0; i < language.length; i++) {
-      language[i].classList.remove("check");
-    }
-    index.classList.add("check");
+    activeClass(e, "check", language);
   };
 });
 asideCloseDom.addEventListener("click", asideClose);
