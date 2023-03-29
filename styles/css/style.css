@@ -1414,13 +1414,23 @@
   padding: 15px 0;
   border: 1px solid;
 }
+.esg .gover > table > tbody tr:first-child > th {
+  background-color: #999;
+  color: #fff;
+}
+.esg .gover > table > tbody tr:nth-child(2) > td:nth-child(2) {
+  border: 1px solid;
+  transition: 1s;
+}
 .esg .gover > table > tbody tr > * {
+  background-color: #ccc;
+  color: #000;
   background-color: #ccc;
   color: #000;
   border-color: #fff;
 }
 [data-theme=dark] .esg .gover > table > tbody tr > * {
-  background-color: var(--bg);
+  background-color: var(--bg-down);
   color: var(--txt);
 }
 .esg .gover > table > tbody tr > th {
@@ -1429,17 +1439,9 @@
   color: #fff;
   width: 16.6666666667%;
 }
-[data-theme=dark] .esg .gover > table > tbody tr > th {
-  background-color: var(--bg);
-  color: var(--txt);
-}
 .esg .gover > table > tbody tr > td:first-child {
   background-color: #999;
   color: #fff;
-}
-[data-theme=dark] .esg .gover > table > tbody tr > td:first-child {
-  background-color: var(--bg);
-  color: var(--txt);
 }
 
 /** Latest News */
