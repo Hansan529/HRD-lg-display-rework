@@ -233,7 +233,7 @@ header > nav .gnb > li .depth {
 }
 header > nav .gnb > li .depth > li {
   width: 210px;
-  height: 100px;
+  height: 100%;
 }
 @media screen and (max-width: 1280px) {
   header > nav .gnb > li .depth > li {
