@@ -1,8 +1,9 @@
 const pager = document.querySelectorAll(".pager > div");
-
+const banner = document.querySelector(".main-banner > ul");
+const bannerli = document.querySelectorAll(".main-banner > ul > li");
 //^ main-banner
 let toggle = true;
-let bAutoPlay = 0;
+let bAutoPlay;
 let bNum = 0;
 const bLength = $(".main-banner > ul > li").length;
 const bWidth = $(".main-banner > ul > li").width();
@@ -13,14 +14,16 @@ const bCopyLength = $(".main-banner > ul > li").length;
 
 // 배너 이동 애니메이션
 function bAnimation() {
-  $(".main-banner > ul > li")
-    .eq(bNum)
-    .fadeIn(1000)
-    .css({
-      display: "flex",
-    })
-    .siblings()
-    .hide();
+  if (window.innerWidth >= 767) {
+    $(".main-banner > ul > li")
+      .eq(bNum)
+      .fadeIn(1000)
+      .css({
+        display: "flex",
+      })
+      .siblings()
+      .hide();
+  }
 }
 // 이전으로 이동
 function bPrevBtn() {
@@ -51,17 +54,14 @@ function bNextBtn() {
 }
 // 자동 이동 토글
 function bToggle() {
-  switch (toggle) {
-    case true:
-      clearInterval(bAutoPlay);
-      toggle = false;
-      $(".main-banner .slide-btn-ps").removeClass("start").addClass("stop");
-      break;
-    default:
-      bAutoPlay = setInterval(bNextBtn, 4000);
-      $(".main-banner .slide-btn-ps").removeClass("stop").addClass("start");
-      toggle = true;
-      break;
+  if (toggle && !respon) {
+    clearInterval(bAutoPlay);
+    toggle = false;
+    $(".main-banner .slide-btn-ps").removeClass("start").addClass("stop");
+  } else if (!toggle && !respon) {
+    bAutoPlay = setInterval(bNextBtn, 4000);
+    $(".main-banner .slide-btn-ps").removeClass("stop").addClass("start");
+    toggle = true;
   }
 }
 // 다음 섹션으로 이동
@@ -72,11 +72,26 @@ function bDownScroll() {
   });
   topBtnOpacity();
 }
+// 모바일버전 배너 선택
 pager.forEach((select) => {
   select.onclick = (e) => {
     activeClass(e, "select", pager);
+    mobileBanner();
   };
 });
+
+// 모바일버전 배너 이동
+let selectNum = 0;
+function mobileBanner() {
+  if (respon) {
+    for (i = 0; i < pager.length; i++) {
+      selectNum * i * window.innerWidth;
+      if (pager[i].classList.length == 2) {
+        banner.style.marginLeft = -i * window.innerWidth + "px";
+      }
+    }
+  }
+}
 
 $(".main-banner .next").on("click", bNextBtn);
 $(".main-banner .prev").on("click", bPrevBtn);
@@ -87,25 +102,27 @@ $(".main-banner .slide-btn").on("mouseleave", bToggle);
 
 //^ product
 $(".product > ul > li").on("click", function () {
-  let productListNum = $(this).index();
-  $(this).children("ul").addClass("active");
-  $(this).siblings().children("ul").removeClass("active");
-  $(this).children("ul").fadeIn(400);
-  $(this).siblings().children("ul").fadeOut(400);
-  $(".product > ul > li > ul").parent().children("button").css({
-    color: "#ccc",
-    borderBottomColor: "#666666",
-  });
-  if (html.getAttribute("data-theme") == "dark") {
-    $(".product > ul > li > ul.active").parent().children("button").css({
-      color: "#fff",
-      borderBottomColor: "#fff",
+  if (!respon) {
+    let productListNum = $(this).index();
+    $(this).children("ul").addClass("active");
+    $(this).siblings().children("ul").removeClass("active");
+    $(this).children("ul").fadeIn(400);
+    $(this).siblings().children("ul").fadeOut(400);
+    $(".product > ul > li > ul").parent().children("button").css({
+      color: "#ccc",
+      borderBottomColor: "#666666",
     });
-  } else {
-    $(".product > ul > li > ul.active").parent().children("button").css({
-      color: "#000",
-      borderBottomColor: "#000",
-    });
+    if (html.getAttribute("data-theme") == "dark") {
+      $(".product > ul > li > ul.active").parent().children("button").css({
+        color: "#fff",
+        borderBottomColor: "#fff",
+      });
+    } else {
+      $(".product > ul > li > ul.active").parent().children("button").css({
+        color: "#000",
+        borderBottomColor: "#000",
+      });
+    }
   }
 });
 
@@ -282,16 +299,35 @@ darkModeImg();
 
 //^ 반응형 체크
 let respon = false;
+
+bToggle();
+responCheck();
+
+let delay = 300;
+let timer = null;
+
+window.addEventListener("resize", function () {
+  clearTimeout(timer);
+  timer = setTimeout(responCheck, delay);
+});
+
 function responCheck() {
-  if (window.innerWidth <= 1280) {
+  if (window.innerWidth <= 767) {
     respon = true;
-    toggle = true;
-    bToggle();
+    clearInterval(bAutoPlay);
+    for (i = 0; i < bannerli.length; i++) {
+      bannerli[i].style.display = "flex";
+    }
+    mobileBanner();
+    $(".product > ul > li > ul").css("display", "block");
   } else {
     respon = false;
-    toggle = false;
-    bToggle();
+    if (bAutoPlay === null) {
+      bAutoPlay = setInterval(bNextBtn, 4000);
+    } else {
+      bToggle();
+      document.querySelector(".slide-btn-ps").classList.remove("stop");
+      document.querySelector(".slide-btn-ps").classList.add("start");
+    }
   }
 }
-window.addEventListener("resize", responCheck);
-responCheck();
