@@ -57,6 +57,12 @@
   /* 배너 목록 */
   /* 배너 이미지 */
 }
+@media screen and (max-width: 767px) {
+  .main-banner > ul {
+    position: relative;
+    transition: 0.5s;
+  }
+}
 .main-banner > ul > li {
   width: 100%;
   height: 100%;
@@ -69,6 +75,12 @@
   transition: 0.5s;
   left: 0;
   top: 0;
+}
+@media screen and (max-width: 767px) {
+  .main-banner > ul > li {
+    display: flex;
+    position: static;
+  }
 }
 .main-banner > ul > .bg-1 {
   display: flex;
@@ -133,7 +145,7 @@
   width: 32px;
   height: 52px;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 767px) {
   .main-banner .slide-wrap .slide-btn > button {
     display: none;
   }
@@ -211,7 +223,7 @@
   z-index: 600;
   gap: 10px;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 767px) {
   .main-banner .pager {
     display: flex;
   }
@@ -331,6 +343,11 @@
   text-align: end;
   align-items: flex-end;
 }
+@media screen and (max-width: 767px) {
+  .product > ul > li.product__tv > ul > li .text-box-wrap {
+    align-items: flex-start;
+  }
+}
 .product > ul > li.product__tv > ul > li .text-box-wrap .text-box {
   align-items: flex-end;
 }
@@ -352,6 +369,11 @@
 .product > ul > li.product__it > ul > li .text-box-wrap {
   text-align: end;
   align-items: flex-end;
+}
+@media screen and (max-width: 767px) {
+  .product > ul > li.product__it > ul > li .text-box-wrap {
+    align-items: flex-start;
+  }
 }
 .product > ul > li.product__it > ul > li .text-box-wrap .text-box {
   align-items: flex-end;
@@ -831,6 +853,7 @@
 @media screen and (max-width: 767px) {
   .technology-lcd {
     display: block;
+    padding-top: 0;
   }
 }
 @media screen and (max-width: 767px) {
