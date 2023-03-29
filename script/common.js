@@ -90,11 +90,7 @@ function nightMode() {
 
 // 다크모드 온오프
 function modeChange() {
-  if (html.getAttribute("data-theme") === "") {
-    nightMode();
-  } else {
-    lightMode();
-  }
+  html.getAttribute("data-theme") === "" ? nightMode() : lightMode();
 }
 
 headerSearDom.addEventListener("click", enableSearch);
