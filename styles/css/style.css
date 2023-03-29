@@ -110,12 +110,69 @@
   display: flex;
   gap: 20px;
   z-index: 500;
+  /* 시작,종료 버튼 크기 */
 }
 @media screen and (max-width: 767px) {
   .main-banner .slide-wrap {
     /* 위치 조정 */
     display: none;
   }
+}
+.main-banner .slide-wrap .slide-btn {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0 20px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* 슬라이드 버튼 크기 */
+  /* 슬라이드 순서 */
+}
+.main-banner .slide-wrap .slide-btn > button {
+  display: block;
+  width: 32px;
+  height: 52px;
+}
+@media screen and (max-width: 1280px) {
+  .main-banner .slide-wrap .slide-btn > button {
+    display: none;
+  }
+}
+.main-banner .slide-wrap .slide-btn > button.prev {
+  background: url("../../images/icon_chevron-left__white.svg") no-repeat center/70%;
+}
+.main-banner .slide-wrap .slide-btn > button.next {
+  background: url("../../images/icon_chevron-right__white.svg") no-repeat center/70%;
+}
+.main-banner .slide-wrap .slide-btn > p {
+  color: #ccc;
+  margin: 0 5px;
+  font-size: 1.5em;
+  font-weight: thin;
+  /* 활성화된 배너 순서 */
+}
+.main-banner .slide-wrap .slide-btn > p#selected-page {
+  color: #fff;
+  font-weight: 600;
+}
+.main-banner .slide-wrap .slide-btn-ps {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  padding: 0 20px;
+  /* 상태 이미지 */
+}
+@media screen and (max-width: 1280px) {
+  .main-banner .slide-wrap .slide-btn-ps {
+    /* 버튼 배경 */
+  }
+}
+.main-banner .slide-wrap .slide-btn-ps.start {
+  background: rgba(0, 0, 0, 0.5) url("../../images/icon_pause.png") no-repeat center/60%;
+}
+.main-banner .slide-wrap .slide-btn-ps.stop {
+  background: rgba(0, 0, 0, 0.5) url("../../images/icon_play_arrow.png") no-repeat center/80%;
 }
 .main-banner .main-down {
   /* 하단 알림이 */
@@ -169,64 +226,6 @@
 .main-banner .pager > div.select {
   /* 선택된 페이지 색상 */
   background: #fff;
-}
-
-.slide-btn {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0 20px;
-  border-radius: 26px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  /* 슬라이드 버튼 크기 */
-  /* 슬라이드 순서 */
-}
-.slide-btn > button {
-  display: block;
-  width: 32px;
-  height: 52px;
-  /* 시작,종료 버튼 크기 */
-  /* 상태 이미지 */
-}
-@media screen and (max-width: 1280px) {
-  .slide-btn > button {
-    display: none;
-  }
-}
-.slide-btn > button.prev {
-  background: url("../../images/icon_chevron-left__white.svg") no-repeat center/70%;
-}
-.slide-btn > button.next {
-  background: url("../../images/icon_chevron-right__white.svg") no-repeat center/70%;
-}
-.slide-btn > button.slide-btn-ps {
-  display: block;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-}
-@media screen and (max-width: 1280px) {
-  .slide-btn > button.slide-btn-ps {
-    /* 버튼 배경 */
-    display: none;
-  }
-}
-.slide-btn > button.start {
-  background: rgba(0, 0, 0, 0.5) url("../../images/pause.png") no-repeat center/60%;
-}
-.slide-btn > button.stop {
-  background: rgba(0, 0, 0, 0.5) url("../../images/play_arrow.png") no-repeat center/80%;
-}
-.slide-btn > p {
-  color: #ccc;
-  margin: 0 5px;
-  font-size: 1.5em;
-  font-weight: thin;
-  /* 활성화된 배너 순서 */
-}
-.slide-btn > p#selected-page {
-  color: #fff;
-  font-weight: 600;
 }
 
 /** product */
@@ -330,6 +329,7 @@
 }
 .product > ul > li.product__tv > ul > li .text-box-wrap {
   text-align: end;
+  align-items: flex-end;
 }
 .product > ul > li.product__tv > ul > li .text-box-wrap .text-box {
   align-items: flex-end;
@@ -351,6 +351,7 @@
 }
 .product > ul > li.product__it > ul > li .text-box-wrap {
   text-align: end;
+  align-items: flex-end;
 }
 .product > ul > li.product__it > ul > li .text-box-wrap .text-box {
   align-items: flex-end;
