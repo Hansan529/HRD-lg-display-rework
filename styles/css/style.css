@@ -64,14 +64,14 @@
   }
 }
 .main-banner > ul > li {
+  display: none;
   width: 100%;
   height: 100%;
-  display: none;
+  position: absolute;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 500;
-  position: absolute;
   transition: 0.5s;
   left: 0;
   top: 0;
@@ -97,9 +97,9 @@
 }
 .main-banner .text-box {
   width: 80%;
-  /* 배너 제목 */
 }
 .main-banner .text-box > h2 {
+  /* 배너 제목 */
   font-size: 4em;
   font-weight: bolder;
   text-shadow: 0 0 10px #000;
@@ -116,10 +116,10 @@
   text-shadow: 0 0 10px #000;
 }
 .main-banner .slide-wrap {
+  display: flex;
   position: absolute;
   bottom: 5%;
   right: 5%;
-  display: flex;
   gap: 20px;
   z-index: 500;
   /* 시작,종료 버튼 크기 */
@@ -188,17 +188,17 @@
 }
 .main-banner .main-down {
   /* 하단 알림이 */
+  width: 40px;
+  height: 25px;
   position: absolute;
   bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 25px;
   background: url("../../images/top-btn.png") no-repeat;
   animation: move__ani 1s ease-out infinite alternate;
   z-index: 500;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 767px) {
   .main-banner .main-down {
     width: 40px;
     height: 40px;
@@ -207,10 +207,8 @@
     right: 30px;
     bottom: 30px;
     animation: none;
+    background: #fff no-repeat center/50%;
     background-image: url("../../images/icon_chevron-down.svg");
-    background-color: #fff;
-    background-size: 50%;
-    background-position: center;
   }
 }
 .main-banner .pager {
@@ -288,11 +286,10 @@
 }
 .product > ul {
   display: flex;
+  width: 90%;
   position: relative;
   /* 너비 위치 조정 */
-  width: 90%;
   margin: 0 auto;
-  position: relative;
   text-align: center;
   /* 목록 분할 */
 }
@@ -313,12 +310,12 @@
   }
 }
 .product > ul > li > button {
-  font-size: 1.375em;
-  padding-bottom: 10px;
-  border-bottom: 7px solid #666666;
   display: block;
   width: 100%;
   height: 100%;
+  font-size: 1.375em;
+  padding-bottom: 10px;
+  border-bottom: 7px solid #666666;
   color: #ccc;
   transition: 0.5s;
 }
@@ -394,14 +391,19 @@
   background: url("../../images/product-bg-5.jpg") no-repeat center/cover;
 }
 .product > ul > li > ul {
+  width: 100%;
+  height: 65vh;
+  position: absolute;
   text-align: start;
   left: 0;
-  position: absolute;
   top: 50px;
-  height: 65vh;
-  width: 100%;
   color: #fff;
   /* 목록 내용 이미지, 텍스트 정렬 */
+}
+@media screen and (max-width: 1280px) {
+  .product > ul > li > ul {
+    top: 45px;
+  }
 }
 @media screen and (max-width: 767px) {
   .product > ul > li > ul {
@@ -419,10 +421,10 @@
 }
 .product > ul > li > ul > li {
   display: flex;
-  padding: 60px 80px;
-  position: relative;
   width: 100%;
   height: 100%;
+  position: relative;
+  padding: 60px 80px;
   border-radius: 0 0 80px 80px;
 }
 @media screen and (max-width: 767px) {
@@ -441,8 +443,8 @@
 }
 .product > ul > li > ul > li > div.text-box-wrap {
   display: flex;
-  margin: 0 60px;
   width: 40%;
+  margin: 0 60px;
   flex-direction: column;
 }
 @media screen and (max-width: 767px) {
@@ -455,8 +457,8 @@
 }
 .product > ul > li > ul > li > div.text-box-wrap .text-box {
   display: inline-flex;
-  flex: 1;
   position: relative;
+  flex: 1;
   word-break: keep-all;
   padding: 60px 0 40px;
   flex-direction: column;
@@ -663,17 +665,17 @@
   }
 }
 .technology-oled2 > ul {
-  position: relative;
   height: 100%;
+  position: relative;
 }
 .technology-oled2 > ul > li {
   display: flex;
-  position: absolute;
   width: 100%;
+  height: 650px;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 650px;
 }
 @media screen and (max-width: 1280px) {
   .technology-oled2 > ul > li {
@@ -754,10 +756,10 @@
   transition: 1s;
 }
 .technology-oled2 > ul > li > div.img-box-wrap > .img-box img {
-  border-radius: 10px;
-  box-shadow: 0 10px 30px 0 #666;
   width: 350px;
   height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px 0 #666;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 31px;
@@ -838,11 +840,25 @@
   gap: 0;
   justify-content: space-between;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 0;
   transform: translateY(-50%);
   background: none;
   z-index: 90;
+  display: flex;
+  padding: 0 10px;
+}
+.technology-oled2 .slide-btn > button {
+  display: block;
+  width: 32px;
+  height: 52px;
+  background: no-repeat center/cover;
+}
+.technology-oled2 .slide-btn > button.prev {
+  background-image: url("../../images/icon_chevron-left__white.svg");
+}
+.technology-oled2 .slide-btn > button.next {
+  background-image: url("../../images/icon_chevron-right__white.svg");
 }
 
 .technology-lcd {
@@ -1000,8 +1016,8 @@
 }
 .technology-lcd2 .overflow > ul > li > a .text-box {
   width: 40%;
-  text-align: center;
   position: absolute;
+  text-align: center;
   top: 50%;
   right: 10%;
   transform: translate(0, -50%);
@@ -1016,9 +1032,9 @@
   z-index: 20;
 }
 .technology-lcd2 .overflow > ul > li > a .text-box > p {
+  width: 100%;
   position: relative;
   z-index: 20;
-  width: 100%;
   text-shadow: 0 0 20px #000;
   word-break: keep-all;
 }
@@ -1034,21 +1050,34 @@
   z-index: 90;
   left: 0;
   padding: 0 40px;
+  display: flex;
 }
-[data-theme=""] .technology-lcd2 .slide-btn > .prev {
+.technology-lcd2 .slide-btn > button {
+  display: block;
+  width: 32px;
+  height: 52px;
+  background: no-repeat center/cover;
+}
+.technology-lcd2 .slide-btn > button.prev {
   background-image: url("../../images/icon_chevron-left.svg");
 }
-[data-theme=""] .technology-lcd2 .slide-btn > .next {
+[data-theme=dark] .technology-lcd2 .slide-btn > button.prev {
+  background-image: url("../../images/icon_chevron-left__white.svg");
+}
+.technology-lcd2 .slide-btn > button.next {
   background-image: url("../../images/icon_chevron-right.svg");
 }
+[data-theme=dark] .technology-lcd2 .slide-btn > button.next {
+  background-image: url("../../images/icon_chevron-right__white.svg");
+}
 .technology-lcd2 .slide-bar {
-  position: relative;
   width: 70%;
+  height: 7px;
+  position: relative;
+  background-color: #ccc;
   left: 50%;
   bottom: -10%;
   transform: translateX(-50%);
-  height: 7px;
-  background-color: #ccc;
   overflow: hidden;
 }
 [data-theme=dark] .technology-lcd2 .slide-bar {
@@ -1071,9 +1100,9 @@
 /** ESG */
 .esg {
   display: flex;
+  height: initial;
   flex-direction: column;
   align-items: center;
-  height: initial;
   transition: 1s;
 }
 @media screen and (max-width: 767px) {
@@ -1093,8 +1122,8 @@
   flex: 1;
 }
 .esg > ul > li {
-  width: 33.3333333333%;
   display: flex;
+  width: 33.3333333333%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1141,14 +1170,14 @@
 .esg article {
   display: none;
   width: 90%;
-  padding: 100px 0 50px;
   position: absolute;
+  padding: 100px 0 50px;
   bottom: 0;
 }
 .esg article.active {
   display: flex;
-  position: relative;
   height: 600px;
+  position: relative;
 }
 .esg .env {
   justify-content: space-between;
@@ -1366,9 +1395,9 @@
   flex-wrap: wrap;
 }
 .esg .social__right > div > a {
-  font-size: 1.777778em;
   display: block;
   width: 50%;
+  font-size: 1.777778em;
   margin-bottom: 90px;
 }
 .esg .gover > table {
@@ -1502,9 +1531,9 @@
 @media screen and (max-width: 767px) {
   .latest-news > div .text-box .news__title > p {
     /* 줄바꿈, 서식 변경 */
-    font-size: 16px;
     display: -webkit-box;
     width: 100%;
+    font-size: 16px;
     overflow: hidden;
     margin: 0;
     word-break: normal;
