@@ -1,0 +1,580 @@
+@charset "UTF-8";
+/* 기본 변수 값 */
+:root {
+  --bg: #fff;
+  --bg-down: #eee;
+  --txt: #000;
+  --txt-down: #ccc;
+}
+
+/* 다크 모드 변수 값 */
+[data-theme=dark] {
+  --bg: #000;
+  --bg-down: #333;
+  --txt: #fff;
+  --txt-down: #999;
+}
+
+/*^ common */
+@media screen and (max-width: 767px) {
+  #main {
+    margin-top: 70px;
+  }
+}
+#main section {
+  height: initial;
+  padding-bottom: 50px;
+}
+@media screen and (max-width: 767px) {
+  #main section > .sec-title::after {
+    display: none;
+  }
+}
+
+.sec-title {
+  text-align: inherit;
+  margin-bottom: 50px;
+  font-size: 30px;
+  position: relative;
+  padding-left: 20px;
+}
+.sec-title::before {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 50px;
+  position: absolute;
+  background: #ba1038;
+  left: 0;
+}
+
+.product__sub-title {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  word-break: keep-all;
+}
+@media screen and (max-width: 767px) {
+  .product__sub-title {
+    font-size: 20px;
+  }
+}
+
+.product__content {
+  word-break: keep-all;
+  font-size: 16px;
+}
+
+.wallpaper__pt1 > .product__text-box,
+.rollable-sec > .product__text-box {
+  padding: 50px 30px 30px;
+}
+
+/*^ cinematic */
+.product__tv-cinematic {
+  width: 90%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+  .product__tv-cinematic {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product__tv-cinematic {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product__tv-cinematic > div {
+    display: block;
+  }
+}
+.product__tv-cinematic > .sec-title {
+  text-align: start;
+  margin-top: 50px;
+}
+.product__tv-cinematic > .product__content-wrap {
+  margin-bottom: 100px;
+}
+.product__tv-cinematic > .product__content-wrap > .product__img-box > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+}
+
+.product__tv-cinematic > .product__content-wrap > .product__text-box > .product__content {
+  font-weight: lighter;
+  font-size: 20px;
+}
+@media screen and (max-width: 767px) {
+  .product__tv-cinematic > .product__content-wrap > .product__text-box > .product__content {
+    font-size: 18px;
+    text-align: start;
+    line-height: 1.3;
+  }
+}
+
+.cinematic__pt1 {
+  display: flex;
+  align-items: center;
+}
+.cinematic__pt1 > .product__text-box {
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .cinematic__pt1 > .product__text-box {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.cinematic__pt1 > .product__img-box > img {
+  width: 100%;
+  height: 400px;
+}
+@media screen and (max-width: 767px) {
+  .cinematic__pt1 > .product__img-box > img {
+    height: 170px;
+  }
+}
+
+.cinematic__pt2 {
+  text-align: center;
+}
+.cinematic__pt2 .product__content {
+  width: 70%;
+  margin: 50px auto;
+}
+@media screen and (max-width: 1280px) {
+  .cinematic__pt2 .product__content {
+    width: 90%;
+  }
+}
+
+.cinematic__img-1 {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 50px;
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .cinematic__img-1 {
+    margin-bottom: 15px;
+  }
+}
+
+.cinematic__img-2 {
+  position: relative;
+  background: #fff;
+  padding: 50px 0;
+  max-width: 1540px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+  .cinematic__img-2 {
+    bakcground: none;
+    padding: 0;
+  }
+}
+.cinematic__img-2::before, .cinematic__img-2::after {
+  display: block;
+  width: 300px;
+  position: absolute;
+  word-break: keep-all;
+}
+@media screen and (max-width: 1280px) {
+  .cinematic__img-2::before, .cinematic__img-2::after {
+    width: 100%;
+    position: static;
+    color: #999;
+    font-size: 18px;
+    text-align: start;
+    margin: 10px 0;
+  }
+}
+.cinematic__img-2::before {
+  content: "자발광 구조의 얇은 OLED 패널을 진동판으로 사용하여 더욱 심플한 디자인과 전면 지향 음질 구현";
+  left: 23%;
+  top: 50%;
+  transform: translateY(-30%);
+  color: #fff;
+}
+@media screen and (max-width: 1280px) {
+  .cinematic__img-2::before {
+    left: 3%;
+  }
+}
+.cinematic__img-2::after {
+  content: "뒷면에 부착된 Exciter로 패널 자체 진동을 통해 전면으로 소리를 전달하여 더욱 명확한 소리 표현";
+  right: 50px;
+  bottom: 3%;
+  color: #000;
+  text-align: start;
+}
+@media screen and (max-width: 1280px) {
+  .cinematic__img-2 > img {
+    padding: 50px 0;
+    background-color: #fff;
+  }
+}
+
+/*^ wallpaper */
+.product__tv-wallpaper {
+  background: #666;
+}
+@media screen and (max-width: 767px) {
+  .product__tv-wallpaper > div {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product__tv-wallpaper .product__content {
+    color: #ccc;
+  }
+}
+
+.wallpaper-sec img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 1280px) {
+  .wallpaper-sec img {
+    height: 100%;
+  }
+}
+
+.wallpaper__pt1 {
+  display: flex;
+}
+
+.wallpaper__pt2 {
+  display: flex;
+  width: 90%;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+  .wallpaper__pt2 {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .wallpaper__pt2 > .product__content-wrap:first-child {
+    margin: 0 0 50px;
+  }
+}
+
+.rollable__pt2 {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+@media screen and (max-width: 1280px) {
+  .rollable__pt2 {
+    width: 95%;
+  }
+}
+
+.wallpaper__pt1 > div {
+  flex: 1;
+}
+.wallpaper__pt1 > .product__img-box {
+  height: 600px;
+  overflow: hidden;
+}
+.wallpaper__pt1 > .product__text-box > .product__content:first-of-type {
+  margin-bottom: 100px;
+}
+
+.wallpaper__pt2 > div {
+  flex: 1;
+  text-align: center;
+}
+.wallpaper__pt2 > div > .product__sub-title {
+  display: inline-block;
+  width: 400px;
+  height: 70px;
+  background: #999;
+  line-height: 70px;
+  white-space: nowrap;
+}
+@media screen and (max-width: 1280px) {
+  .wallpaper__pt2 > div > .product__sub-title {
+    width: 300px;
+  }
+}
+.wallpaper__pt2 > div > .product__img-box > img {
+  width: 50%;
+  margin: 0 auto;
+}
+.wallpaper__pt2 > div > .product__text-box {
+  color: #999;
+  line-height: 2;
+}
+.wallpaper__pt2 > div > .product__text-box .product__content {
+  font-size: 22px;
+  color: #ccc;
+}
+.wallpaper__pt2 > div > .product__text-box strong {
+  display: block;
+  margin-bottom: 30px;
+}
+.wallpaper__pt2 > div > .product__more-btn {
+  transition: 0.3s;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background: #999;
+}
+.wallpaper__pt2 > div > .product__more-btn:hover {
+  background: #000;
+}
+.wallpaper__pt2 .product__content--sm > strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/*^ rollable */
+.product__tv-rollable {
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .product__tv-rollable {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product__tv-rollable > div {
+    flex-driection: column;
+  }
+}
+
+.rollable-sec > .product__text-box {
+  margin-bottom: 100px;
+}
+@media screen and (max-width: 1280px) {
+  .rollable-sec > .product__text-box {
+    margin-bottom: 0;
+  }
+}
+.rollable-sec > .product__text-box > .product__content {
+  width: 80%;
+  margin-left: auto;
+}
+.rollable-sec .product__sub-title > span {
+  display: none;
+}
+@media screen and (max-width: 1280px) {
+  .rollable-sec .product__sub-title > span {
+    display: inline;
+  }
+}
+.rollable-sec .product__content {
+  margin: 10px 0;
+}
+
+.product__tv-rollable h2.sec-title {
+  padding: 0 20px 0 0;
+}
+.product__tv-rollable h2.sec-title::before {
+  left: initial;
+  right: 0;
+}
+
+.rollable__pt1 {
+  display: flex;
+}
+.rollable__pt1 > div {
+  flex: 1;
+}
+.rollable__pt1 > .product__text-box {
+  text-align: end;
+}
+.rollable__pt1 > .product__text-box .sec-title ~ p:first-of-type {
+  margin-bottom: 100px;
+}
+@media screen and (max-width: 1280px) {
+  .rollable__pt1 > .product__text-box .sec-title ~ p:first-of-type {
+    margin-bottom: 50px;
+  }
+}
+.rollable__pt1 img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.rollable__pt2 {
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .rollable__pt2 {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+.rollable__pt2 .product__content-wrap--box {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 767px) {
+  .rollable__pt2 .product__content-wrap--box {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .rollable__pt2 .product__content-wrap--box > .product__content-wrap {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  .rollable__pt2 .product__content-wrap--box > .product__content-wrap:last-child {
+    margin: 50px 0;
+  }
+}
+.rollable__pt2 .product__content-wrap--box > .product__content-wrap:last-child > .product__img-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 767px) {
+  .rollable__pt2 .product__content-wrap--box .product__content-wrap > .product__text-box {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .rollable__pt2 .product__content-wrap--box .product__content-wrap > .product__img-box > img {
+    width: 70px;
+  }
+}
+.rollable__pt2 div > .product__content-wrap:first-child, .rollable__pt2 div > .product__content-wrap:nth-child(2) {
+  display: inline-block;
+  width: 40%;
+}
+.rollable__pt2 .product__content-wrap:last-child > .product__img-box > img {
+  width: 100%;
+  margin: 0;
+}
+.rollable__pt2 .product__content-wrap > .product__text-box {
+  width: 60%;
+  margin: 0 auto;
+}
+.rollable__pt2 .product__content-wrap--box .product__img-box {
+  display: flex;
+}
+.rollable__pt2 .product__content-wrap--box .product__img-box > img {
+  width: 100px;
+  margin: 0 auto;
+}
+.rollable__pt2 .product__content-wrap {
+  margin-top: 30px;
+}
+.rollable__pt2 .product__content-wrap .product__content {
+  margin: 30px 0 80px;
+}
+
+/* tv-lcd */
+.product__tv-lcd {
+  width: 90%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1280px) {
+  .product__tv-lcd {
+    width: 95%;
+  }
+}
+.product__tv-lcd > .product__text-box:first-of-type {
+  margin-bottom: 30px;
+}
+.product__tv-lcd > .product__content-wrap:last-child > .product__text-box {
+  text-align: center;
+}
+@media screen and (max-width: 1280px) {
+  .product__tv-lcd > .product__content-wrap:last-child > .product__img-box > .blind {
+    position: static;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .product__tv-lcd > .product__content-wrap:last-child > .product__img-box > img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .product__tv-lcd > .product__content-wrap:last-child > .product__img-box > img:first-child {
+    display: none;
+  }
+}
+.product__tv-lcd .product__bg-1 {
+  display: flex;
+  height: 750px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 767px) {
+  .product__tv-lcd .product__bg-1 {
+    height: 400px;
+  }
+}
+.product__tv-lcd .product__bg-1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fff url("../../images/product-tv_9.jpg") no-repeat center 70%/cover;
+  opacity: 0.7;
+}
+.product__tv-lcd .product__bg-1 img {
+  width: 80%;
+  height: 75%;
+  position: relative;
+  z-index: 10;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center 70%;
+     object-position: center 70%;
+}
+.product__tv-lcd > .product__content-wrap:last-child > .product__img-box {
+  margin-top: 30px;
+}
+.product__tv-lcd > .product__content-wrap:last-child > .product__img-box > img {
+  margin: 0 auto;
+}
+.product__tv-lcd .product__bg-2 {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px 0;
+  background: url("../../images/product-tv_10.jpg") no-repeat;
+  background-attachment: fixed;
+  background-position: 80% 90%;
+  background-size: 80%;
+}
+@media screen and (max-width: 1280px) {
+  .product__tv-lcd .product__bg-2 {
+    background-size: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product__tv-lcd .product__bg-2 {
+    background-attachment: scroll;
+    background-position-y: bottom;
+  }
+}
+.product__tv-lcd .product__bg-2 > .product__content {
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  text-align: center;
+}
+.product__tv-lcd .product__bg-2 > .product__sub-title {
+  text-shadow: 0 0 10px #000;
+}
