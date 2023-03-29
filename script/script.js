@@ -1,3 +1,5 @@
+const pager = document.querySelectorAll(".pager > div");
+
 //^ main-banner
 let toggle = true;
 let bAutoPlay = 0;
@@ -9,6 +11,7 @@ const bObj = $(".main-banner>ul>li").first().clone();
 $(".main-banner>ul").append(bObj);
 const bCopyLength = $(".main-banner > ul > li").length;
 
+// 배너 이동 애니메이션
 function bAnimation() {
   $(".main-banner > ul > li")
     .eq(bNum)
@@ -19,6 +22,7 @@ function bAnimation() {
     .siblings()
     .hide();
 }
+// 이전으로 이동
 function bPrevBtn() {
   if (bNum == 0) {
     bNum = bLength;
@@ -30,6 +34,7 @@ function bPrevBtn() {
   bAnimation();
   $(".main-banner #selected-page").text(bNum + 1);
 }
+// 다음으로 이동
 function bNextBtn() {
   bNum++;
   if (bNum == bLength) {
@@ -44,6 +49,7 @@ function bNextBtn() {
     $(".main-banner #selected-page").text(1);
   }
 }
+// 자동 이동 토글
 function bToggle() {
   switch (toggle) {
     case true:
@@ -58,6 +64,7 @@ function bToggle() {
       break;
   }
 }
+// 다음 섹션으로 이동
 function bDownScroll() {
   let bHeight = $(".main-banner>ul").outerHeight();
   $("html").stop().animate({
@@ -65,6 +72,11 @@ function bDownScroll() {
   });
   topBtnOpacity();
 }
+pager.forEach((select) => {
+  select.onclick = (e) => {
+    activeClass(e, "select", pager);
+  };
+});
 
 $(".main-banner .next").on("click", bNextBtn);
 $(".main-banner .prev").on("click", bPrevBtn);
@@ -270,9 +282,8 @@ darkModeImg();
 
 //^ 반응형 체크
 let respon = false;
-const responWidth = $("body").width();
 function responCheck() {
-  if (responWidth <= 1280) {
+  if (window.innerWidth <= 1280) {
     respon = true;
     toggle = true;
     bToggle();
@@ -282,4 +293,5 @@ function responCheck() {
     bToggle();
   }
 }
+window.addEventListener("resize", responCheck);
 responCheck();
