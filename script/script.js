@@ -278,7 +278,6 @@ $(".esg > ul > li").on("click", function () {
   esgActive();
 });
 
-const html = document.querySelector("html");
 const esgImgDom1 = document.querySelector("#esg-1");
 const esgImgDom2 = document.querySelector("#esg-2");
 const esgImgDom3 = document.querySelector("#esg-3");
@@ -297,6 +296,9 @@ function darkModeImg() {
 }
 darkModeImg();
 
+headerModeDom.addEventListener("click", () => {
+  darkModeImg();
+});
 //^ 반응형 체크
 let respon = false;
 

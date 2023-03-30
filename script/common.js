@@ -1,3 +1,4 @@
+const html = document.querySelector("html");
 const headerSearDom = document.querySelector(".gnb-btn > li > .search-btn");
 const headerLangDom = document.querySelector(".gnb-btn > li > .language-btn");
 const headerModeDom = document.querySelector(".gnb-btn > li > .mode-btn");
@@ -80,12 +81,10 @@ asideLanguageBtn.forEach((sel) => {
 // 라이트모드
 function lightMode() {
   html.dataset.theme = "";
-  darkModeImg();
 }
 // 다크모드
 function nightMode() {
   html.dataset.theme = "dark";
-  darkModeImg();
 }
 
 // 다크모드 온오프
