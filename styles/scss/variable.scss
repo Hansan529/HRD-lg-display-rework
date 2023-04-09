@@ -1,0 +1,64 @@
+@mixin respon($wSize) {
+  @media screen and (max-width: #{$wSize}px) {
+    @content;
+  }
+}
+@mixin responOrientaion($mode: landscape) {
+  @media screen and (orientation: #{$mode}) {
+    @content;
+  }
+}
+@mixin blockType($d: null, $w: null, $h: null, $p: null) {
+  display: $d;
+  width: $w;
+  height: $h;
+  position: $p;
+}
+@mixin border($a: null, $t: null, $r: null, $b: null, $l: null, $radius: null) {
+  border: $a;
+  border-top: $t;
+  border-right: $r;
+  border-bottom: $b;
+  border-left: $l;
+  border-radius: $radius;
+}
+
+$main-color: #d22323;
+$header-size: 210px;
+
+/* 기본 변수 값 */
+:root {
+  --bg: #fff;
+  --bg-down: #eee;
+  --txt: #000;
+  --txt-down: #ccc;
+}
+
+/* 다크 모드 변수 값 */
+[data-theme="dark"] {
+  --bg: #000;
+  --bg-down: #333;
+  --txt: #fff;
+  --txt-down: #999;
+}
+
+@mixin color($bg: null, $color: null) {
+  background-color: $bg;
+  color: $color;
+  [data-theme="dark"] & {
+    background-color: var(--bg);
+    color: var(--txt);
+  }
+}
+@mixin colorDown($bg: null, $color: null) {
+  background-color: $bg;
+  color: $color;
+  [data-theme="dark"] & {
+    background-color: var(--bg-down);
+    color: var(--txt);
+  }
+}
+$img-white: (
+  filter: invert(100%) sepia(0%) saturate(930%) hue-rotate(167deg)
+    brightness(111%) contrast(101%),
+);

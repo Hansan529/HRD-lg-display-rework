@@ -84,16 +84,16 @@
 }
 .main-banner > ul > .bg-1 {
   display: flex;
-  background: url("../../images/main-banner_1.jpg") no-repeat 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_1.jpg") no-repeat 0/cover;
 }
 .main-banner > ul > .bg-2 {
-  background: url("../../images/main-banner_2.jpeg") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_2.jpeg") no-repeat center/cover;
 }
 .main-banner > ul > .bg-3 {
-  background: #000 url("../../images/main-banner_3.jpg") no-repeat 0px 100px/cover;
+  background: #000 url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_3.jpg") no-repeat 0px 100px/cover;
 }
 .main-banner > ul > .bg-4 {
-  background: url("../../images/main-banner_4.jpg") no-repeat 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_4.jpg") no-repeat 0/cover;
 }
 .main-banner .text-box {
   width: 80%;
@@ -151,10 +151,10 @@
   }
 }
 .main-banner .slide-wrap .slide-btn > button.prev {
-  background: url("../../images/icon_chevron-left__white.svg") no-repeat center/70%;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg") no-repeat center/70%;
 }
 .main-banner .slide-wrap .slide-btn > button.next {
-  background: url("../../images/icon_chevron-right__white.svg") no-repeat center/70%;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg") no-repeat center/70%;
 }
 .main-banner .slide-wrap .slide-btn > p {
   color: #ccc;
@@ -181,10 +181,10 @@
   }
 }
 .main-banner .slide-wrap .slide-btn-ps.start {
-  background: rgba(0, 0, 0, 0.5) url("../../images/icon_pause.png") no-repeat center/60%;
+  background: rgba(0, 0, 0, 0.5) url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_pause.png") no-repeat center/60%;
 }
 .main-banner .slide-wrap .slide-btn-ps.stop {
-  background: rgba(0, 0, 0, 0.5) url("../../images/icon_play_arrow.png") no-repeat center/80%;
+  background: rgba(0, 0, 0, 0.5) url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_play_arrow.png") no-repeat center/80%;
 }
 .main-banner .main-down {
   /* 하단 알림이 */
@@ -194,7 +194,7 @@
   bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
-  background: url("../../images/top-btn.png") no-repeat;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/top-btn.png") no-repeat;
   animation: move__ani 1s ease-out infinite alternate;
   z-index: 500;
 }
@@ -208,7 +208,7 @@
     bottom: 30px;
     animation: none;
     background: #fff no-repeat center/50%;
-    background-image: url("../../images/icon_chevron-down.svg");
+    background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-down.svg");
   }
 }
 .main-banner .pager {
@@ -334,7 +334,7 @@
 }
 .product > ul > li.product__tv > ul > li {
   /* product tv 배경 */
-  background: url("../../images/product-bg-1.jpg") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-1.jpg") no-repeat center/cover;
 }
 .product > ul > li.product__tv > ul > li .text-box-wrap {
   text-align: end;
@@ -358,10 +358,10 @@
   right: 0;
 }
 .product > ul > li.product__commercial > ul > li {
-  background: url("../../images/product-bg-2.jpg") no-repeat right center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-2.jpg") no-repeat right center/cover;
 }
 .product > ul > li.product__it > ul > li {
-  background: url("../../images/product-bg-3.jpg") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-3.jpg") no-repeat center/cover;
 }
 .product > ul > li.product__it > ul > li .text-box-wrap {
   text-align: end;
@@ -385,10 +385,10 @@
   right: 0;
 }
 .product > ul > li.product__mobile > ul > li {
-  background: url("../../images/product-bg-4.jpg") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-4.jpg") no-repeat center/cover;
 }
 .product > ul > li.product__automotive > ul > li {
-  background: url("../../images/product-bg-5.jpg") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-5.jpg") no-repeat center/cover;
 }
 .product > ul > li > ul {
   width: 100%;
@@ -562,7 +562,7 @@
 /** OLED */
 .technology-oled {
   color: #fff;
-  background: url("../../images/technology-1.jpg") no-repeat -100px 0/120%;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/technology-1.jpg") no-repeat -100px 0/120%;
 }
 [data-theme=dark] .technology-oled {
   background-color: var(--bg);
@@ -652,7 +652,7 @@
 
 .technology-oled2 {
   color: #fff;
-  background: #000 url("../../images/technology-1.jpg") no-repeat -100px -100vh/120%;
+  background: #000 url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/technology-1.jpg") no-repeat -100px -100vh/120%;
   padding: 140px 65px 0;
 }
 [data-theme=dark] .technology-oled2 {
@@ -719,22 +719,22 @@
   transform: perspective(300px) translateX(-400px) translateZ(-100px) rotateY(-30deg);
 }
 .technology-oled2 > ul > li:first-child .text-box {
-  background: url("../../images/oled-1.jpg") no-repeat center 100%/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-1.jpg") no-repeat center 100%/cover;
 }
 .technology-oled2 > ul > li:nth-child(2) .text-box {
-  background: url("../../images/oled-2.jpg") no-repeat center 100%/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-2.jpg") no-repeat center 100%/cover;
 }
 .technology-oled2 > ul > li:nth-child(3) .text-box {
-  background: url("../../images/oled-3.jpg") no-repeat center 100%/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-3.jpg") no-repeat center 100%/cover;
 }
 .technology-oled2 > ul > li:nth-child(4) .text-box {
-  background: url("../../images/oled-4.jpg") no-repeat center 100%/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-4.jpg") no-repeat center 100%/cover;
 }
 .technology-oled2 > ul > li:nth-child(5) .text-box {
-  background: url("../../images/oled-5.jpg") no-repeat center 100%/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-5.jpg") no-repeat center 100%/cover;
 }
 .technology-oled2 > ul > li:last-child .text-box {
-  background: url("../../images/oled-6.jpg") no-repeat center 100%/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-6.jpg") no-repeat center 100%/cover;
 }
 .technology-oled2 > ul > li > div {
   position: relative;
@@ -855,10 +855,10 @@
   background: no-repeat center/cover;
 }
 .technology-oled2 .slide-btn > button.prev {
-  background-image: url("../../images/icon_chevron-left__white.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg");
 }
 .technology-oled2 .slide-btn > button.next {
-  background-image: url("../../images/icon_chevron-right__white.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg");
 }
 
 .technology-lcd {
@@ -885,7 +885,7 @@
 }
 .technology-lcd .img-wrap {
   flex: 1;
-  background: url("../../images/technology-2.jpg") no-repeat center 70%/150%;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/technology-2.jpg") no-repeat center 70%/150%;
   color: #fff;
 }
 @media screen and (max-width: 767px) {
@@ -991,22 +991,22 @@
   width: 25%;
 }
 .technology-lcd2 .overflow > ul > li:first-child {
-  background: url("../../images/lcd-1.png") no-repeat center/contain;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-1.png") no-repeat center/contain;
 }
 .technology-lcd2 .overflow > ul > li:first-child > a {
   justify-content: flex-end;
 }
 .technology-lcd2 .overflow > ul > li:last-child {
-  background: url("../../images/lcd-1.png") no-repeat center/contain;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-1.png") no-repeat center/contain;
 }
 .technology-lcd2 .overflow > ul > li:nth-child(2) {
-  background: url("../../images/lcd-2.jpg") no-repeat 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-2.jpg") no-repeat 0/cover;
 }
 .technology-lcd2 .overflow > ul > li:nth-child(3) {
-  background: url("../../images/lcd-3.jpg") no-repeat 100% 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-3.jpg") no-repeat 100% 0/cover;
 }
 .technology-lcd2 .overflow > ul > li:nth-child(4) {
-  background: url("../../images/lcd-4.jpg") no-repeat 100% 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-4.jpg") no-repeat 100% 0/cover;
 }
 .technology-lcd2 .overflow > ul > li > a {
   display: block;
@@ -1059,16 +1059,16 @@
   background: no-repeat center/cover;
 }
 .technology-lcd2 .slide-btn > button.prev {
-  background-image: url("../../images/icon_chevron-left.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left.svg");
 }
 [data-theme=dark] .technology-lcd2 .slide-btn > button.prev {
-  background-image: url("../../images/icon_chevron-left__white.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg");
 }
 .technology-lcd2 .slide-btn > button.next {
-  background-image: url("../../images/icon_chevron-right.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right.svg");
 }
 [data-theme=dark] .technology-lcd2 .slide-btn > button.next {
-  background-image: url("../../images/icon_chevron-right__white.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg");
 }
 .technology-lcd2 .slide-bar {
   width: 70%;

@@ -156,7 +156,7 @@ header .logo-wrap .logo {
   width: 170px;
   height: 35px;
   margin: 35px auto 0;
-  background: url("../../images/logo_en.png");
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/logo_en.png");
   background-position-y: -35px;
 }
 [data-theme=dark] header .logo-wrap .logo {
@@ -337,7 +337,7 @@ header .gnb-btn__wrap > form .gnb-btn > li > button {
   display: block;
   width: 27px;
   height: 27px;
-  background: url("../../images/icon_utill.png") no-repeat 0 0;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_utill.png") no-repeat 0 0;
   background-position-x: -27px;
   text-indent: -9999em;
 }
@@ -372,10 +372,10 @@ header .gnb-btn__wrap > form .gnb-btn > li.search > div > input {
 }
 header .gnb-btn__wrap > form .gnb-btn > li.search > div > button {
   flex: 1;
-  background: url("../../images/icon_submit.png") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_submit.png") no-repeat center/cover;
 }
 [data-theme=dark] header .gnb-btn__wrap > form .gnb-btn > li.search > div > button {
-  background-image: url("../../images/icon_submit__white.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_submit__white.png");
 }
 header .gnb-btn__wrap > form .gnb-btn > li.search::after {
   display: none;
@@ -414,10 +414,10 @@ header .gnb-btn__wrap > form .gnb-btn > li.language::after {
   display: none;
 }
 header .gnb-btn__wrap > form .gnb-btn > li:nth-child(5) > button {
-  background: url("../../images/icon_sun-mode.png") no-repeat 0 0/27px 27px;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_sun-mode.png") no-repeat 0 0/27px 27px;
 }
 [data-theme=dark] header .gnb-btn__wrap > form .gnb-btn > li:nth-child(5) > button {
-  background-image: url("../../images/icon_sun-mode__white.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_sun-mode__white.png");
 }
 header .gnb-btn__wrap > form .gnb-btn > li:last-child > button {
   background-position-y: -56px;
@@ -516,10 +516,10 @@ aside > header > ul > li > a {
 aside > header > ul > li > button {
   width: 45px;
   height: 45px;
-  background: url("../../images/icon_chevron-right.svg") no-repeat 1.5px center/30px, url("../../images/icon_chevron-left.svg") no-repeat calc(100% - 1.5px) center/30px;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right.svg") no-repeat 1.5px center/30px, url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left.svg") no-repeat calc(100% - 1.5px) center/30px;
 }
 [data-theme=dark] aside > header > ul > li > button {
-  background-image: url("../../images/icon_chevron-right__white.svg"), url("../../images/icon_chevron-left__white.svg");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg"), url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg");
 }
 aside > main {
   display: flex;
@@ -561,10 +561,10 @@ aside > main {
     display: block;
     width: 30px;
     height: 30px;
-    background: url("../../images/icon_chevron-right.svg") no-repeat left/22px 30px, url("../../images/icon_chevron-left.svg") no-repeat right/22px 30px;
+    background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right.svg") no-repeat left/22px 30px, url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left.svg") no-repeat right/22px 30px;
   }
   [data-theme=dark] aside > main .mobile-btn-box-wrap .mobile-btn-wrap > button {
-    background-image: url("../../images/icon_chevron-right__white.svg"), url("../../images/icon_chevron-left__white.svg");
+    background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg"), url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg");
   }
   aside > main .mobile-btn-box-wrap .search {
     /* 검색 input wrap: 중앙 정렬 및 여백 조절 */
@@ -589,7 +589,7 @@ aside > main {
     width: 28px;
     height: 28px;
     margin-left: 20px;
-    background-image: url("../../images/icon_utill.png");
+    background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_utill.png");
     background-position-x: -27px;
     right: 20px;
     bottom: 10px;
@@ -627,7 +627,7 @@ aside > main .btn-box-wrap > div i {
   display: block;
   width: 28px;
   height: 28px;
-  background: url("../../images/icon_utill.png") no-repeat;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_utill.png") no-repeat;
 }
 [data-theme=dark] aside > main .btn-box-wrap > div i {
   background-position-x: 0px !important;
@@ -677,29 +677,29 @@ aside > main .btn-box-wrap .lang .lang-wrap button > i {
   transform: translateY(-50%);
 }
 aside > main .btn-box-wrap .lang .lang-wrap button.check > i {
-  background: url("../../images/icon_check.png") no-repeat center/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_check.png") no-repeat center/cover;
 }
 [data-theme=dark] aside > main .btn-box-wrap .lang .lang-wrap button.check > i {
-  background-image: url("../../images/icon_check__white.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_check__white.png");
 }
 aside > main .btn-box-wrap .lang .lang-wrap button:first-of-type {
-  background-image: url("../../images/lang-1.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lang-1.png");
 }
 aside > main .btn-box-wrap .lang .lang-wrap button:nth-of-type(2) {
-  background-image: url("../../images/lang-2.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lang-2.png");
 }
 aside > main .btn-box-wrap .lang .lang-wrap button:nth-of-type(3) {
-  background-image: url("../../images/lang-3.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lang-3.png");
 }
 aside > main .btn-box-wrap .lang .lang-wrap button:last-of-type {
-  background-image: url("../../images/lang-4.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lang-4.png");
 }
 aside > main .btn-box-wrap .dark-mode > i {
-  background-image: url("../../images/icon_dark-mode.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_dark-mode.png");
   background-size: cover;
 }
 [data-theme=dark] aside > main .btn-box-wrap .dark-mode > i {
-  background-image: url("../../images/icon_dark-mode__white.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_dark-mode__white.png");
 }
 aside > main .btn-box-wrap .dark-mode > div {
   display: flex;
@@ -712,16 +712,16 @@ aside > main .btn-box-wrap .dark-mode > div > button {
   height: 50px;
 }
 aside > main .btn-box-wrap .dark-mode > div > button.sun-mode {
-  background: url("../../images/icon_sun-mode.png") no-repeat 0 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_sun-mode.png") no-repeat 0 0/cover;
 }
 [data-theme=dark] aside > main .btn-box-wrap .dark-mode > div > button.sun-mode {
-  background-image: url("../../images/icon_sun-mode__white.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_sun-mode__white.png");
 }
 aside > main .btn-box-wrap .dark-mode > div > button.night-mode {
-  background: url("../../images/icon_night-mode.png") no-repeat 0 0/cover;
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_night-mode.png") no-repeat 0 0/cover;
 }
 [data-theme=dark] aside > main .btn-box-wrap .dark-mode > div > button.night-mode {
-  background-image: url("../../images/icon_night-mode__white.png");
+  background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_night-mode__white.png");
 }
 aside > main > ul {
   display: flex;
@@ -738,12 +738,12 @@ aside > main > ul > li {
 @media screen and (max-width: 1280px) {
   aside > main > ul > li .mobile-title {
     position: initial;
-    background: url("../../images/icon_chevron-right.svg") no-repeat right/24px;
+    background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right.svg") no-repeat right/24px;
     font-size: 1.714286em;
     padding: 15px 0;
   }
   [data-theme=dark] aside > main > ul > li .mobile-title {
-    background-image: url("../../images/icon_chevron-right__white.svg");
+    background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg");
   }
 }
 aside > main > ul > li .depth2-wrap {
@@ -1046,7 +1046,7 @@ footer .inner .foot-site > p > a {
   width: 70px;
   height: 70px;
   position: fixed;
-  background: #cc0033 url("../../images/icon_chevron-up__white.svg") no-repeat center/50%;
+  background: #cc0033 url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-up__white.svg") no-repeat center/50%;
   right: 70px;
   bottom: 70px;
   z-index: 100;

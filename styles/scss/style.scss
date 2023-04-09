@@ -1,0 +1,1429 @@
+// sass version: 1.60.0
+
+@import "https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/styles/scss/variable.scss";
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+$slide-btn: (
+  width: calc(40%),
+  gap: 0,
+  justify-content: space-between,
+  position: absolute,
+  top: 50%,
+  left: 0,
+  transform: translateY(-50%),
+  background: none,
+  z-index: 90,
+);
+
+@mixin chartColor($h1: null, $h2: null, $h3: null) {
+  &:first-child > div {
+    background: #cc6666;
+    height: $h1;
+  }
+  &:nth-child(2) > div {
+    background: #cc0066;
+    height: $h2;
+  }
+  &:last-child > div {
+    background: #666666;
+    height: $h3;
+  }
+}
+
+@mixin mobileSectionTitle(
+  $d: inline-block,
+  $p: relative,
+  $padding: 0 10px,
+  $fsz: 20px,
+  $marginB: 20px,
+  $align: start
+) {
+  display: $d;
+  position: $p;
+  padding: $padding;
+  font-size: $fsz;
+  margin-bottom: $marginB;
+  text-align: $align;
+}
+
+/* 애니메이션 */
+@keyframes move__ani {
+  from {
+    bottom: 2%;
+  }
+  80% {
+    bottom: 3%;
+  }
+  to {
+    bottom: 3%;
+  }
+}
+
+/* 전체화면 */
+.main-banner {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  @include respon(1280) {
+    height: 100vh;
+  }
+  @include respon(767) {
+    // 전체화면
+    @include blockType($w: 100% !important, $h: 100vh);
+  }
+  /* 배너 목록 너비 */
+  > ul {
+    @include blockType(flex, 100%, 100%);
+    @include respon(767) {
+      // width: 400%;
+      position: relative;
+      transition: 0.5s;
+    }
+    /* 배너 목록 */
+    > li {
+      @include blockType(none, 100%, 100%, absolute);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 500;
+      transition: 0.5s;
+      left: 0;
+      top: 0;
+      @include respon(767) {
+        @include blockType(flex, $p: static);
+      }
+    }
+    /* 배너 이미지 */
+    > .bg-1 {
+      display: flex;
+      background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_1.jpg")
+        no-repeat 0 / cover;
+    }
+    > .bg-2 {
+      background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_2.jpeg")
+        no-repeat center / cover;
+    }
+    > .bg-3 {
+      background: #000
+        url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_3.jpg")
+        no-repeat 0px 100px / cover;
+    }
+    > .bg-4 {
+      background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/main-banner_4.jpg")
+        no-repeat 0 / cover;
+    }
+  }
+  /* 배너 텍스트 */
+  .text-box {
+    width: 80%;
+    > h2 {
+      /* 배너 제목 */
+      font-size: 4em;
+      font-weight: bolder;
+      text-shadow: 0 0 10px #000;
+      @include respon(767) {
+        // 타이틀 줄간격, 여백 추가
+        margin-bottom: 20px;
+        line-height: 1;
+      }
+    }
+    > p {
+      /* 배너 부제목 */
+      font-size: 1.5em;
+      text-shadow: 0 0 10px #000;
+    }
+  }
+  .slide-wrap {
+    @include blockType(flex, $p: absolute);
+    bottom: 5%;
+    right: 5%;
+    gap: 20px;
+    z-index: 500;
+    @include respon(767) {
+      /* 위치 조정 */
+      display: none;
+    }
+    .slide-btn {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0 20px;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      /* 슬라이드 버튼 크기 */
+      > button {
+        @include blockType(block, 32px, 52px);
+        @include respon(767) {
+          display: none;
+        }
+        // 이전 버튼
+        &.prev {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg")
+            no-repeat center / 70%;
+        }
+        // 이후 버튼
+        &.next {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg")
+            no-repeat center / 70%;
+        }
+      }
+      /* 슬라이드 순서 */
+      > p {
+        color: #ccc;
+        margin: 0 5px;
+        font-size: 1.5em;
+        font-weight: thin;
+        /* 활성화된 배너 순서 */
+        &#selected-page {
+          color: #fff;
+          font-weight: 600;
+        }
+      }
+    }
+    /* 시작,종료 버튼 크기 */
+    .slide-btn-ps {
+      @include blockType(block, 52px, 52px);
+      border-radius: 50%;
+      padding: 0 20px;
+      @include respon(1280) {
+        /* 버튼 배경 */
+        // display: none;
+      }
+      /* 상태 이미지 */
+      &.start {
+        background: rgba(0, 0, 0, 0.5)
+          url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_pause.png")
+          no-repeat center / 60%;
+      }
+      &.stop {
+        background: rgba(0, 0, 0, 0.5)
+          url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_play_arrow.png")
+          no-repeat center / 80%;
+      }
+    }
+  }
+  .main-down {
+    /* 하단 알림이 */
+    @include blockType($w: 40px, $h: 25px, $p: absolute);
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/top-btn.png")
+      no-repeat;
+    animation: move__ani 1s ease-out infinite alternate;
+    z-index: 500;
+    @include respon(767) {
+      @include blockType($w: 40px, $h: 40px);
+      transform: none;
+      left: initial;
+      right: 30px;
+      bottom: 30px;
+      animation: none;
+      background: #fff no-repeat center / 50%;
+      background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-down.svg");
+    }
+  }
+  .pager {
+    @include blockType(none, $p: absolute);
+    top: initial;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 600;
+    gap: 10px;
+    @include respon(767) {
+      display: flex;
+    }
+    > div {
+      /* 크기 및 스타일 */
+      @include blockType($w: 15px, $h: 15px);
+      border-radius: 50%;
+      background: #cccccc;
+      > &.select {
+        /* 선택된 페이지 색상 */
+        background: #fff;
+      }
+    }
+  }
+}
+
+/** product */
+/* 섹션 타이틀 */
+.product {
+  .mobile-sec-title {
+    @include respon(767) {
+      // 크기 및 스타일
+      top: initial;
+      margin-top: 20px;
+      /* 서브 타이틀 여백 조정 */
+      @include mobileSectionTitle;
+    }
+    &::after {
+      @include respon(767) {
+        content: "";
+        @include blockType($d: block, $w: 7px, $h: 7px, $p: absolute);
+        background: #cc0033;
+        top: 0;
+        left: 0px;
+      }
+    }
+  }
+  .sec-title {
+    padding-top: 60px;
+    margin: 0 0 60px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    @include respon(1280) {
+      font-size: 25px;
+      text-shadow: none;
+    }
+    @include respon(767) {
+      display: none;
+    }
+  }
+  /* 목록 */
+  > ul {
+    @include blockType(flex, 90%, $p: relative);
+    /* 너비 위치 조정 */
+    margin: 0 auto;
+    text-align: center;
+    @include respon(767) {
+      // 너비 초기화, 세로 정렬
+      width: 100%;
+      flex-direction: column;
+    }
+    /* 목록 분할 */
+    > li {
+      width: calc(100% / 5);
+      @include respon(767) {
+        // 너비, 여백 조정
+        margin: 0 auto 30px auto;
+        width: 95%;
+      }
+      > button {
+        @include blockType(block, 100%, 100%);
+        font-size: 1.375em;
+        padding-bottom: 10px;
+        border-bottom: 7px solid #666666;
+        color: #ccc;
+        transition: 0.5s;
+        @include respon(767) {
+          display: none;
+        }
+        &:hover {
+          color: #000;
+          border-bottom: 7px solid #000;
+          [data-theme="dark"] & {
+            color: #fff;
+            border-color: #fff;
+          }
+        }
+      }
+      /* 타이틀 본문 */
+      &.product__tv {
+        > ul {
+          > li {
+            /* product tv 배경 */
+            background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-1.jpg")
+              no-repeat center / cover;
+            .text-box-wrap {
+              text-align: end;
+              align-items: flex-end;
+              @include respon(767) {
+                align-items: flex-start;
+              }
+              .text-box {
+                align-items: flex-end;
+                @include respon(767) {
+                  align-items: flex-start;
+                }
+                .more-btn {
+                  left: initial;
+                  right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.product__commercial {
+        > ul {
+          > li {
+            background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-2.jpg")
+              no-repeat right center / cover;
+          }
+        }
+      }
+      &.product__it {
+        > ul {
+          > li {
+            background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-3.jpg")
+              no-repeat center / cover;
+            .text-box-wrap {
+              text-align: end;
+              align-items: flex-end;
+              @include respon(767) {
+                align-items: flex-start;
+              }
+              .text-box {
+                align-items: flex-end;
+                @include respon(767) {
+                  align-items: flex-start;
+                }
+                .more-btn {
+                  left: initial;
+                  right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.product__mobile {
+        > ul {
+          > li {
+            background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-4.jpg")
+              no-repeat center / cover;
+          }
+        }
+      }
+      &.product__automotive {
+        > ul {
+          > li {
+            background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-bg-5.jpg")
+              no-repeat center / cover;
+          }
+        }
+      }
+      > ul {
+        @include blockType($w: 100%, $h: calc(100vh - 35vh), $p: absolute);
+        text-align: start;
+        left: 0;
+        top: 50px;
+        color: #fff;
+        @include respon(1280) {
+          top: 45px;
+        }
+        @include respon(767) {
+          // flex 해제, absolute 해제
+          @include blockType($d: block, $p: static, $h: initial);
+          color: #000;
+          [data-theme="dark"] & {
+            color: #fff;
+          }
+        }
+        &.active {
+          z-index: 100;
+        }
+        /* 목록 내용 이미지, 텍스트 정렬 */
+        > li {
+          @include blockType(flex, 100%, 100%, relative);
+          padding: 60px 80px;
+          border-radius: 0 0 80px 80px;
+          @include respon(767) {
+            // 여백 제거, 높이 지정
+            padding: 0 0 20px;
+            height: 170px;
+            justify-content: space-between;
+            @include border($b: 1px solid #fff, $radius: 0);
+            // 배경 제거
+            background: none !important;
+          }
+          > div {
+            position: relative;
+            z-index: 30;
+            &.text-box-wrap {
+              @include blockType(flex, 40%);
+              margin: 0 60px;
+              flex-direction: column;
+              @include respon(767) {
+                // 여백 조정
+                margin: 0 10px 0 0;
+                width: initial;
+                flex: 1;
+                align-items: start;
+              }
+              .text-box {
+                @include blockType(inline-flex, $p: relative);
+                flex: 1;
+                word-break: keep-all;
+                padding: 60px 0 40px;
+                flex-direction: column;
+                align-items: flex-start;
+                @include respon(767) {
+                  // 여백 제거, 텍스트 정렬
+                  padding: 0;
+                  flex: 1;
+                  text-align: start;
+                  align-items: flex-start;
+                }
+                .sub-title {
+                  border-bottom: 2px solid #fff;
+                  @include respon(767) {
+                    // 서브 타이틀 서식 변경
+                    padding: 0;
+                    border: none;
+                    font-size: 16px;
+                  }
+                }
+                > p {
+                }
+              }
+              .more-btn {
+                transition: all 0.5s;
+                @include blockType($w: 210px, $h: 60px);
+                @include colorDown(#999, #000);
+                text-align: center;
+                line-height: 60px;
+                margin: 30px 0;
+                @include respon(767) {
+                  // 너비 초기화, 높이 지정, 여백 제거
+                  @include blockType($w: 80%, $h: 30px);
+                  line-height: 30px;
+                  margin: 0;
+                  border-radius: 30px;
+                  background: #eee;
+                }
+                &:hover {
+                  background: #fff;
+                }
+              }
+            }
+            &.img-box {
+              flex: 1;
+              border: 2px solid #fff;
+              @include respon(767) {
+                // 순서 변경
+                flex: none;
+                order: 2;
+                width: 40%;
+                border: none;
+              }
+              > a {
+                @include blockType($d: block, $w: 100%, $h: 100%);
+                @include respon(767) {
+                  @include blockType($d: block, $w: 100%, $h: 100%);
+                }
+                > img {
+                  object-fit: cover;
+                  @include respon(767) {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+          &::after {
+            content: "";
+            @include blockType(block, 100%, 100%, absolute);
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.3);
+            @include respon(767) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** tehonology */
+/** OLED */
+.technology-oled {
+  @include color($color: #fff);
+  background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/technology-1.jpg")
+    no-repeat -100px 0 / 120%;
+  @include respon(767) {
+    // 여백 조정
+    margin-bottom: 100px;
+    background: none;
+    color: #000;
+  }
+  .sec-title {
+    padding: 100px 100px 50px;
+    text-align: start;
+    @include respon(767) {
+      /* 서브 타이틀 여백 조정 */
+      @include mobileSectionTitle;
+    }
+  }
+  .text-box {
+    position: absolute;
+    left: 50%;
+    bottom: 160px;
+    text-align: center;
+    transform: translateX(-50%);
+    @include respon(767) {
+      // absolute 제거, translateX 제거
+      @include blockType($d: flex, $p: static);
+      flex-direction: column;
+      transform: none;
+    }
+    > strong {
+      display: block;
+      margin-bottom: 60px;
+      font-size: 1.375em;
+      @include respon(767) {
+        /* 여백 제거, 단어 유지 */
+        margin: 0;
+        word-break: keep-all;
+        text-align: start;
+        font-weight: 500;
+        order: 1;
+      }
+    }
+    > img {
+      @include respon(767) {
+        order: 3;
+      }
+      &.blind {
+        @include respon(767) {
+          // 이미지 blind값 초기화, 여백 조정, 높이 지정
+          @include blockType($p: static, $w: 100%, $h: 300px);
+          top: initial;
+          object-fit: cover;
+        }
+      }
+    }
+    > p {
+      width: 60%;
+      margin: 0 auto;
+      word-break: keep-all;
+      @include respon(767) {
+        // 지정 너비 초기화
+        width: 100%;
+        order: 2;
+        margin: 10px 0;
+        text-align: start;
+        color: #999;
+      }
+    }
+  }
+}
+.technology-oled2 {
+  @include color($color: #fff);
+  background: #000
+    url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/technology-1.jpg")
+    no-repeat -100px calc(-100vh) / 120%;
+  padding: 140px 65px 0;
+  @include respon(767) {
+    display: none;
+  }
+  > ul {
+    @include blockType($h: 100%, $p: relative);
+    > li {
+      @include blockType(flex, 100%, 650px, absolute);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include respon(1280) {
+        flex-direction: column;
+        top: 0;
+        transform: translate(-50%, 0);
+        height: 100%;
+      }
+      > &.card-1 {
+        z-index: 50;
+        .img-box {
+          transform: perspective(300px);
+        }
+      }
+      > &.card-2 {
+        z-index: 20;
+        .img-box {
+          transform: perspective(300px) translateX(400px) translateZ(-100px)
+            rotateY(30deg);
+        }
+      }
+      > &.card-3 {
+        z-index: 10;
+        .img-box {
+          transform: perspective(300px) translateX(400px) translateZ(-300px)
+            rotateY(150deg);
+        }
+      }
+      > &.card-4 {
+        .img-box {
+          transform: perspective(300px) translateZ(-400px) rotateY(180deg);
+        }
+      }
+      > &.card-5 {
+        z-index: 10;
+        .img-box {
+          transform: perspective(300px) translateX(-400px) translateZ(-300px)
+            rotateY(-90deg);
+        }
+      }
+      > &.card-6 {
+        z-index: 20;
+        .img-box {
+          transform: perspective(300px) translateX(-400px) translateZ(-100px)
+            rotateY(-30deg);
+        }
+      }
+      &:first-child .text-box {
+        background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-1.jpg")
+          no-repeat center 100% / cover;
+      }
+      &:nth-child(2) .text-box {
+        background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-2.jpg")
+          no-repeat center 100% / cover;
+      }
+      &:nth-child(3) .text-box {
+        background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-3.jpg")
+          no-repeat center 100% / cover;
+      }
+      &:nth-child(4) .text-box {
+        background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-4.jpg")
+          no-repeat center 100% / cover;
+      }
+      &:nth-child(5) .text-box {
+        background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-5.jpg")
+          no-repeat center 100% / cover;
+      }
+      &:last-child .text-box {
+        background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/oled-6.jpg")
+          no-repeat center 100% / cover;
+      }
+      > div {
+        position: relative;
+        &.img-box-wrap {
+          flex: 0.6;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include respon(1280) {
+            margin-bottom: 0;
+          }
+          > .img-box {
+            display: inline-block;
+            text-align: center;
+            transition: 1s;
+            img {
+              @include blockType($w: 350px, $h: 450px);
+              border-radius: 10px;
+              box-shadow: 0 10px 30px 0 #666;
+              object-fit: cover;
+              margin-bottom: 31px;
+              @include respon(1280) {
+                @include blockType($w: 250px, $h: 250px);
+              }
+            }
+            strong {
+              display: block;
+              font-size: 1.75rem;
+            }
+          }
+        }
+        &.text-box {
+          width: 675px;
+          flex: 1;
+          margin-left: 65px;
+          z-index: 50;
+          @include respon(1280) {
+            width: 100%;
+            flex: 1;
+            margin: 0;
+            background: none;
+          }
+          > a {
+            @include blockType(block, 100%, 100%);
+            padding: 140px 40px;
+            word-break: keep-all;
+            @include respon(1280) {
+              padding: 40px;
+              position: relative;
+            }
+            .sub-title {
+              font-size: 2.111111em;
+              text-shadow: 0 0 5px #000;
+              letter-spacing: -0.5px;
+              padding: 0;
+              margin-bottom: 100px;
+              @include respon(1280) {
+                margin-bottom: 50px;
+              }
+            }
+            p {
+              text-shadow: 0 0 5px #000;
+              @include respon(1280) {
+                font-size: 16px;
+                line-height: 1.5;
+              }
+            }
+            > &::after {
+              @include respon(1280) {
+                content: "";
+                @include blockType($d: block, $w: 100%, $h: 100%, $p: absolute);
+                top: 0;
+                left: 0;
+                z-index: 0;
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .slide-btn {
+    $cg: map-merge(
+      $slide-btn,
+      (
+        display: flex,
+        top: 55%,
+        padding: 0 10px,
+      )
+    );
+    @each $name, $value in $cg {
+      #{$name}: $value;
+    }
+    > button {
+      @include blockType(block, 32px, 52px);
+      background: no-repeat center / cover;
+      &.prev {
+        background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg");
+      }
+      &.next {
+        background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg");
+      }
+    }
+  }
+}
+.technology-lcd {
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+  @include respon(767) {
+    display: block;
+    padding-top: 0;
+  }
+  .sec-title {
+    @include respon(767) {
+      /* 서브 타이틀 여백 조정 */
+      @include mobileSectionTitle;
+    }
+  }
+  .img-wrap {
+    flex: 1;
+    background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/technology-2.jpg")
+      no-repeat center 70% / 150%;
+    color: #fff;
+    @include respon(767) {
+      // 배경 제거
+      background: none;
+      @include color($color: #000);
+    }
+    .text-box {
+      position: absolute;
+      left: 50%;
+      bottom: 160px;
+      text-align: center;
+      transform: translateX(-50%);
+      @include respon(1280) {
+        bottom: 50px;
+      }
+      @include respon(767) {
+        // absolute 제거, translateX 제거
+        @include blockType($d: flex, $p: static);
+        flex-direction: column;
+        transform: none;
+      }
+      > strong {
+        display: block;
+        margin-bottom: 60px;
+        font-size: 1.375em;
+        @include respon(767) {
+          /* 여백 제거, 단어 유지 */
+          margin: 0;
+          word-break: keep-all;
+          text-align: start;
+          font-weight: 500;
+          order: 1;
+        }
+      }
+      > img {
+        @include respon(767) {
+          order: 3;
+        }
+        &.blind {
+          @include respon(767) {
+            // 이미지 blind값 초기화, 여백 조정, 높이 지정
+            @include blockType($p: static, $w: 100%, $h: 300px);
+            top: initial;
+            object-fit: cover;
+          }
+        }
+      }
+      > p {
+        width: 60%;
+        margin: 0 auto;
+        word-break: keep-all;
+        @include respon(1280) {
+          // 지정 너비 초기화
+          width: 100%;
+        }
+        @include respon(767) {
+          order: 2;
+          margin: 10px 0;
+          text-align: start;
+          color: #999;
+        }
+      }
+    }
+  }
+}
+.technology-lcd2 {
+  padding: calc((100vh - 720px) / 2) 0;
+  @include respon(767) {
+    display: none;
+  }
+  .overflow {
+    @include blockType($w: 85%, $h: 720px);
+    margin: 0 auto;
+    overflow: hidden;
+    > ul {
+      @include blockType(flex, calc(100% * 4), 100%);
+      color: #fff;
+      > li {
+        width: calc(100% / 4);
+        > &:first-child {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-1.png")
+            no-repeat center / contain;
+          > a {
+            justify-content: flex-end;
+          }
+        }
+        > &:last-child {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-1.png")
+            no-repeat center / contain;
+        }
+        > &:nth-child(2) {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-2.jpg")
+            no-repeat 0 / cover;
+        }
+        > &:nth-child(3) {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-3.jpg")
+            no-repeat 100% 0 / cover;
+        }
+        > &:nth-child(4) {
+          background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/lcd-4.jpg")
+            no-repeat 100% 0 / cover;
+        }
+        > a {
+          @include blockType(block, 100%, 100%, relative);
+          .text-box {
+            @include blockType($w: 40%, $p: absolute);
+            text-align: center;
+            top: 50%;
+            right: 10%;
+            transform: translate(0, -50%);
+            word-break: keep-all;
+            .sub-title {
+              font-size: 2.111111em;
+              text-shadow: 0 0 5px #000;
+              letter-spacing: -0.5px;
+              padding: 0;
+              position: relative;
+              z-index: 20;
+            }
+            > p {
+              @include blockType($w: 100%, $p: relative);
+              z-index: 20;
+              text-shadow: 0 0 20px #000;
+              word-break: keep-all;
+            }
+          }
+        }
+      }
+    }
+  }
+  .slide-btn {
+    $cg: map-merge(
+      $slide-btn,
+      (
+        width: 100%,
+      )
+    );
+    @each $name, $value in $cg {
+      #{$name}: $value;
+    }
+    left: 0;
+    padding: 0 40px;
+    display: flex;
+    > button {
+      @include blockType(block, 32px, 52px);
+      background: no-repeat center / cover;
+      &.prev {
+        background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left.svg");
+        [data-theme="dark"] & {
+          background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-left__white.svg");
+        }
+      }
+      &.next {
+        background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right.svg");
+        [data-theme="dark"] & {
+          background-image: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/icon_chevron-right__white.svg");
+        }
+      }
+    }
+  }
+  .slide-bar {
+    @include blockType($w: 70%, $h: 7px, $p: relative);
+    @include colorDown(#ccc);
+    left: 50%;
+    bottom: -10%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    .slide-bar__now {
+      @include blockType(block, 25%, 7px, absolute);
+      top: 0;
+      left: 0;
+      background-color: #000;
+      [data-theme="dark"] & {
+        background-color: #fff;
+      }
+    }
+  }
+}
+/** ESG */
+.esg {
+  @include blockType(flex, $h: initial);
+  flex-direction: column;
+  align-items: center;
+  transition: 1s;
+  @include respon(767) {
+    display: none;
+  }
+  > h2 {
+    margin: 100px 0;
+  }
+  > div {
+    flex: 1;
+  }
+  > ul {
+    @include blockType(flex, 100%);
+    flex: 1;
+    > li {
+      @include blockType(flex, calc(100% / 3));
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > div {
+        text-align: center;
+        > button {
+          @include blockType(block, 100%, 100%);
+          opacity: 0.5;
+          transition: 0.3s;
+          > img {
+            width: 70px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            transition: 0.5s;
+          }
+          > span {
+            color: #999;
+            font-size: 1.555556em;
+            transition: 0.5s;
+          }
+        }
+        &:hover {
+          > button {
+            opacity: 1;
+            > img {
+            }
+            > span {
+              color: #000;
+              [data-theme="dark"] & {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+      &.active {
+        > div {
+          > button {
+            opacity: 1;
+            > img {
+            }
+            > span {
+              color: #000;
+              [data-theme="dark"] & {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  article {
+    @include blockType(none, 90%, $p: absolute);
+    padding: 100px 0 50px;
+    bottom: 0;
+    &.active {
+      @include blockType(flex, $h: 600px, $p: relative);
+    }
+  }
+  .env {
+    justify-content: space-between;
+    margin: 0 auto;
+    @include respon(1600) {
+      overflow: hidden;
+    }
+    > table {
+      width: 47%;
+      @include respon(1600) {
+        width: 100%;
+      }
+      .sub-title {
+        margin: 0;
+      }
+      > tbody {
+        > tr {
+          > th {
+            @include border($t: 1px solid #000, $b: 1px solid #000);
+            font-size: 28px;
+            [data-theme="dark"] & {
+              border-color: #fff;
+            }
+            > img {
+              width: 70%;
+              margin: 0 auto;
+              @include respon(1600) {
+                width: 50%;
+              }
+            }
+          }
+          > td {
+            @include border($t: 1px solid #000, $b: 1px solid #000);
+            [data-theme="dark"] & {
+              border-color: #fff;
+            }
+            padding: 10px 25px;
+            @include respon(1600) {
+              padding: 5px 10px;
+            }
+            > img {
+              width: 30px;
+              margin: 0 auto;
+            }
+          }
+          > &:first-child th {
+            border: none;
+          }
+        }
+      }
+    }
+    .chart {
+      @include blockType($w: 47%, $p: relative);
+      @include border($b: 1px solid #000);
+      [data-theme="dark"] & {
+        border-color: #fff;
+      }
+      @include respon(1600) {
+        width: 100%;
+      }
+      > p {
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+      }
+      .number {
+        display: flex;
+        flex-direction: column;
+        > li {
+          display: flex;
+          justify-content: space-between;
+          text-align: end;
+          > &:nth-child(7) {
+            margin-bottom: 10px;
+          }
+          > p {
+            width: 10%;
+            margin-right: 10px;
+            line-height: 2.5;
+            font-size: 16px;
+          }
+          > div {
+            flex: 1;
+            font-size: 0.555556em;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            bottom: 22.5px;
+            line-height: 45px;
+          }
+          .chart-bar {
+            @include blockType($p: absolute, $d: flex, $w: calc(100% - 15%));
+            bottom: -27px;
+            left: 15%;
+            text-align: center;
+            > li {
+              @include blockType($d: flex, $w: calc(100% / 3));
+              flex-direction: column-reverse;
+              > ul {
+                display: flex;
+                > li {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-end;
+                  align-items: center;
+                  > p {
+                    font-size: 16px;
+                  }
+                  > div {
+                    width: 30px;
+                    margin-top: 10px;
+                  }
+                }
+              }
+              > &:first-child {
+                > ul {
+                  > li {
+                    @include chartColor($h1: 180px, $h2: 145px, $h3: 130px);
+                  }
+                }
+              }
+              > &:nth-child(2) {
+                > ul {
+                  > li {
+                    @include chartColor($h1: 215px, $h2: 40px, $h3: 215px);
+                  }
+                }
+              }
+              > &:last-child {
+                > ul {
+                  > li {
+                    @include chartColor($h1: 240px, $h2: 38px, $h3: 90px);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .chart-legend {
+        @include blockType($d: flex, $w: 80%, $p: absolute);
+        justify-content: center;
+        gap: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -50px;
+        > div {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 10px;
+          font-weight: 200;
+          @include chartColor;
+          .chart-legend__color {
+            @include blockType($w: 10px, $h: 10px);
+          }
+        }
+      }
+    }
+  }
+  .social {
+    > div {
+      text-align: center;
+      flex: 1;
+    }
+  }
+  .social__left {
+    > ul {
+      > li {
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 0.888889em;
+        border-bottom: 1px solid #000;
+        [data-theme="dark"] & {
+          border-color: #fff;
+        }
+        padding-bottom: 10px;
+      }
+    }
+  }
+  .social__right {
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      > a {
+        @include blockType(block, 50%);
+        font-size: 1.777778em;
+        margin-bottom: 90px;
+      }
+    }
+  }
+  .gover {
+    > table {
+      width: 100%;
+      text-align: center;
+      > caption {
+        text-align: start;
+        .sub-title {
+          margin-bottom: 0;
+        }
+      }
+      > tbody {
+        tr {
+          &:first-child {
+            > th {
+              background-color: #999;
+              color: #fff;
+            }
+          }
+          &:nth-child(2) {
+            > td {
+              &:nth-child(2) {
+                border: 1px solid;
+                transition: 1s;
+              }
+            }
+          }
+          > * {
+            background-color: #ccc;
+            color: #000;
+            @include colorDown(#ccc, #000);
+            border-color: #fff;
+          }
+          padding: 15px 0;
+          border: 1px solid;
+          > th {
+            font-size: 1.444444em;
+            background-color: #999;
+            color: #fff;
+            width: calc(100% / 6);
+          }
+          > td {
+            &:first-child {
+              background-color: #999;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/** Latest News */
+.latest-news {
+  @include respon(1280) {
+    height: initial;
+  }
+  .sec-title {
+    padding: 60px 0 0;
+    @include respon(767) {
+      /* 서브 타이틀 여백 조정 */
+      @include mobileSectionTitle;
+    }
+  }
+  > div {
+    @include blockType($d: flex, $w: 90%);
+    margin: 0 auto;
+    @include respon(767) {
+      // 지정 너비 초기화, 여백 조정
+      width: 100%;
+      padding: 0 10px;
+    }
+    &:first-of-type {
+      margin-top: 90px;
+      margin-bottom: 90px;
+      @include respon(767) {
+        // 여백 조정
+        margin: 50px 0;
+      }
+    }
+    &:last-of-type {
+      .text-box {
+        .news__title {
+          > p {
+            @include respon(767) {
+              display: block;
+            }
+          }
+        }
+        > p:first-of-type {
+          @include respon(767) {
+            display: none;
+          }
+        }
+        > p:last-of-type {
+          @include respon(767) {
+            display: none;
+          }
+        }
+      }
+    }
+    > a {
+      margin-right: 110px;
+      @include respon(767) {
+        // 여백 조정
+        margin-right: 20px;
+      }
+      > img {
+        @include blockType($w: 480px, $h: 270px);
+        object-fit: cover;
+        @include respon(767) {
+          // 이미지 크기 지정
+          @include blockType($w: 150px, $h: 150px);
+        }
+      }
+    }
+    .text-box {
+      flex: 1;
+      .news__title {
+        > p {
+          @include blockType($d: inline-block, $w: 80%);
+          font-size: 1.444444em;
+          font-weight: 500;
+          word-break: keep-all;
+          margin-bottom: 50px;
+          @include respon(767) {
+            /* 줄바꿈, 서식 변경 */
+            @include blockType(-webkit-box, 100%);
+            font-size: 16px;
+            overflow: hidden;
+            margin: 0;
+            word-break: normal;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+          > a {
+            @include respon(767) {
+              /* a 크기 조정 */
+              display: block;
+            }
+          }
+        }
+        .date {
+          float: right;
+          @include respon(767) {
+            // 날짜 위치 변경
+            float: none;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      > p {
+        margin-bottom: 25px;
+        font-size: 0.777778em;
+        word-break: keep-all;
+        color: #999;
+        @include respon(767) {
+          // 줄바꿈
+          margin: 20px 0 0;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          -webkit-line-clamp: 7;
+        }
+      }
+    }
+  }
+}

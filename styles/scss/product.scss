@@ -1,0 +1,607 @@
+@import "https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/styls/scss/variable.scss";
+
+@mixin product__content {
+  font-weight: lighter;
+  font-size: 20px;
+
+  @include respon(767) {
+    font-size: 18px;
+    text-align: start;
+    line-height: 1.3;
+  }
+}
+
+/*^ common */
+#main {
+  @include respon(767) {
+    margin-top: 70px;
+  }
+
+  section {
+    height: initial;
+    padding-bottom: 50px;
+
+    > .sec-title::after {
+      @include respon(767) {
+        display: none;
+      }
+    }
+  }
+}
+
+section .sec-title {
+  text-align: inherit;
+  margin-bottom: 50px;
+  font-size: 30px;
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    content: "";
+    @include blockType(block, 3px, 50px, absolute);
+    background: #ba1038;
+    left: 0;
+  }
+}
+
+.product__sub-title {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  word-break: keep-all;
+
+  @include respon(767) {
+    font-size: 20px;
+  }
+}
+
+.product__content {
+  word-break: keep-all;
+  font-size: 16px;
+}
+
+.product__content--sm > strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.wallpaper__pt1 > .product__text-box,
+.rollable-sec > .product__text-box {
+  padding: 50px 30px 30px;
+}
+
+/*^ cinematic */
+
+.product__tv-cinematic {
+  width: 90%;
+  margin: 0 auto;
+
+  @include respon(1280) {
+    width: 95%;
+  }
+  @include respon(767) {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  > {
+    .sec-title {
+      text-align: start;
+      margin-top: 50px;
+    }
+
+    div {
+      margin-bottom: 100px;
+
+      @include respon(767) {
+        display: block;
+      }
+
+      > .product__img-box > img {
+        object-fit: cover;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.cinematic__pt1 {
+  display: flex;
+  align-items: center;
+
+  > .product__text-box {
+    flex: 1;
+
+    @include respon(767) {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .product__content {
+      @include product__content;
+    }
+  }
+  #cinematic__img-1 {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 50px;
+    flex: 1;
+
+    @include respon(767) {
+      margin-bottom: 15px;
+    }
+
+    > img {
+      @include blockType($w: 100%, $h: 400px);
+
+      @include respon(767) {
+        height: 170px;
+      }
+    }
+  }
+}
+
+.cinematic__pt2 {
+  text-align: center;
+
+  .product__content {
+    width: 70%;
+    margin: 50px auto;
+    @include product__content;
+
+    @include respon(1280) {
+      width: 90%;
+    }
+  }
+
+  %cinematic__img-2 {
+    @include blockType(block, 300px, $p: absolute);
+    word-break: keep-all;
+
+    @include respon(1280) {
+      @include blockType($w: 100%, $p: static);
+      color: #999;
+      font-size: 18px;
+      text-align: start;
+      margin: 10px 0;
+    }
+  }
+
+  #cinematic__img-2 {
+    position: relative;
+    background: #fff;
+    padding: 50px 0;
+    max-width: 1540px;
+    margin: 0 auto;
+
+    @include respon(1280) {
+      bakcground: none;
+      padding: 0;
+    }
+
+    &::before {
+      @extend %cinematic__img-2;
+      content: "자발광 구조의 얇은 OLED 패널을 진동판으로 사용하여 더욱 심플한 디자인과 전면 지향 음질 구현";
+      left: 23%;
+      top: 50%;
+      transform: translateY(-30%);
+      color: #fff;
+
+      @include respon(1280) {
+        left: 3%;
+      }
+    }
+
+    &::after {
+      @extend %cinematic__img-2;
+      content: "뒷면에 부착된 Exciter로 패널 자체 진동을 통해 전면으로 소리를 전달하여 더욱 명확한 소리 표현";
+      right: 50px;
+      bottom: 3%;
+      color: #000;
+      text-align: start;
+    }
+
+    > img {
+      @include respon(1280) {
+        padding: 50px 0;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+/*^ wallpaper */
+
+// 공통사항
+.product__tv-wallpaper {
+  @include colorDown(#666);
+  color: #fff;
+
+  .wallpaper-sec {
+    img {
+      width: 100%;
+      object-fit: cover;
+
+      @include respon(1280) {
+        height: 100%;
+      }
+    }
+
+    @include respon(767) {
+      display: block;
+    }
+  }
+  .product__content {
+    @include respon(767) {
+      color: #ccc;
+    }
+  }
+}
+
+// 파트1
+.wallpaper__pt1 {
+  display: flex;
+
+  > div {
+    flex: 1;
+  }
+
+  .product__img-box {
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .product__text-box > .product__content:first-of-type {
+    margin-bottom: 100px;
+  }
+}
+// 파트2
+.wallpaper__pt2 {
+  @include blockType(flex, 90%);
+  padding-top: 50px;
+  margin: 0 auto;
+
+  @include respon(1280) {
+    width: 95%;
+  }
+
+  .product__content-wrap {
+    flex: 1;
+    text-align: center;
+
+    .product__sub-title {
+      @include blockType(inline-block, 400px, 70px);
+      background: #999;
+      line-height: 70px;
+      white-space: nowrap;
+
+      @include respon(1280) {
+        width: 300px;
+      }
+    }
+
+    .product__img-box > img {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .product__text-box {
+      color: #999;
+      line-height: 2;
+
+      .product__content {
+        font-size: 22px;
+        color: #ccc;
+      }
+
+      strong {
+        display: block;
+        margin-bottom: 30px;
+      }
+    }
+
+    .product__more-btn {
+      transition: 0.3s;
+      padding: 10px 30px;
+      border-radius: 10px;
+      background: #999;
+
+      &:hover {
+        background: #000;
+      }
+    }
+  }
+
+  > .product__content-wrap {
+    &:first-child {
+      @include respon(767) {
+        margin: 0 0 50px;
+      }
+    }
+  }
+}
+
+/*^ rollable */
+
+.product__tv-rollable {
+  text-align: center;
+
+  @include respon(767) {
+    width: 100%;
+  }
+
+  > div {
+    @include respon(767) {
+      flex-driection: column;
+    }
+  }
+}
+
+.rollable-sec {
+  > .product__text-box {
+    margin-bottom: 100px;
+
+    @include respon(1280) {
+      margin-bottom: 0;
+    }
+
+    .sec-title {
+      padding: 0 20px 0 0;
+      &::before {
+        left: initial;
+        right: 0;
+      }
+    }
+
+    > .product__content {
+      width: 80%;
+      margin-left: auto;
+    }
+  }
+
+  .product__sub-title > span {
+    display: none;
+
+    @include respon(1280) {
+      display: inline;
+    }
+  }
+
+  .product__content {
+    margin: 10px 0;
+  }
+}
+
+.rollable__pt1 {
+  display: flex;
+
+  > {
+    div {
+      flex: 1;
+    }
+
+    .product__text-box {
+      text-align: end;
+
+      .sec-title ~ p:first-of-type {
+        margin-bottom: 100px;
+
+        @include respon(1280) {
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.rollable__pt2 {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+
+  @include respon(1280) {
+    width: 95%;
+  }
+
+  @include respon(767) {
+    @include blockType(block, 95%);
+    margin: 0 auto;
+  }
+
+  .product__content-wrap--box {
+    display: flex;
+    justify-content: space-evenly;
+
+    @include respon(767) {
+      @include blockType(block, 95%);
+      margin: 0 auto;
+    }
+
+    > .product__content-wrap {
+      @include respon(767) {
+        display: block;
+      }
+
+      &:last-child {
+        @include respon(767) {
+          margin: 50px 0;
+        }
+
+        > .product__img-box {
+          display: flex;
+          justify-content: space-evenly;
+        }
+      }
+      > {
+        .product__text-box {
+          @include respon(767) {
+            width: 95%;
+          }
+        }
+        .product__img-box > img {
+          @include respon(767) {
+            width: 70px;
+          }
+        }
+      }
+    }
+  }
+
+  div > .product__content-wrap {
+    &:first-child,
+    &:nth-child(2) {
+      @include blockType(inline-block, 40%);
+    }
+  }
+
+  .product__content-wrap {
+    &:last-child > .product__img-box > img {
+      // width: 100%;
+      // margin: 0;
+    }
+
+    > .product__text-box {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+
+  .product__content-wrap--box .product__img-box {
+    display: flex;
+    padding: 10px 0;
+    [data-theme="dark"] & {
+      background: #666;
+    }
+
+    > img {
+      width: 100px;
+      margin: 0 auto;
+    }
+  }
+
+  .product__content-wrap {
+    margin-top: 30px;
+
+    .product__content {
+      margin: 30px 0 80px;
+    }
+  }
+}
+
+/* tv-lcd */
+
+.product__tv-lcd {
+  width: 90%;
+  margin: 0 auto;
+
+  @include respon(1280) {
+    width: 95%;
+  }
+  > {
+    .product__text-box:first-of-type {
+      margin-bottom: 30px;
+    }
+
+    .product__content-wrap:last-child {
+      > .product__text-box {
+        text-align: center;
+      }
+
+      > .product__img-box > {
+        .blind {
+          @include respon(1280) {
+            position: static;
+            // top: initial;
+          }
+        }
+        img {
+          @include respon(1280) {
+            width: 100%;
+          }
+
+          &:first-child {
+            @include respon(1280) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .product__bg-1 {
+    @include blockType(flex, $h: 750px, $p: relative);
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+    @include respon(767) {
+      height: 400px;
+    }
+
+    &::after {
+      content: "";
+      @include blockType(block, 100%, 100%, absolute);
+      left: 0;
+      top: 0;
+      background: #fff
+        url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-tv_9.jpg")
+        no-repeat center (70% / cover);
+      opacity: 0.7;
+    }
+
+    img {
+      @include blockType($w: 80%, $h: 75%, $p: relative);
+      z-index: 10;
+      object-fit: cover;
+      object-position: center 70%;
+    }
+  }
+
+  > .product__content-wrap:last-child > .product__img-box {
+    margin-top: 30px;
+
+    > img {
+      margin: 0 auto;
+    }
+  }
+
+  .product__bg-2 {
+    @include blockType(flex, $h: 300px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px 0;
+    background: url("https://raw.githubusercontent.com/hansan529/LGdisplay-rework/test/images/product-tv_10.jpg")
+      no-repeat;
+    background-attachment: fixed;
+    background-position: 80% 90%;
+    background-size: 80%;
+
+    @include respon(1280) {
+      background-size: 100%;
+    }
+    @include respon(767) {
+      background-attachment: scroll;
+      background-position-y: bottom;
+    }
+
+    > {
+      .product__content {
+        color: #fff;
+        text-shadow: 0 0 10px #000;
+        text-align: center;
+      }
+
+      .product__sub-title {
+        text-shadow: 0 0 10px #000;
+        color: #fff;
+      }
+    }
+  }
+}
