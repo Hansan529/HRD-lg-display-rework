@@ -1,8 +1,4 @@
-# Wetube
-
-<div align="center">
-<img src="https://github.com/Hansan529/wetube-reloaded/assets/115819770/1e996a73-6c75-4577-9974-c84742ba6669" />
-</div>
+# LG Display Rework
 
 # **프로젝트 정보**
 
