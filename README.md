@@ -1,10 +1,79 @@
-- 제작 기간: 01.18 ~ 03.29
+# Wetube
+
+<div align="center">
+<img src="https://github.com/Hansan529/wetube-reloaded/assets/115819770/1e996a73-6c75-4577-9974-c84742ba6669" />
+</div>
+
+# **프로젝트 정보**
+
+> 1인 개발  
+> 개발 기간: **2023.01.18 ~ 2023.03.29**
+
+## 홈페이지 배포 주소
+
+> 깃허브 페이지 주소 : https://Hansan529.github.io/LGdisplay-rework
+
+## 프로젝트 소개
+
 - 제작 해상도: 1920px x 1080px
 - 반응형 웹 (1600px, 1280px, 767px)
 - 라이트 / 다크모드 기능
 - 서브 페이지 (PRODUCT)
 
-[홈페이지 바로보기](https://hansan529.github.io/LGdisplay-rework/)
+[한산: @Hansan529](https://github.com/Hansan529) / 웹퍼블리셔 및 프론트엔드 스터디
+
+## 프로젝트 목표
+
+1. data 속성을 통해 스타일 변경이 가능하다.
+2. jQuery 라이브러리를 통해서 적은 코드로 작업을 가능하게 한다.
+
+## 사용된 언어 및 도구
+
+### Developement
+
+![Html5](https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Css3](https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Javascript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)
+![Jquery](https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+
+## 화면 구성
+
+| 라이트 모드                                                                                     | 다크 모드                                                                                       |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ![img](https://github.com/Hansan529/Blog/assets/115819770/58d3ad0c-e57e-4da1-9bbc-cd44d1035f3f) | ![img](https://github.com/Hansan529/Blog/assets/115819770/8284335c-4dc0-4e4d-ae07-98eb51f40c48) |
+| 태블릿 레이아웃                                                                                 | 모바일 레이아웃                                                                                 |
+| ![img](https://github.com/Hansan529/Blog/assets/115819770/6f3c9490-1dfb-4844-8641-dfcc693d8dbb) | ![img](https://github.com/Hansan529/Blog/assets/115819770/43df4bae-2c84-487c-b2c5-7f930d265c05) |
+| 더보기 창                                                                                       |                                                                                                 |
+
+![img](https://github.com/Hansan529/Blog/assets/115819770/59840bd1-c0f4-4cdd-863f-2256284c861e)
+
+<br>
+
+## 디렉토리 구조
+
+```zsh
+├── README.md
+├── fonts
+│   └── font.css
+├── images
+├── index.html
+├── product.html
+├── reset.css
+├── script
+│   ├── common.js
+│   └── script.js
+└── styles
+    ├── css
+    │   ├── common.css
+    │   ├── product.css
+    │   ├── style.css
+    │   └── variable.css
+    └── scss
+        ├── common.scss
+        ├── product.scss
+        ├── style.scss
+        └── variable.scss
+```
 
 ## 작업하면서 느낀점
 
